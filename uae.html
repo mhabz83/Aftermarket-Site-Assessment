@@ -312,6 +312,12 @@
     border-color: var(--red-border);
   }
 
+  .stat-badge.blue {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-color: var(--accent-border);
+  }
+
   .stat-badge.y1 {
     background: var(--y1-bg);
     color: var(--y1-highlight);
@@ -1284,6 +1290,7 @@
 
   <div class="stats-row">
     <div class="stat-badge y1"><span class="num" id="stat-y1">5</span>Y1 Priority</div>
+    <div class="stat-badge blue"><span class="num" id="stat-assessed">0</span>Assessed</div>
     <div class="stat-badge green"><span class="num" id="stat-green">0</span>Green</div>
     <div class="stat-badge yellow"><span class="num" id="stat-yellow">0</span>Yellow</div>
     <div class="stat-badge red"><span class="num" id="stat-red">0</span>Red</div>
@@ -1291,6 +1298,7 @@
 
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="assessed">Assessed</button>
     <button class="filter-btn green-f" data-filter="green">Green</button>
     <button class="filter-btn yellow-f" data-filter="yellow">Yellow</button>
     <button class="filter-btn red-f" data-filter="red">Red</button>
@@ -1556,14 +1564,15 @@ SITES_DATA.forEach(site => {
   if (!site.lat || !site.lng) return;
 
   const isY1 = site.priority === 'Y1-2026';
+  const isAssessed = site.status === 'Assessed';
   const color = COLORS[site.grade] || COLORS.red;
-  const radius = isY1 ? 9 : 6;
+  const radius = isY1 ? 9 : (isAssessed ? 8 : 6);
 
   const marker = L.circleMarker([site.lat, site.lng], {
     radius: radius,
     fillColor: color,
     color: isY1 ? Y1_COLOR : color,
-    weight: isY1 ? 3 : 1.5,
+    weight: isY1 ? 3 : (isAssessed ? 2.5 : 1.5),
     opacity: 1,
     fillOpacity: 0.8
   });
@@ -1582,6 +1591,8 @@ function updateStats(filteredSites) {
   const y = filteredSites.filter(s => s.grade === 'yellow').length;
   const r = filteredSites.filter(s => s.grade === 'red').length;
   const p = filteredSites.filter(s => s.priority === 'Y1-2026').length;
+  const assessed = filteredSites.filter(s => s.status === 'Assessed').length;
+  document.getElementById('stat-assessed').textContent = assessed;
   document.getElementById('stat-green').textContent = g;
   document.getElementById('stat-yellow').textContent = y;
   document.getElementById('stat-red').textContent = r;
@@ -1602,9 +1613,17 @@ function renderList(sites) {
   list.innerHTML = '';
 
   sites.sort((a, b) => {
+    // Y1 priority first
     if (a.priority === 'Y1-2026' && b.priority !== 'Y1-2026') return -1;
     if (b.priority === 'Y1-2026' && a.priority !== 'Y1-2026') return 1;
-    // If both have assessment_rating, sort by that first
+    // Assessed sites next
+    const statusOrder = (a.status === 'Assessed' ? 0 : 1) - (b.status === 'Assessed' ? 0 : 1);
+    if (statusOrder !== 0) return statusOrder;
+    // Then by grade priority (green > yellow > red)
+    const gp = { green: 0, yellow: 1, red: 2 };
+    const gradeOrder = (gp[a.grade] ?? 2) - (gp[b.grade] ?? 2);
+    if (gradeOrder !== 0) return gradeOrder;
+    // Then by assessment_rating or weighted_score
     if (a.assessment_rating != null && b.assessment_rating != null) return b.assessment_rating - a.assessment_rating;
     if (a.assessment_rating != null) return -1;
     if (b.assessment_rating != null) return 1;
@@ -1616,12 +1635,13 @@ function renderList(sites) {
     const el = document.createElement('div');
     el.className = 'site-item';
 
-    // Recommendation badge
+    // Recommendation badge + Assessed badge
     let recBadge = '';
     if (site.recommendation_tag) {
       const rc = getRecClass(site.recommendation_tag);
       recBadge = `<span class="rec-badge ${rc}">${site.recommendation_tag}</span>`;
     }
+    const assessedTag = site.status === 'Assessed' ? '<span class="rec-badge assessed">Assessed</span>' : '';
 
     // Assessment rating display
     let assessRating = '';
@@ -1633,7 +1653,7 @@ function renderList(sites) {
     el.innerHTML = `
       <div class="site-dot ${site.grade}"></div>
       <div class="site-info">
-        <div class="site-name">${site.ss || ''} ${site.name}${isY1 ? '<span class="y1-badge">Y1</span>' : ''}${recBadge}</div>
+        <div class="site-name">${site.ss || ''} ${site.name}${isY1 ? '<span class="y1-badge">Y1</span>' : ''}${recBadge}${assessedTag}</div>
         <div class="site-meta">${site.emirate || site.category || ''} &middot; ${site.area || ''}${assessRating ? ' &middot; ' + assessRating : ''}</div>
       </div>
       <div class="site-score ${site.grade}">${site.weighted_score}</div>
@@ -1663,6 +1683,8 @@ function getVisibleSites() {
     let passFilter = true;
     if (activeFilter === 'green' || activeFilter === 'yellow' || activeFilter === 'red') {
       passFilter = site.grade === activeFilter;
+    } else if (activeFilter === 'assessed') {
+      passFilter = site.status === 'Assessed';
     } else if (activeFilter === 'y1') {
       passFilter = site.priority === 'Y1-2026';
     } else if (['Abu Dhabi', 'Dubai', 'Sharjah'].includes(activeFilter)) {
