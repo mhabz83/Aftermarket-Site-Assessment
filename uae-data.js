@@ -19,7 +19,14 @@ const SITES_DATA = [
     "weighted_score": 8.1,
     "grade": "green",
     "notes": "Al Khail Rd (E44) - mega arterial. Dubai Hills Estate one of the most affluent master-planned communities. Tesla presence. High EV adoption. Strong car wash demand. Premium catchment.",
-    "category": "Y1-2026 Priority"
+    "category": "Y1-2026 Priority",
+    "market_intel": "Dubai Hills Estate: 2,700-acre master-planned community by Emaar, mixed residential (apartments, townhouses, villas from AED 1M+), commercial, retail. Planned for ~135,000 residents, affluent demographic: families, expats, high-net-worth individuals. High property prices (villas AED 12M+, apartments AED 2k/sqft), ROI 5-7%, strong demand. Landmarks: Dubai Hills Golf Club, Dubai Hills Mall, Dubai Hills Park. Ongoing new developments: 50+ off-plan projects. Green, family-friendly with parks, bike paths.",
+    "competitor_analysis": "Limited verified specific competitors within 2km: Station itself offers car wash, tires, maintenance/lube, vacuum bay. Mobile services like Urban Car Washing, On My Way cover area. No dedicated standalone service centers/tire shops in immediate residential zone; Al Quoz (3-4km) has garages. Low saturation, strong quick-service opportunity.",
+    "infrastructure_access": "On Al Khail Road (E11 highway, 5-6 lanes/direction), high visibility. Access from Downtown, Marina via bridges. Public transport: DH1 bus to Equity Metro, F25/F29/F30. Busy but improving (Hessa St upgrades).",
+    "ev_fleet": "EV: Tesla Supercharger nearby (Al Khail Rd), DEWA at Mall. No EV at station. Fleet: General Dubai logistics, limited local. Dealerships: Autopro Dubai Hills.",
+    "commercial_context": "Dubai Hills Mall (adjacent), schools (GEMS Wellington Al Khail 1.1km), clinics (American Hospital, Mediclinic Dubai Hills), planned offices. High family/shopper footfall.",
+    "key_insight": "Excellent opportunity for aftermarket quick-service bay at SS526: affluent growing residential area with low local competition, prime highway visibility, high footfall from mall/schools/clinics, and synergy with existing tires/lube services.",
+    "research_sources": "2GIS ADNOC, Emaar, Property Finder, RTA, DEWA EV, Dubai Hills Mall, Propsearch Schools"
   },
   {
     "ss": "SS222",
@@ -39,7 +46,14 @@ const SITES_DATA = [
     "weighted_score": 7.5,
     "grade": "green",
     "notes": "E11 Sheikh Zayed Road - Dubai's primary artery. Maximum traffic. Premium location.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Al Qouz Industrial Area 3, part of Hadaeq Mohammed Bin Rashid in western Dubai, features high population density with Al Quoz district at ~355,000 residents and Al Qouz 3 specifically at 54,036 (2023 est., density 22,291/km²); predominantly industrial/commercial mix with 12,437 businesses (73% commercial); average Dubai income ~AED 15,700/month; ongoing Al Quoz Creative Zone development to house 6,800 creatives by 2026.",
+    "competitor_analysis": "High saturation: Multiple auto services within Al Qouz Industrial Areas 1-4 including Best Drive, MRG Auto Garage, Kings Auto Garage, Saeedi Pro tyres/oil change, Tire.ae, Zone Auto Care, BAZA Car Wash, Zenith Car Washing, Pab Auto Maintenance, HM Auto Repairs, Imperial Zone Auto Care, DX Garage; ADNOC SS222 itself offers car wash, tires, lube, maintenance.",
+    "infrastructure_access": "Prime location on Sheikh Zayed Road (E11), Dubai's busiest highway with high visibility and heavy traffic (city avg congestion 42.7%); nearby metro: Onpassive and Equiti stations (~2-3km), buses (84,96,F26 to Al Quoz); recent RTA projects: pedestrian/cycling bridge on Al Manara St, 4km tracks, mobility hubs in Al Quoz Creative Zone.",
+    "ev_fleet": "EV charger at ADNOC Al Quoz Industrial 3 itself (DEWA EV Green); others in area (Opulent Al Quoz 4); fleet operators: MRG Auto, Al Meeraj, 55cargarage; logistics: GTZ Shipping, AGS Logistics, Meera Al Sham Global, Logx Transport; dealerships: The Elite Cars, hiCar, The One Motors in Al Quoz 3.",
+    "commercial_context": "Industrial hub with offices/warehouses abundant; nearby Gold & Diamond Park, Alserkal Avenue (art/cultural), Al Quoz Grand Mall; medical: NMC Medical Centre Al Quoz, Burjeel Specialty Hospital; schools in Hadaeq Sheikh Mohammed Bin Rashid area.",
+    "key_insight": "High-traffic industrial zone on Sheikh Zayed Road with existing ADNOC services (wash/tires/maintenance) but saturated independent auto shops; opportunity limited unless differentiating via quick EV/fleet integration leveraging on-site charger and logistics proximity.",
+    "research_sources": "2GIS ADNOC, Wikipedia Al Quoz, City Population Al Qouz 3, DEWA EV, RTA Projects"
   },
   {
     "ss": "SS535",
@@ -81,7 +95,14 @@ const SITES_DATA = [
     "weighted_score": 7.2,
     "grade": "green",
     "notes": "Hessa Road intersection. Established residential area with villa communities. Good footfall. Multiple fuel retailers in vicinity. Moderate competition from independent garages.",
-    "category": "Y1-2026 Priority"
+    "category": "Y1-2026 Priority",
+    "market_intel": "Al Warqaa 3 is a family-oriented residential suburb southeast of Dubai Creek in a growing area (Al Warqa pop. ~59k over 21.6km²). Mid-low income (land sales ~AED 300-800/sqft, avg Dubai salary ~15k AED/mo). Primarily villas/apartments with parks, some commercial; near International City, recent metro Blue Line planning.",
+    "competitor_analysis": "Low saturation within 2km; on-site ADNOC Lube oil change service at 27/9 79 St (same street). Autopro tire shop on Tripoli St (nearby). Few independent car washes/services; station itself offers car wash. Opportunity for quick-service expansion beyond basics.",
+    "infrastructure_access": "On 27/79 St, Al Warqaa 3 (25.19837° N, 55.432693° E), near Sheikh Mohammed bin Zayed Rd (E311) and Al Awir Rd (E44). Recent RTA upgrades: new E311 access, Al Warqa'a 1 St expansion (7km, +30% flow, signalized junctions), internal roads/parking in Warqa 3/4, cycling tracks. Bus access; high visibility on local arterial. Traffic improving.",
+    "ev_fleet": "EV Green Charger and DEWA charger nearby (27/9 79 St / Al Warqa office). Al Warqa Motors used car dealer nearby. Logistics like NM Cargo, bus rentals (MS Transport); proximity to International City logistics hubs.",
+    "commercial_context": "Schools: GEMS Our Own English High School (1km). Clinics: Aster Al Warqa, HealthHub Al Warqa (primary care). Malls: Al Warqa City Mall, Warqa Mall, Q1 Mall (walking distance). No major offices/hospitals; residential footfall from families/schools.",
+    "key_insight": "High-potential for aftermarket quick-service bay in residential area with improving infrastructure, low competitor density beyond station's basics, and steady family/school footfall; EV charger integration adds future-proofing.",
+    "research_sources": "2GIS ADNOC, Wikipedia Al Warqa, Property Finder Sales, Gulf News Roads, Yandex Lube, DEWA EV, GEMS School, Aster Clinic"
   },
   {
     "ss": "SS209",
@@ -141,7 +162,14 @@ const SITES_DATA = [
     "weighted_score": 7.2,
     "grade": "green",
     "notes": "Premium Jumeirah/UmSuqeim. Extremely affluent. High car care demand. EV-forward.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Umm Suqeim 1 is a low-density residential area (4,453 people/km²) with 12,468 residents across 2.8 km², featuring low-rise villas, beaches, and proximity to Jumeirah landmarks like Burj Al Arab. Affluent expat-heavy neighborhood with off-plan residential developments ongoing.",
+    "competitor_analysis": "Nearby competitors within ~2km include Tire.ae (169 Umm Suqeim Rd, tires/oil changes), Formula Tyres (Umm Suqeim Rd), Autopro Al Wasl (Al Wasl Rd, repairs/tires), general car services like ServiceMyCar and Desire Auto in Umm Suqeim; car washes via ProWash/Autopro. Moderate saturation with chain presence but room for quick-service at fuel station.",
+    "infrastructure_access": "Located on high-visibility Al Wasl Rd (major E11 parallel arterial), with bus stops (e.g., Umm Suqeim 1-01, lines 8/81/88), nearby Noor Bank Metro. Ongoing RTA upgrades: Al Wasl widening to 3 lanes + tunnels (15km project reducing travel time 50%), Umm Suqeim St improvements (70% complete).",
+    "ev_fleet": "DEWA EV Green Chargers nearby (e.g., Umm Suqeim St/Mall of Emirates area); small dealerships like ZS Classics (187 Umm Suqeim St); chauffeur/fleet services (Pilot & Car); logistics limited. Growing EV presence but fuel station could add quick bays.",
+    "commercial_context": "Draws traffic from Raffles International School (Umm Suqeim campus), American Hospital Jumeirah Clinic (Galleria Mall, Al Wasl Rd), The Mall (Umm Suqeim 3), offices/commercial villas; family-oriented with beaches/resorts boosting daily footfall.",
+    "key_insight": "Prime high-visibility spot on upgrading Al Wasl Rd in affluent low-density residential area with schools/hospital/mall traffic, moderate competitor saturation suggests strong potential for quick oil/tire bays integrated with existing fuel/convenience ops.",
+    "research_sources": "2GIS Station, Wikipedia, Dubai Stats, RTA Al Wasl, DEWA EV, Raffles School, American Hospital"
   },
   {
     "ss": "SS357",
@@ -183,7 +211,14 @@ const SITES_DATA = [
     "weighted_score": 7.0,
     "grade": "green",
     "notes": "Premium Abu Dhabi neighborhood. Corniche adjacent. High-income catchment - embassy area, executive villas. EV adoption above average. Lower direct competition.",
-    "category": "Y1-2026 Priority"
+    "category": "Y1-2026 Priority",
+    "market_intel": "Al Bateen is an upscale residential area with luxury villas (annual rents AED 160,000-300,000) and apartments, mixed-use commercial including diplomatic/government offices, waterfront developments like Al Bateen Wharf hotel/condos. High-income demographic (professional expats/residents), near beach, palace, executive airport. Dense urban core of Abu Dhabi Region (pop. 2.82M in 2024, +8.8% YoY).",
+    "competitor_analysis": "Low saturation within 2km: TYREPLUS CME tire/service at station (32nd/27th St), CME Bosch Car Service-Bateen (repairs), mobile washes (OnMyWay). ADNOC offers lube changes network-wide, but limited dedicated quick-service bays noted.",
+    "infrastructure_access": "Located on Al Bateen St near major Al Khaleej Al Arabi St (arterial road; new 2025 AED315M 3-lane bridge + ramps cut peak delays 80%, handles 7,500 veh/hr). Bus access (DARB lines 8/9/10/11 to Mina/Marina/Mall). High visibility on busy local roads, improved flow post-upgrades.",
+    "ev_fleet": "EV chargers ~1-2km (Type 2 at Corniche W44, Zayed 1st W32; Jumeirah Etihad Towers). Al Bateen Exec Airport supports private jet fleets (Bombardier center opening H2 2026). ADNOC Logistics presence; dealerships like Aston Martin ~4km.",
+    "commercial_context": "Local drivers: Al Bateen Mall, office buildings, schools (Bateen World Academy IB, SABIS, Scientific PS), medical (Stanford/Al Bateen Med Center, Samaya Hosp, Gulf Diagnostic). Generates steady family/professional/patient traffic.",
+    "key_insight": "Excellent potential for aftermarket quick-service bay at SS969: affluent high-traffic location with low local competition, complements ADNOC fuel/lube, taps luxury vehicle owners amid infrastructure enhancements and area growth.",
+    "research_sources": "2GIS Station, Waze, Carnity, UAE Offplan, SCAD, Michelin, ADNOC, DMT, PropertyFinder EV, Fidoc"
   },
   {
     "ss": "SS384",
@@ -223,7 +258,14 @@ const SITES_DATA = [
     "weighted_score": 6.9,
     "grade": "green",
     "notes": "Al Barsha - major residential/commercial hub. Near Mall of Emirates. High footfall.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Al Barsha South 2 is a rapidly growing residential area within Al Barsha (total pop. 181,310 as of 2023), with Al Barsha South at 74,937 residents; South 2 specifically has ~7,350 people (2022) over 0.21 km², yielding high density of ~35,000 persons/km². Mid-to-upper income inferred from rental prices: studios AED 45k/year, 1-bed AED 65k, 2-bed AED 84k, 3-bed villas AED 120k+. Mixed residential (villas, apartments) with commercial elements; near landmarks like Mall of the Emirates, Dubai Miracle Garden.",
+    "competitor_analysis": "Within 2km: Station itself offers car wash, lube, maintenance, vacuum bay (high rating 4.9/5). Nearby: Prowash car wash on Hessa St. (Al Barsha 3), AutoPro/ENOC outlets (e.g., Hessa St., Al Barsha South), Fasttrack Emarat car service at ADNOC station, Super Mario Tyre on Hessa 2. Moderate saturation with fuel-integrated services dominant.",
+    "infrastructure_access": "Located on Hessa Street (major E311 access), near Al Khail Road, Sheikh Mohammed Bin Zayed Road, Sheikh Zayed Road. Ongoing Phase II Hessa Street upgrades (bridges 8.8km, tunnel, capacity double to 8k veh/hr/dir, travel time 24min to 5min, opening Q1 2026). Good visibility on busy street.",
+    "ev_fleet": "EV chargers available nearby (DEWA Green Charger network). Nearby Motor City (~3km): ADQ Cargo, Truckoom fleet management. Logistics: Al Sharqi, GAC. Dealerships/rentals: Al Tayer Motors Al Barsha, sellanycar.com in South 2. Growing EV/fleet presence.",
+    "commercial_context": "High footfall drivers: Mall of the Emirates, My City Centre Al Barsha, Al Barsha Mall (~2-3km). Schools: Brighton College Dubai (0.6km), Dubai Heights Academy (0.7km), GEMS Founders, Kings' School Al Barsha. Offices along Hessa/Umm Suqeim. Attracts families, professionals.",
+    "key_insight": "Prime location on upgrading Hessa Street with high residential density, family-oriented amenities, and improving traffic supports quick-service bay addition; station's existing lube/maintenance can expand to capture underserved aftermarket demand.",
+    "research_sources": "2GIS ADNOC, Wikipedia, DSC Population, RTA, Propsearch, Fasttrack, DEWA, Moovit"
   },
   {
     "ss": "SS169",
@@ -245,7 +287,14 @@ const SITES_DATA = [
     "weighted_score": 6.8,
     "grade": "green",
     "notes": "Major intersection on Sweihan Road (E20). Motor World auto hub with high vehicle traffic. Growing residential. Multiple fuel brands nearby. Active VIC on-site.",
-    "category": "Y1-2026 Priority"
+    "category": "Y1-2026 Priority",
+    "market_intel": "Al Shamkha is a growing suburban residential area in Abu Dhabi with population density of ~726/km² (2015 data, area 40km²), median household income ~120,000 AED/year, primarily residential with emerging commercial mix including new Aldar developments (2,000+ units in Alreeman community, townhouses/villas). Landmarks include Makani Mall; ongoing expansions south-east of airport drive growth.",
+    "competitor_analysis": "On-site: ADNOC Lube (oil changes), Liberty Car Care (full service), ADNOC Vehicle Inspection. Nearby: Loading Transactions (tires, SH36), mobile car washes, TelusCare auto repair in Al Shamkha; low-moderate saturation focused on basic services, room for quick-service bays.",
+    "infrastructure_access": "Located on high-visibility SH36 (Sweihan Rd), near E311 Sheikh Mohamed bin Zayed Rd; good access to Mussafah industrial/MBZ airport. Bus to Al Shamkha (every 30min from central Abu Dhabi). Traffic congestion ~30% average.",
+    "ev_fleet": "No EV chargers confirmed at/near station; nearby Shahama has some. Adjacent to Mussafah logistics hub (fleet operators, transport firms like Al Fateh Logistics); Emco Car dealership on SH36; growing fleet ops jobs indicate demand.",
+    "commercial_context": "Makani Al Shamkha Mall (Spar hypermarket, dining, entertainment) drives footfall; schools (ABC Private, Wales Int'l, Al Manara); clinics (Sama, Burjeel Medical Center). Residential growth + mall/schools generate steady local traffic.",
+    "key_insight": "High-traffic ADNOC station in expanding residential suburb with mall/schools but limited quick aftermarket competition offers strong potential for bays targeting locals/fleets, especially with EV/fleet growth nearby.",
+    "research_sources": "2GIS, Waze, City-facts, The National, Occupi, Liberty Car Care, ADNOC Lube Yandex, Gulf Commute, TomTom Traffic, Property Finder Makani, ABC School, Sama Clinic, Burjeel, Electromaps, Emco"
   },
   {
     "ss": "SS171",
@@ -267,7 +316,14 @@ const SITES_DATA = [
     "weighted_score": 6.8,
     "grade": "green",
     "notes": "E11 (Shk Maktoum Bin Rashid Rd) - one of the busiest highways in Abu Dhabi. Major interchange. Dense residential/commercial. High truck traffic.",
-    "category": "Y1-2026 Priority"
+    "category": "Y1-2026 Priority",
+    "market_intel": "Bani Yas East is a thriving suburban residential area with family-oriented communities, affordable housing (villas AED 1.3-2.2M), and a mix of residential and nearby industrial zones like Mafraq Industrial Area. Moderate population density as part of Abu Dhabi's 2.5M urban population, middle-income demographics.",
+    "competitor_analysis": "Tire.ae operates directly at the ADNOC Mafraq station offering tires, batteries, wheel alignment, and mobile services; general car washes and services exist in Baniyas but no dense cluster of specialized quick-service bays within 2km identified, suggesting low saturation.",
+    "infrastructure_access": "Located on Sheikh Maktoum Bin Rashid Rd (EB2_02) with access to E22 Al Ain Rd and E30 Sheikh Khalifa Hwy; high visibility on major highways with bus services, Baniyas Interchange upgrades for better E/W connectivity, and recent speed limit adjustments on E22 to 140km/h.",
+    "ev_fleet": "Nearby Mafraq Industrial Area hosts logistics firms and potential fleets; ADNOC stations increasingly add EV charging but none confirmed at SS171; no dealerships directly nearby.",
+    "commercial_context": "Bawabat Al Sharq Mall nearby drives shopping/dining footfall; schools, New Mafraq Hospital opposite the station, and commercial offices/retail in Baniyas East generate steady traffic.",
+    "key_insight": "High-visibility ADNOC station in growing family suburb with low quick-service auto competition and strong highway/commercial traffic supports viable aftermarket bay potential, especially for fleet/industrial vehicles from nearby Mafraq.",
+    "research_sources": "2GIS ADNOC, Skyloov Baniyas, Property Finder, Tire.ae, Waze, Bawabat Al Sharq, Skyloov Mafraq, Moovit, Okadoc"
   },
   {
     "ss": "SS537",
@@ -307,7 +363,14 @@ const SITES_DATA = [
     "weighted_score": 6.8,
     "grade": "green",
     "notes": "Al Khan / Qasba waterfront area. Premium Sharjah location. High visibility.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Khan/Al Buhaira, Sharjah: Waterfront residential area with high population density (~12k/km² peak 2km radius, 18k/km² avg), mid-income (avg salary AED 58k, 2-bed apt rent AED 43k/yr, 4.2% yields), family-oriented mix of apartments, commercial towers, landmarks like Al Majaz Waterfront, Khalid Lagoon, beaches; ongoing developments.",
+    "competitor_analysis": "Station offers car wash/lube/sanitization. Specific competitors within ~2km: Fasttrack Emarat (full car service, Al Khan), Al Sayarah Auto Repair, Crystal Auto Service (253 Al Khan St), Tareeq Al Buhaira (auto parts/tyres). Moderate saturation; few quick oil-change bays at fuel stations.",
+    "infrastructure_access": "Prime visibility on busy Al Khan St; access via Al Ittihad Rd (Exit 15), Al Wahda St (E11), E611/Emirates Rd. Heavy traffic (recent Al Khan Bridge upgrade to 6 lanes). Public buses (E303/E306/E307 to Al Qasba/Al Wahda).",
+    "ev_fleet": "EV charger at Green Parking Al Khan Beach (~1km west). Fleet/logistics nearby: Gulftainer HQ (Buhaira Corniche ~2km), IOTee fleet GPS (Al Qasba/Industrial), general logistics firms.",
+    "commercial_context": "Dense footfall drivers: Al Qasba office towers, Al Majaz commercial (offices, Matajer Al Khan mall), schools (Al Durrah Intl, Al Mazaya Private), AUS University (~5km), clinics (Aster, Bissan). Waterfront leisure boosts traffic.",
+    "key_insight": "High-visibility ADNOC station in dense, mid-income waterfront area with moderate auto-service competition offers strong potential for aftermarket quick-service bay, leveraging existing lube/wash and nearby fleet/logistics traffic.",
+    "research_sources": "2GIS ADNOC, PropertyFinder Blog, CityDensity, PayScale, Fasttrack, Evolutions, Gulf News, 2GIS EV, Gulftainer, PropertyFinder Offices, Matajer"
   },
   {
     "ss": "SS536",
@@ -627,7 +690,14 @@ const SITES_DATA = [
     "weighted_score": 6.2,
     "grade": "yellow",
     "notes": "Central Dubai. Dense mixed-use. Very high footfall.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Al Jafiliya (1.63 km², pop. ~11,619) is a dense, mixed residential-commercial area near Al Satwa with affordable housing for professionals/families, diverse expat population, ongoing developments like Entisar Tower, Park Gate Residences, and central proximity to Zabeel Park, DWTC, DIFC, Dubai Frame. High density with villas/apartments, government offices, moderate income levels.",
+    "competitor_analysis": "Within 2km: AutoPro car service/oil change (18 2nd Dec St), Al Nasr Tyres & Auto (tires, oil changes, batteries, Al Jafiliya/Satwa), Grand Service Station (car wash/service, 91b St Al Satwa), ADNOC Lube (oil change at/near station). Moderate saturation with local shops on 2nd Dec St.",
+    "infrastructure_access": "On 2nd December St (high visibility/traffic), near Sheikh Zayed Rd, Al Khail Rd, Trade Centre Roundabout (Dh696M upgrade: 5 bridges by 2026, cuts delays 12min to 90s). Al Jafiliya Metro (Red Line Zone 5), buses 10/21/27/32C. Traffic diversions Mar 2026.",
+    "ev_fleet": "EV chargers at/near station (DEWA Green Charger, Tesla at Rove Trade Center 2nd Dec St). Fleet/logistics: OOCL UAE (40 2nd Dec St), Alpha Omega Cargo (16 2nd Dec St), MS Transport buses/vans Satwa.",
+    "commercial_context": "Malls: Al Hana Centre, Al Diyafah Centre, Dubai Mall ~5min metro. Clinics/hospitals: NMC Satwa. Schools: Al Maktoum Primary Boys (2nd Dec St), Hessa Bint Al Mer Primary, Little Star Nursery. Offices abundant in Satwa/Al Satwa Rd. Drives high footfall.",
+    "key_insight": "Prime high-visibility location on busy 2nd Dec St with improving infrastructure supports quick-service bay addition; moderate local competition but strong footfall from dense residential/commercial mix, healthcare, and fleets offers solid aftermarket potential.",
+    "research_sources": "ADNOC 2GIS, Waze, AutoPro, RTA Project, DEWA EV, NMC Satwa"
   },
   {
     "ss": "SS225",
@@ -727,7 +797,14 @@ const SITES_DATA = [
     "weighted_score": 6.0,
     "grade": "yellow",
     "notes": "Sustainable City - highest EV density in UAE. Premium eco-community. Lower traffic but EV goldmine.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Sustainable City: eco-community with ~3,000 affluent residents in high-density 600 homes, family-oriented. Surrounding Al Waha/Dubailand: low-medium density residential villas/townhouses, near Global Village (5km), IMG Worlds (6km), Miracle Garden (7km), new developments.",
+    "competitor_analysis": "Low saturation: No dedicated car service centers, washes, tire/oil shops identified within 2km. ADNOC may have basic services; nearest ENOC ~few km. Underserved residential area.",
+    "infrastructure_access": "On Al Qudra St; access to Al Qudra Rd (D53), Emirates Rd (E611), E311. Bus 63E; high visibility. Improvements: Al Qudra bridges, Green Spine project.",
+    "ev_fleet": "DEWA EV charger #76 at Sustainable City; ADNOC EV-capable. QASR AL WAHA Movers logistics nearby; no major fleets/dealerships in 2km.",
+    "commercial_context": "Fairgreen School (0.3km), GEMS Metropole (0.9km), Wadi Al Safa Medical Centre; Sustainable City plaza retail/F&B.",
+    "key_insight": "Excellent potential for quick-service bay: underserved market in growing eco-residential/school area with strong accessibility and EV synergy.",
+    "research_sources": "2GIS ADNOC, Waze, ADNOC, DEWA EV"
   },
   {
     "ss": "SS240",
@@ -767,7 +844,14 @@ const SITES_DATA = [
     "weighted_score": 6.0,
     "grade": "yellow",
     "notes": "E11 Ittihad Road - one of the busiest Sharjah corridors. Near Safeer Mall.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Nahdah Industrial Area 7, Sharjah, is a bustling commercial and industrial district near the Dubai border with a mix of factories, warehouses, showrooms, offices, and affordable worker housing. High population density in adjacent Al Nahda quarter (over 63,000/km², pop. 106,103). Middle-income area with economical rentals (2-bed apts ~AED 30-50k/year). Ongoing infrastructure upgrades in nearby Industrial Area 6.",
+    "competitor_analysis": "Numerous local competitors within 2km: garages like Al Sayarah Al Fakhmah, Amoon Auto; car washes at Al Barakah, Al Mustawa Auto Services; tire shops including Dar Al Nahda, Century Tyres Trading, Tiger Auto Tyre Trading; oil change services in area workshops. Moderate saturation typical of industrial zones.",
+    "infrastructure_access": "Directly on major E11 Ittihad Road (high-visibility highway linking Dubai-Sharjah). High traffic volumes, occasional congestion/closures. Public buses (E304, E307) nearby. Recent/upcoming road projects in Industrial Areas 6/7 for better mobility/parking.",
+    "ev_fleet": "Few EV chargers nearby (Tesla at City Centre ~3-4km). Strong presence of logistics/cargo firms, fleet operators in industrial zones; nearby Al Ghandi Auto (Industrial Area 5, ~2km), JAC Service (IA5). High fleet vehicle traffic potential.",
+    "commercial_context": "Proximity to offices/warehouses drives worker traffic; nearby malls like Sahara Centre, Safeer Mall, Ansar Mall (~3-5km); multiple schools; clinics/hospitals like NMC Al Nahda, Oriana, Thumbay (~5-10min). Steady footfall from commuters/industrial staff.",
+    "key_insight": "Prime location on busy E11 Ittihad Road in high-density industrial zone with fleet/logistics traffic offers strong potential for quick-service bay, especially with limited EV infrastructure and ongoing area upgrades.",
+    "research_sources": "2GIS Station, Sharjah Gov IA6, GetProperty IA7, Wikipedia Sharjah, 2GIS Garages, Wikipedia E11, Property Finder Schools, NMC Al Nahda, Al Ghandi Auto"
   },
   {
     "ss": "SS183",
@@ -807,7 +891,14 @@ const SITES_DATA = [
     "weighted_score": 6.0,
     "grade": "yellow",
     "notes": "Al Taawun area. Same premium profile.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Dar/Al Khan/Al Tawoon area in Sharjah features high population density (~35,000-63,000/km²), mixed residential-commercial with high-rise apartments, waterfront views, and diverse expat residents. Moderate income levels, landmarks include Sharjah Expo Centre, Al Khan Corniche, ongoing high-rise developments.",
+    "competitor_analysis": "Low saturation within ~2km; no major dedicated car service centers, tire shops, or oil change specialists directly listed at the station or immediate vicinity. ADNOC's own lube/oil services at other nearby stations (~1km). Independent shops concentrated in Industrial Area 7 (~3-4km). Opportunity for quick-service bay.",
+    "infrastructure_access": "Located at 70 Al Ittihad St (E11 highway, Sharjah-Dubai direction), high visibility and easy access for high-volume traffic between emirates. Buses nearby; primarily car-dependent. Road upgrades ongoing (widening, tunnels at Qiyada). Heavy commuter traffic supports quick-service model.",
+    "ev_fleet": "Limited EV chargers nearby (Tesla at Novotel Sharjah Expo ~2km); low EV penetration. Logistics firms present (Ittihad Group, City Gate Tower ~1km), potential fleet maintenance demand. No major dealerships immediately adjacent.",
+    "commercial_context": "High footfall drivers: Safeer Mall and Matajer Al Khan (~1-2km), City Gate Tower offices in Al Taawun, schools, hospitals like Dar Al Kamal. Expo Centre boosts events/traffic.",
+    "key_insight": "Prime highway location with high commuter traffic, low local competition for quick aftermarket services, and surrounding residential/commercial density supports strong demand for an automotive quick-service bay at SS193 Al Dar.",
+    "research_sources": "ADNOC Distribution, 2GIS Al Dar, Property Finder, Gulf News Al Ittihad"
   },
   {
     "ss": "SS165",
@@ -844,7 +935,15 @@ const SITES_DATA = [
     "competitors": "ADNOC Distribution dominates Abu Dhabi's fuel retail with 248 stations in the emirate Xmap.ai (https://www.xmap.ai/blog/how-many-adnoc-service-stations-are-in-the-uae). ADNOC Distribution operates 562 stations in the UAE (targeting 1,150 by 2028), with Oasis convenience stores at most locations Trendtype (https://trendtype.com/news/adnoc-distribution-targets-1000-service-stations-by-2028/). In Abu Dhabi emirate, ADNOC has near-monopoly on fuel retail; ENOC and Emarat operate primarily in Dubai/northern emirates. ENOC has 206+ stations across UAE (mainly Dubai) Mordor Intelligence (https://www.mordorintelligence.com/industry-reports/united-arab-emirates-fuel-station-market/companies). Auto service centers in the Al Rahba corridor are limited; most workshops are concentrated in Mussafah industrial area. TYREPLUS Auto Spa operates a branch in Abu Dhabi TyrePlus (https://www.tyreplus-me.com/en/uae/dealers/abu-dhabi/tyreplus-auto-spa). Saeedi Pro tire shops also serve the Abu Dhabi area Saeedi Pro (https://saeedipro.com/locations/tyre-shop-abu-dhabi/).",
     "infrastructure": "Abu Dhabi City Municipality implemented two major infrastructure projects at Al Rahba: (1) AED 160 million project serving 519 residential plots (roads, 29 power substations, water, sewage, drainage networks - completed); (2) AED 292 million project serving 671 residential plots (roads, 36 substations, drainage, sewage) DMT (https://www.dmt.gov.ae/en/adm/Media-Centre/News/Abu-Dhabi-City-Municipality-implements-two-infrastructure-projects-at-Al-Rahba-city). Abu Dhabi launched 144 projects worth AED 66 billion across the emirate in 2024; DMT completed milestone projects worth AED 4 billion in 2024 Abu Dhabi Media Office (https://www.mediaoffice.abudhabi/en/infrastructure/abu-dhabi-centre-for-projects-and-infrastructure-announces-launch-of-projects-worth-aed66bn-across-emirate-in-2024/). AED 3 billion in new strategic road/traffic safety projects announced March 2024 Gulf News (https://gulfnews.com/uae/transport/projects-worth-dh3-billion-to-improve-traffic-in-abu-dhabi-1.101713129). AED 13 billion Abu Dhabi-wide traffic improvement projects began in 2025, including E10 and E30 upgrades Gulf News (https://gulfnews.com/uae/transport/dh13-billion-abu-dhabi-traffic-improvement-projects-begin-1.104261537).",
     "commercial": "Al Rahba itself has limited commercial facilities; the community is still in development phase. Deerfields Mall is 12 minutes drive from Al Rahba, featuring Carrefour, a 14-screen Cineplex, dining and retail Bayut (https://www.bayut.com/area-guides/al-rahba/). Al Raha Mall is nearby, offering fashion, jewelry, fine dining, cinema, electronics, entertainment, supermarket Al Raha Mall (https://www.al-rahamall.com/). Lulu Express operates in Al Raha Mall for grocery shopping Bayut (https://www.bayut.com/area-guides/al-rahba/). Yas Mall (one of Abu Dhabi's largest) and Emirates Park Zoo are listed among top nearby attractions ARAB MLS (https://arabmls.org/al-rahba-abu-dhabi/). No major industrial zones within 2 km of the station site; the area is predominantly residential with Emirati villas.",
-    "transport": "Bus Route 202 operates from Al Rahba Hospital to Abu Dhabi Bus Station with 23 stops UAE Bus Timing (https://uaebustiming.com/202-bus-route-abu-dhabi/). Additional bus lines serving Al Rahba: 210, 222, 240, 420 Moovit (https://moovitapp.com/index/en/public_transit-Al_Rahba_Hospital-Dubai_Abu_Dhabi-site_37306655-3824). Abu Dhabi Link on-demand bus service operates within Al Rahba and Al Samha, AED 2 fare, daily 6am-11pm AD Mobility (https://admobility.gov.ae/en/pb-ad-link). Abu Dhabi does not currently have an operational metro; a 12-station metro network is planned by 2030 Abu Dhabi Off Plan (https://abudhabioffplan.ae/blog/your-guide-to-getting-around-public-transport-in-abu-dhabi). Distance to Abu Dhabi International Airport: approximately 30 km. Direct E11 highway access connects to Dubai (~120 km) and Abu Dhabi city center (~30 km) Bayut (https://www.bayut.com/area-guides/al-rahba/)."
+    "transport": "Bus Route 202 operates from Al Rahba Hospital to Abu Dhabi Bus Station with 23 stops UAE Bus Timing (https://uaebustiming.com/202-bus-route-abu-dhabi/). Additional bus lines serving Al Rahba: 210, 222, 240, 420 Moovit (https://moovitapp.com/index/en/public_transit-Al_Rahba_Hospital-Dubai_Abu_Dhabi-site_37306655-3824). Abu Dhabi Link on-demand bus service operates within Al Rahba and Al Samha, AED 2 fare, daily 6am-11pm AD Mobility (https://admobility.gov.ae/en/pb-ad-link). Abu Dhabi does not currently have an operational metro; a 12-station metro network is planned by 2030 Abu Dhabi Off Plan (https://abudhabioffplan.ae/blog/your-guide-to-getting-around-public-transport-in-abu-dhabi). Distance to Abu Dhabi International Airport: approximately 30 km. Direct E11 highway access connects to Dubai (~120 km) and Abu Dhabi city center (~30 km) Bayut (https://www.bayut.com/area-guides/al-rahba/).",
+    "market_intel": "Al Rahbah/Al Shahama: Growing family residential suburb, low-rise villas/townhouses, parks. Al Shahama pop. ~61,000 (density 429/km²), high expat ratio, UAE avg. income high (GDP/cap ~$50k). Landmarks: Qutouf Mosque (60m), Golden Stars Stadium. New: Lulu Community Center.",
+    "competitor_analysis": "Low saturation within 2km. Station offers tires/battery/maintenance. Nearby: Hasan Alhouseni Tyre Shop (adjacent). Shahama mobile washes (Sahara Shine), workshops (Index Auto Repair, New Golden Eagle, Najm Aldeaa ~few km).",
+    "infrastructure_access": "12th St near Sheikh Maktoum bin Rashid Rd (E11). High visibility, 24/7. Abu Dhabi 30% congestion. Buses via Al Shahama Station (210,218,420). AED452m Rahba roads, E11 truck ban.",
+    "ev_fleet": "No nearby EV chargers (nearest ADNOC in Al Raha Beach). Logistics: Aramex, HTZ courier Shahama. No major fleets/dealerships noted.",
+    "commercial_context": "Al Rahba Hospital (SEHA), Al Shahama Bus Stn, upcoming Lulu. Malls: Al Raha (~10km), Deerfields. Schools: Al Rabeeh Academy Shahama.",
+    "key_insight": "High-potential for quick-service bay: growing residential area, excellent road visibility/footfall from hospital/bus/mosque, minimal competition for advanced aftermarket services.",
+    "research_sources": "2GIS Qutouf, ADNOC News, SCAD Pop, TomTom Traffic",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS165-Qutouf-Rahba-South"
   },
   {
     "ss": "SS147",
@@ -884,7 +983,14 @@ const SITES_DATA = [
     "weighted_score": 5.9,
     "grade": "yellow",
     "notes": "Al Falah new residential community. Family-oriented. Good income.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Falah South is a rapidly developing residential community east of Abu Dhabi International Airport, part of a master-planned area for UAE nationals with 5,000 villas, 2,300 townhouses, and 2,100 apartments planned, plus ongoing expansion of 899 new villas on 215 hectares. Moderate population density within Abu Dhabi's 4.1M total population, featuring residential-heavy mix with emerging commercial pockets.",
+    "competitor_analysis": "SS170 itself offers lube, car wash, tires, maintenance, vacuum bay, and sanitization. Few verified independent competitors within 2km: Al Falah Car Service Station (TotalEnergies partner), TelusCare mobile services, potential Liberty Car Care. Saturation appears low.",
+    "infrastructure_access": "Located at 24.429131° N, 54.734358° E in New Al Falah, accessible via major roads connecting to Abu Dhabi-Dubai Highway (E11, ~38km to city center) and Al Ain roads; recent Al Falah roads project completed three-lane two-way roads and four intersections. Public buses serve Al Falah areas; station open 24/7 with high visibility.",
+    "ev_fleet": "No EV chargers confirmed at SS170 or immediately nearby; ADNOC partnering with TAQA on E2Go network expansion. Fleet/logistics presence via Al Falah Logistics, Al Falah Cargo; no major dealerships within 2km.",
+    "commercial_context": "High footfall drivers include Al Falah Central Mall (nearby, 30k sqm retail, cinema, F&B), Al Falah Academy and International Community School, All Point Healthcare Center in New Al Falah City, mosques, parks.",
+    "key_insight": "SS170 Al Falah South presents strong potential for expanded aftermarket quick-service bays given low independent competitor saturation, existing basic services, 24/7 high-visibility location in growing UAE national residential community.",
+    "research_sources": "2GIS ADNOC SS170, ADNOC Station Finder, Menard Al Falah Community, Iskan Al Falah Expansion, Aldar Al Falah, TotalEnergies Oil Centers"
   },
   {
     "ss": "SS314",
@@ -924,7 +1030,14 @@ const SITES_DATA = [
     "weighted_score": 5.9,
     "grade": "yellow",
     "notes": "Al Mejaz - established area near Buhaira Corniche. Good catchment.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Majaz, Sharjah features high population density (~18,000 people/km² within 2km, part of Sharjah's 1.8M population), mixed residential (apartments, towers) and commercial areas. Affordable rents, landmarks include Al Majaz Waterfront (leisure hub with fountains, parks). Average income ~AED 58k/year.",
+    "competitor_analysis": "Nearby competitors within ~2km: Al Khalidiah Car Wash & Lubricants Station (~400m north), Khalidiah Auto Care Centre (wash, lube, accessories). ADNOC stations offer lube changes (AED25 + free checks). Low saturation for quick-service bays; moderate competition.",
+    "infrastructure_access": "Located on Al Khaledia Street (high visibility, commercial road), near Corniche St and King Faisal Rd. Bus stops directly on Al Khaledia (lines 1,7). Traffic congestion average 50%, 79 hours lost/year. Recent road upgrades in Al Majaz 3.",
+    "ev_fleet": "EV chargers nearby: GreenParking at Corniche St, Al Majaz 1 (~1km). Fleet/logistics: Gulf Agency Co, Al Hajeri Group at Al Ghanem Business Centre (~500m). Dealerships: Al Majaz Used Cars Trading, Layah Motors, Arabian Automobiles.",
+    "commercial_context": "Dense offices, clinics/hospitals: Al Lulu Medical Center, Elite Medical Center, Sharjah Corniche Hospital, Medcare Hospital. Schools/nurseries: Euro Kids, Kids Park Nursery. Malls: Atlas Tower, Central Souk nearby. High footfall from waterfront leisure.",
+    "key_insight": "High-traffic urban location with strong residential/commercial footfall, excellent visibility, and proximity to offices/logistics supports aftermarket quick-service bay potential.",
+    "research_sources": "2GIS ADNOC, Property Finder Al Qasimia, SRTA Traffic, 2GIS EV, NMC Maysaloon, Mega Mall, Edustoke Schools"
   },
   {
     "ss": "SS568",
@@ -1024,7 +1137,14 @@ const SITES_DATA = [
     "weighted_score": 5.8,
     "grade": "yellow",
     "notes": "Growing Al Shamkha residential. Near Motor World hub.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Shamkha is a rapidly developing residential suburb in northeast Abu Dhabi with a 2015 population of ~29,000 across 40 km² (density 726/km²), affordable rents (1BHK AED 30k/year); part of Abu Dhabi Vision 2030 with ongoing redevelopments near Mussafah industrial zone.",
+    "competitor_analysis": "Limited saturation within 2km: Wheel Pros Garage (tires/rims at Al Shamkha Mall), ADNOC Lube Motor World (oil changes, SH36), Al Shamkha Line (car wash). No heavy concentration within 2km.",
+    "infrastructure_access": "On SH7 (Al Asel St), near Sheikh Mohammad Bin Zayed Rd (E311) and Sweihan Rd (SH36); high visibility on major arterial roads. Bus route 300/406 connects to city every 30min.",
+    "ev_fleet": "ADNOC stations offer EV charging network-wide; Motor World/Al Saree St SH36 hosts dealerships (Concod, Premium Motors, Razeen Cars); logistics/movers active (Shamkha Corner General Transport).",
+    "commercial_context": "Al Shamkha Mall/Makani Mall (Spar, shops, F&B) drives local footfall; ABC Private School and Wales International School nearby; Sama Al Shamkha Medical Center; proximity to Mussafah industrial zone adds worker traffic.",
+    "key_insight": "SS156 benefits from high-visibility highway access, growing residential population (~30k+), and low quick-service saturation in a car-dependent suburb.",
+    "research_sources": "Exploremalls ADNOC SS156, Yango Al Asel, ADNOC Finder, City-facts Population, Property Finder Insights, 2GIS Tires, Rome2Rio Transport, Makani Mall"
   },
   {
     "ss": "SS423",
@@ -1124,7 +1244,14 @@ const SITES_DATA = [
     "weighted_score": 5.7,
     "grade": "yellow",
     "notes": "Same corridor as East. Residential catchment.",
-    "category": "Dubai"
+    "category": "Dubai",
+    "market_intel": "Wadi Al Amardi West / Al Athbah, Mushrif is a low-density residential area (~147/km²) with villas, apartments, vast open desert spaces, and family-oriented vibe; planned housing developments and internal roads indicate growth potential; Dubai average income ~$53k/year.",
+    "competitor_analysis": "Low saturation: MySyara Auto Care (~100m away, car service/tinting/insurance), ENOC station on Tripoli St (possible lube/wash), ProWash car wash on Tripoli St; no dense cluster of tire/oil shops within 2km.",
+    "infrastructure_access": "On 511 Tripoli St (D83), high visibility; near Al Khawaneej Rd (D89), E611; upcoming RTA projects: roads in Al Amardi (2025), Al Athbah/Mushrif (2027); limited public transport; Dubai-wide congestion high but peripheral location aids quick service.",
+    "ev_fleet": "No verified EV chargers at/near SS217; ADNOC expanding network but none local; potential fleet/logistics in Mushrif/Al Awir industrial areas ~5km; no major dealerships within 2km.",
+    "commercial_context": "Limited local footfall drivers; nearby Mushrif Park, schools in Mushrif/Al Khawaneej (~3-5km); City Centre Mirdif mall ~5km; sparse offices; relies on residential traffic and passersby on Tripoli St.",
+    "key_insight": "Low-density growing residential area with excellent road access and minimal direct competition positions SS217 ideally for quick-service bays targeting locals and highway traffic, bolstered by 2025-2029 infrastructure upgrades.",
+    "research_sources": "2GIS ADNOC, Waze, RTA Roads, 2GIS MySyara, Dubai Wiki"
   },
   {
     "ss": "SS356",
@@ -1164,7 +1291,14 @@ const SITES_DATA = [
     "weighted_score": 5.7,
     "grade": "yellow",
     "notes": "University City area. Student/residential mix. Good footfall.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Sharjah Industrial Area, where the station is located on University City Road, spans 33.58 km² with population density of 2,403/km² and population of 80,685. Primarily industrial and mixed-use with factories, warehouses, workshops, staff accommodations, and some retail.",
+    "competitor_analysis": "Multiple competitors within ~2km: Al Fan Al Malaki Cars Wash, Al Burj Auto Maintenance, Al Yaqoot Al Massy Auto Tyres Repair & Oil Change, Burj Al Huda Auto Maintenance, Al Karak Tyres & Oil Change, Armor Car Care. High saturation in industrial area.",
+    "infrastructure_access": "Located on University City Road (major arterial), near Sheikh Mohammed Bin Zayed Road (E311) and Maliha Road (S112). Bus lines 13,13A,13D,31 serve area; congestion in Sharjah ~50%. Ongoing projects: 19km new roads in Industrial Area 6.",
+    "ev_fleet": "Tesla EV charger in IA12; fleet/logistics heavy: Landmark Transport, Jezara Logistics, Tameem Logistics, many transport firms. No nearby dealerships.",
+    "commercial_context": "Proximity to University City of Sharjah (AUS, Univ of Sharjah, Al Qasimia); small malls like Zero6/06 Mall; offices/warehouses abundant; SEWA facilities nearby.",
+    "key_insight": "Prime location on busy University City Road in mixed industrial zone near University City offers strong quick-service potential, though high competitor density requires differentiation.",
+    "research_sources": "Waze ADNOC, Wikipedia Industrial, Skyloov IA10, UAE Gov Sharjah, 2GIS Wash, TomTom Traffic, Sharjah Gov Roads, BEEAH EV, Wikipedia Univ City, Zero6 Mall"
   },
   {
     "ss": "SS887",
@@ -1204,7 +1338,14 @@ const SITES_DATA = [
     "weighted_score": 5.6,
     "grade": "yellow",
     "notes": "Mirror of South East. Same corridor, opposite direction.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Samha is an emerging middle-income residential area with low current population (~1,000) but growing via new Emirati villa projects (242 villas completing Q4 2025) and proximity to KIZAD industrial zone.",
+    "competitor_analysis": "Low saturation: Station itself offers tires; nearby (~1-2km): Shams Al Samha Tyres Trading, ADNOC Lube oil change station; no major dedicated car service centers within 2km.",
+    "infrastructure_access": "Prime location on high-visibility E11 (Sheikh Maktoum Bin Rashid Rd, Dubai-Abu Dhabi Hwy) with heavy commuter/industrial traffic (Abu Dhabi avg congestion 30%); nearby bus stops (Samha-01, lines E101/222/224).",
+    "ev_fleet": "Adjacent to KIZAD (Khalifa Economic Zones Abu Dhabi), UAE's largest industrial/logistics zone with high fleet traffic; no EV chargers at/near station; used car dealerships in area.",
+    "commercial_context": "Local: Al Samha Healthcare Center, Al Samha schools, parks; nearby: KIZAD offices/warehouses (~10min), no major malls (Yas Mall ~20min).",
+    "key_insight": "High-potential site for quick-service bay due to low local competition, prime highway visibility, growing residential base, and heavy KIZAD fleet/commuter traffic on E11.",
+    "research_sources": "ADNOC, 2GIS SS888, GetProperty Al Samha, KEZAD, Iskan Housing, Moovit Bus, TomTom Traffic, 2GIS Tyres, Healthcare Center"
   },
   {
     "ss": "SS117",
@@ -1264,7 +1405,14 @@ const SITES_DATA = [
     "weighted_score": 5.6,
     "grade": "yellow",
     "notes": "Wasit residential area. Growing community.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Wasit-2, Sharjah (Al Ramtha/Al Goaz area) is a suburban residential neighborhood with family villas and new apartments/townhouses in developing area near Sharjah-Ajman border. High population density (~9k/km² within 30km). Average income ~AED 14k-58k/month.",
+    "competitor_analysis": "Low saturation within 2km. Specific competitors: Nad Wasit Tyres (directly next to station), Change Oil Center (391/1), TelusCare auto repair in Al Goaz. No dense cluster of quick-service bays.",
+    "infrastructure_access": "High visibility at busy intersection of Wasit Street (E11) and Sheikh Khaled bin Khaled Al Qassimi St. Good access to major roads. Car-dependent area with limited public transport.",
+    "ev_fleet": "EV charger nearby: Ion station (2 spots) in Al Sweihat, Wasit (~1-2km south). General fleet/logistics presence low.",
+    "commercial_context": "Family-oriented with Al Kamal American Private School, Wasit Health Center nearby. No major malls/offices at site; nearest Samnan Mall on Wasit St.",
+    "key_insight": "Prime opportunity for aftermarket quick-service bay at high-visibility fuel station in residential suburb with low competitor density and family/school-driven traffic.",
+    "research_sources": "2GIS ADNOC, ADNOC News, Property Finder Blogs, Eplog Guides, Salary Data, 2GIS Competitors/EV, Schools/Health, Moovit Transport"
   },
   {
     "ss": "SS179",
@@ -1301,7 +1449,8 @@ const SITES_DATA = [
     "competitors": "ADNOC is the sole retail fuel operator in Sharjah (78 stations emirate-wide). ENOC station 1177 located in Industrial Area 4, Sharjah Industrial Area (24hr, offers Special 95, Super 98, Diesel). Emarat station E7050 Mughaider in Industrial Area 12 (24hr). Multiple auto service competitors in the industrial zone: Sand Dance Tyre (industrial area), Dhanya Auto Care Center, Rukn Al Rayan Auto Tyres. CAFU on-demand fuel delivery also operates in Sharjah. Sources: 2GIS - ENOC 1177 (https://2gis.ae/sharjah/firm/70000001067369641), 2GIS - Emarat E7050 (https://2gis.ae/sharjah/firm/70000001044049888), XMAP ADNOC analysis (https://www.xmap.ai/blog/how-many-adnoc-service-stations-are-in-the-uae)",
     "infrastructure": "Major infrastructure investment: Sharjah's 2025 budget allocates 41% to infrastructure (7% rise from 2024). Asphalt reinstatement works at Al Manakh Area completed by Al Marwan Group. Service roads, parking, and footpaths developed for Sharjah Municipality at Manakh Area. Internal roads in Al Manakh, Musalla and other areas upgraded with mosque car park at Nasserya. Nearby: Industrial Area 6 infrastructure project includes 19km of new internal roads, modernized utility networks (water, gas, electricity, telecom). Al Nahda area (formerly Industrial Area 1) being converted to mixed-use investment/residential/commercial zone. Sources: Al Marwan Group (https://almarwangroup.com/projects/completed-roads-infrastructure-projects/), Zawya - Industrial Area 6 (https://www.zawya.com/en/economy/gcc/sharjah-unveils-updates-on-industrial-area-6-infrastructure-development-project-ikxn8167), JobXDubai - 2025 Budget (https://blog.jobxdubai.com/2024/12/24/sharjah-2025-budget-infrastructure-investment/)",
     "commercial": "Oasis Mall: ~5 min drive from Al Manakh (3 floors, 45+ retail stores, Carrefour Market, 10-screen cinema, 575-seat food court). Mega Mall: ~8 min drive (4 floors, entertainment, shopping). Sharjah Shopping Centre on Al Arouba Street nearby. Al Ghuwair Centre, K.M Trading, Rolla Mall also accessible. Carrefour and Talal Hypermarket serve as local supermarkets. Mixed-use properties in Al Manakh combine offices, retail (ground level), and residential (upper floors). Sources: Bayut Al Manakh Area Guide (https://www.bayut.com/area-guides/al-manakh/), Square Yards (https://www.squareyards.ae/area-guide/sharjah/al-manakh)",
-    "transport": "Bus routes E303, E307, E307A, and E400 pass close to Al Manakh. Route 3: Rolla Square Park through Al Wahda Road to Industrial Areas (6:05am-10:05pm weekdays). Route 14: Al Jubail Bus Station to Al Sharq, Industrial Area 1 and Sharjah Airport. Highway access: E11 (Sheikh Zayed Road) and E311 (SMBZ Road) both accessible. Sharjah International Airport: ~13km east-southeast of central Sharjah. No metro in Sharjah; public transport via MOWASALAT bus system and taxis. Sources: Bayut Public Transport Guide (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Edarabia Bus Routes (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/), Sharjah Airport Wikipedia (https://en.wikipedia.org/wiki/Sharjah_International_Airport)"
+    "transport": "Bus routes E303, E307, E307A, and E400 pass close to Al Manakh. Route 3: Rolla Square Park through Al Wahda Road to Industrial Areas (6:05am-10:05pm weekdays). Route 14: Al Jubail Bus Station to Al Sharq, Industrial Area 1 and Sharjah Airport. Highway access: E11 (Sheikh Zayed Road) and E311 (SMBZ Road) both accessible. Sharjah International Airport: ~13km east-southeast of central Sharjah. No metro in Sharjah; public transport via MOWASALAT bus system and taxis. Sources: Bayut Public Transport Guide (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Edarabia Bus Routes (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/), Sharjah Airport Wikipedia (https://en.wikipedia.org/wiki/Sharjah_International_Airport)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS179"
   },
   {
     "ss": "SS180",
@@ -1321,7 +1470,14 @@ const SITES_DATA = [
     "weighted_score": 5.6,
     "grade": "yellow",
     "notes": "SKB Zayed Road corridor. Good highway access.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Muwaileh Commercial is one of the most densely populated areas in the UAE (~100,000 residents), with a mix of residential, commercial properties, and ongoing developments like Al Mamsha Hamsa. Lower cost of living than Dubai (19% less). Landmarks: Aljada, City Centre Al Zahia, Muwaileh Park.",
+    "competitor_analysis": "Nearby competitors within ~2km: car washes (Vone Quick Wash & Polish, TotalEnergies Al Sir Cars, Real Star Car Care), tire shops (Ghanim Abdulla Ghanim Tyres, Almailem Tires, Metro Al Anfaq Tyres), oil change (Al Musbah Al Fedhi Auto Accessories). Moderate saturation.",
+    "infrastructure_access": "Located in Muwaileh Commercial with direct access to Sheikh Mohammed Bin Zayed Road (E311). Muwaileh Bus Terminal nearby. Ongoing infrastructure like Industrial Area 6 roads.",
+    "ev_fleet": "EV chargers at City Centre Al Zahia Mall (adjacent). Fleet/logistics: Al Imlaq Transports, Cititrans in Muwaileh Commercial. Dealerships: Land Rover on E311.",
+    "commercial_context": "Malls: City Centre Al Zahia, Safari Mall. Offices abundant. Schools/universities: University City of Sharjah. Hospitals: Medcare Hospital Sharjah, NMC Royal Hospital.",
+    "key_insight": "High-density mixed-use area with excellent highway access, universities, malls, and industrial fleets supports strong demand for quick automotive services.",
+    "research_sources": "2GIS ADNOC, Wikipedia Muwaileh, Property Finder Projects, 2GIS Searches, City Centre Al Zahia, Wikipedia University City"
   },
   {
     "ss": "SS192",
@@ -1418,7 +1574,8 @@ const SITES_DATA = [
     "competitors": "Bridgestone tire repair on-site at SS799. ADNOC Lube occupies middle bays. Jabal Al Fayha offers Bridgestone tire services in Sharjah. Multiple tire/auto service providers in Sharjah: Sand Dance Tyres, Alfawzan Tires (10 branches), Liberty Car Care. ADNOC is sole fuel retailer in Sharjah; ENOC expanding (28 stations, 2025). Sources: Jabal Al Fayha Bridgestone (https://www.jabalalfayha.com/bridgestone/), ADNOC Lube services (https://www.adnocdistribution.ae/en/car-care/lube-change), Gulf News ENOC (https://gulfnews.com/business/retail/enoc-adds-new-sharjah-fuel-station-bringing-uae-total-to-204-1.500223109)",
     "infrastructure": "Samnan is part of Halwan Suburb with ongoing residential development. Sharjah Cricket Stadium and Sharjah Wanderers Sports Club in proximity. Sharjah 2025 budget: Dh42B, 41% for infrastructure development. Emirates Road Enhancement Project nearby (expanding E611 from 3 to 5 lanes). Sources: Bayut Samnan (https://www.bayut.com/area-guides/samnan/), JobXDubai 2025 Budget (https://blog.jobxdubai.com/2024/12/24/sharjah-2025-budget-infrastructure-investment/), MOEI Emirates Road (https://www.moei.gov.ae/en/media-center/news/15/7/2025/ministry-of-energy-and-infrastructure-launches-strategic-project-to-develop-emirates-road)",
     "commercial": "Samnan Mall on Wasit Street (local shopping center with brands and local shops). Mega Mall: ~10 min drive (4-storey, cinema, shopping). Ramez Mall and Oasis Mall: short drive away. Local supermarkets: Al Khaleej Mini Supermarket, Al Suez Supermarket, Al Shareef Supermarket, Carrefour Market. Healthcare: Samnan Medical Centre (~5 min), Zeenat Alshifa Medical Centre (~6 min), Thumbay Clinic nearby. Schools: Al Dhia Al ILmiyah Private School (~5 min), Al Kamal American International School, Dolphin Nursery (walking distance). Sources: Bayut Samnan (https://www.bayut.com/area-guides/samnan/), Square Yards Samnan (https://www.squareyards.ae/area-guide/sharjah/samnan), Property Finder Samnan (https://www.propertyfinder.ae/blog/living-samnan-sharjah/)",
-    "transport": "Bus lines E303, E306, and E400 stop near Samnan / Halwan Suburb. Public transport mostly via buses and taxis. Easy access to Al Wahda Street. Sharjah International Airport: ~9km east. No metro in Sharjah. Sources: Moovit Samnan (https://moovitapp.com/index/en/public_transit-Samnan-Dubai_Abu_Dhabi-site_59362200-3824), Moovit Halwan (https://moovitapp.com/index/en/public_transit-Halwan_Suburb-Dubai_Abu_Dhabi-site_59364273-3824), Bayut Samnan (https://www.bayut.com/area-guides/samnan/)"
+    "transport": "Bus lines E303, E306, and E400 stop near Samnan / Halwan Suburb. Public transport mostly via buses and taxis. Easy access to Al Wahda Street. Sharjah International Airport: ~9km east. No metro in Sharjah. Sources: Moovit Samnan (https://moovitapp.com/index/en/public_transit-Samnan-Dubai_Abu_Dhabi-site_59362200-3824), Moovit Halwan (https://moovitapp.com/index/en/public_transit-Halwan_Suburb-Dubai_Abu_Dhabi-site_59364273-3824), Bayut Samnan (https://www.bayut.com/area-guides/samnan/)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS799"
   },
   {
     "ss": "SS662",
@@ -1598,7 +1755,14 @@ const SITES_DATA = [
     "weighted_score": 5.3,
     "grade": "yellow",
     "notes": "Al Bahia residential. Moderate density. Growing community.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Bahia North is a suburban residential area with family-oriented villas, primarily Emirati community growing with expats. Emerging premium developments like Sobha master community signal rising affluence and population growth. Landmarks: Amity International School adjacent.",
+    "competitor_analysis": "Low saturation within 2km. The station itself offers lube, car wash, tires, battery, maintenance. Nearby ADNOC Al Dur (166), Al Nadrah (745) offer oil changes. Independent services sparse: TelusCare mobile, Al Fatah Tyres general.",
+    "infrastructure_access": "High visibility on E10 (Abu Dhabi-Dubai Rd) at Exit 39, after Amity School. Excellent access via major highways E10/E11 to airport (10min), Yas Island. Traffic moderate (Abu Dhabi avg 30% congestion).",
+    "ev_fleet": "EV chargers nearby: ADNOC Al Widayhi (Al Bahia), Tesla Destination at Deerfields Mall. Local EV dealer Al Bahiya International. Residential growth supports fleet potential.",
+    "commercial_context": "High footfall drivers: Amity International School (adjacent), Al Bahya Private School, SEHA Clinics Al Bahia, Deerfields Mall.",
+    "key_insight": "Prime opportunity for aftermarket quick-service bay at high-visibility station in growing suburban residential hub with low competition, school/mall traffic, and rising EV presence.",
+    "research_sources": "See compiled sources file"
   },
   {
     "ss": "SS312",
@@ -1718,7 +1882,14 @@ const SITES_DATA = [
     "weighted_score": 5.2,
     "grade": "yellow",
     "notes": "Al Riyadh City residential community. Developing area.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Madinat Al Riyad (Al Riyadh City) is a developing residential community southwest of central Abu Dhabi, between Al Wathba and Baniyas, featuring thousands of Emirati-allocated villa plots and emerging apartments. Planned as a self-sustained mixed-use hub.",
+    "competitor_analysis": "Low to moderate saturation within 2km. Local: Zenith Electronic Balance (auto repair/balancing), Liberty Car Care (full service/oil change), ADNOC Car Wash.",
+    "infrastructure_access": "On RD9 / Al Khayr St, accessible via major highways E11/E20 (Abu Dhabi-Dubai/Al Ain ~30-45km). Public bus from Al Shamkha (route 300, ~1h to city). Recent DMT projects include traffic lights in Madinat Al Riyad.",
+    "ev_fleet": "No specific EV chargers at/near station found; broader Abu Dhabi rollout. Fleet/logistics: Al Khair Shipping Management, Al Lul Transport. No major dealerships nearby.",
+    "commercial_context": "Emerging: The Courtyard Mall (Riyadh City), offices for rent, Al Riyadh Charter School, planned clinics/hospitals.",
+    "key_insight": "SS141 in fast-growing Madinat Al Riyad benefits from high residential demand, good highway access, and low local competition for quick auto services.",
+    "research_sources": "ADNOC 2GIS, Waze, Skyloov, SCAD, Rome2Rio, Courtyard Mall"
   },
   {
     "ss": "SS166",
@@ -1738,7 +1909,14 @@ const SITES_DATA = [
     "weighted_score": 5.2,
     "grade": "yellow",
     "notes": "Al Bahia area. Similar profile to Al Bahia North.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Bahya is a growing suburban residential area in Abu Dhabi with new luxury developments like Sobha master community (townhouses from AED 3.6M). Adjacent to Deerfields Mall. Part of Abu Dhabi metro area (pop 2.5M urban).",
+    "competitor_analysis": "Low saturation within 2km. SS166 itself offers ADNOC Lube oil change, car wash, tires, battery, maintenance. Limited others: mobile services TelusCare, OnMyWay, Ghantoot Tyre Repairs. No dense cluster of independent shops.",
+    "infrastructure_access": "Located on high-visibility Al Widayhi Street, Al Bahya Old. Near E10 Sheikh Zayed Road highway. Public buses 221, 218, 210 stop nearby. 15min drive to Zayed Int'l Airport. UAE-wide road upgrades 2026.",
+    "ev_fleet": "SS166 offers EV charging. Tesla Destination chargers at adjacent Deerfields Mall. Fleet/logistics: Al Bahiya Trading & Services, ZMI QMS Al Bahia (ADNOC Logistics).",
+    "commercial_context": "Deerfields Mall adjacent (200 stores, F&B, entertainment, high footfall). Al Bahya Healthcare Center. Schools planned in Sobha. Commercial offices available.",
+    "key_insight": "SS166's prime position beside Deerfields Mall and growing Al Bahya residential boom offers strong potential for quick-service bays to capture impulse traffic from shoppers, airport commuters, and new affluent homeowners.",
+    "research_sources": "2GIS ADNOC, ADNOC Distribution, Deerfields Mall, Sobha, EV Property Finder, Moovit, Gulf News, Wikipedia, Payscale"
   },
   {
     "ss": "SS313",
@@ -1758,7 +1936,14 @@ const SITES_DATA = [
     "weighted_score": 5.2,
     "grade": "yellow",
     "notes": "Gateway to Al Riyadh City. Developing.",
-    "category": "Abu Dhabi"
+    "category": "Abu Dhabi",
+    "market_intel": "Al Riyadh City (Madinat Al Riyad) is a developing mixed-use hub south of Abu Dhabi near Shamkha, featuring planned villas, apartments, commercial properties, malls, schools, clinics. Broader Abu Dhabi urban area ~2.5M residents.",
+    "competitor_analysis": "Local competitors include Liberty Car Care Riyadh City (oil change, detailing, body shop), Yellow Bubble Car Spa, Al Shamkha line car wash. Low saturation in this emerging area.",
+    "infrastructure_access": "Accessed via regional roads near E11 Sheikh Zayed Road; good visibility. Bus route 300 from nearby Al Shamkha every 30min. General UAE highway improvements ongoing.",
+    "ev_fleet": "No specific EV chargers confirmed, but ADNOC expanding network. Area near Shamkha supports school buses/fleets.",
+    "commercial_context": "Planned commercial developments include The Courtyard Mall, offices/warehouses for rent, Al Riyadh Charter School, Al Riyadh Medical Center.",
+    "key_insight": "SS313 in emerging Al Riyadh City offers strong quick-service bay potential due to low competitor saturation, planned mixed-use growth, and ADNOC's existing fuel/EV traffic.",
+    "research_sources": "ADNOC Distribution Find Station, 2GIS ADNOC Stations, EV Infrastructure News, Rome2Rio, Charter Schools Abu Dhabi"
   },
   {
     "ss": "SS231",
@@ -1898,7 +2083,14 @@ const SITES_DATA = [
     "weighted_score": 5.2,
     "grade": "yellow",
     "notes": "Central Sharjah. Dense residential.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Qasimia is a mixed residential-commercial area in Sharjah with high population density (~9,000 people/km²), affordable rents attracting families and professionals, diverse community, nearby landmarks like Mega Mall, King Faisal Mosque, and Al Ittihad Park.",
+    "competitor_analysis": "Limited verified specific competitors within 2km: Wasat Al Qasimiah Tyres Trading (tyre workshop, ~1km away), Al Thaki Auto Services, Tareeq Al Qasmia Auto Maintenance. Low saturation for dedicated quick-service bays.",
+    "infrastructure_access": "Located on 31 Sheikh Saqr Bin Khalid Al Qasimi St, Al Mahatta; nearby bus stops (Mega Mall 600m); recent Dh150M road projects (Sharjah Ring Road upgrade).",
+    "ev_fleet": "No specific EV chargers at/near station; nearby Industrial Area 4 hosts logistics firms. Emerging industrial zone supports logistics growth.",
+    "commercial_context": "Proximity to Mega Mall, Sahara Centre; offices for rent; schools (Sharjah Indian School, Progressive English); hospitals/clinics (Medcare Hospital, NMC Rolla, Al Qassimi Hospital).",
+    "key_insight": "ADNOC SS498 benefits from high-density mixed-use location with good access and footfall, low identified competitor saturation for quick-service bays.",
+    "research_sources": "2GIS ADNOC, Keyspace Realty, citydensity.com, Off Plan Bazaar, Al Yousuf, Moovit, The National, 2GIS Tyres, Fidoc Clinics, Mega Mall"
   },
   {
     "ss": "SS582",
@@ -1935,7 +2127,15 @@ const SITES_DATA = [
     "competitors": "Golden Future Car Care occupies large space on-site at SS582. ADNOC Service Station Green Belt (582): Industrial Area 2, at 237 First Industrial Street. Services: Car Wash, Tires, Maintenance, Polish & Tinting, Special 95, Super 98, Diesel, NGV. Rating: 3.9 stars (326 reviews). Emarat petrol station on Green Belt Road confirmed in area. Nearby tire shop on Green Belt Rd (Nr Jini Auto Spare Parts, phone +971-6-5323030). ENOC station 1177 in Industrial Area 4. Multiple auto workshops and tire dealers in surrounding industrial zones. Sources: Zaubee ADNOC Green Belt 582 (https://zaubee.com/biz/adnoc-service-station-green-belt-582-itenlxfh), 2GIS ENOC 1177 (https://2gis.ae/sharjah/firm/70000001067369641), ENOC Sharjah transfer to ADNOC (https://www.thenationalnews.com/business/enoc-signs-over-petrol-stations-in-sharjah-to-adnoc-distribution-1.251575)",
     "infrastructure": "Industrial Area 6 nearby: 19km new internal roads, modernized utility networks (water, gas, electricity, telecom). Al Nahda Area (formerly Industrial Area 1) being converted to mixed-use zone for investment, residential, and commercial purposes with offices, upscale apartments, mosques, green areas, water features. Sharjah 2025 budget: Dh42B with 41% for infrastructure. Sources: Sharjah24 - Infrastructure (https://sharjah24.ae/en/Articles/2024/05/23/Launching-infrastructure-devt-for-Al-Nahda-2-Industrial-Areas), Zawya Industrial Area 6 (https://www.zawya.com/en/economy/gcc/sharjah-unveils-updates-on-industrial-area-6-infrastructure-development-project-ikxn8167)",
     "commercial": "Industrial Area zone with mixed commercial/industrial use. Nearby Al Nahda area has Sahara Centre (major mall on Dubai-Sharjah highway, opened 2002). Ansar Mall at Al Ittihad Road, Al Nahda. Al Arab Mall near Taawun Roundabout. 06 Mall near Al Mamzar Beach area. Sources: Sahara Centre (https://www.saharacentre.com/), Bayut Al Nahda Guide (https://www.bayut.com/area-guides/al-nahda-sharjah/)",
-    "transport": "Served by Maliha Road (S112) and Al Wahda Street. Bus routes through industrial areas including Route 3 and Route 14. Al Jubail Bus Station reachable. E311 (Sheikh Mohammed Bin Zayed Road) accessible. Sharjah International Airport: ~13km east-southeast. Sources: Bayut Public Transport (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Wikipedia Sharjah Industrial Area (https://en.wikipedia.org/wiki/Sharjah_Industrial_area)"
+    "transport": "Served by Maliha Road (S112) and Al Wahda Street. Bus routes through industrial areas including Route 3 and Route 14. Al Jubail Bus Station reachable. E311 (Sheikh Mohammed Bin Zayed Road) accessible. Sharjah International Airport: ~13km east-southeast. Sources: Bayut Public Transport (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Wikipedia Sharjah Industrial Area (https://en.wikipedia.org/wiki/Sharjah_Industrial_area)",
+    "market_intel": "Sharjah Industrial Area 2 is a mixed-use commercial and industrial hub with factories, warehouses, staff accommodations, automotive workshops. Population density of 2,403/km² and significant real estate deals reaching AED 9.24 billion in 2025.",
+    "competitor_analysis": "High saturation of automotive services: Al Wiqaya Tyres Trading, Gulf Coasts Company, Al Kahil Auto Repair, Afride Legend Auto Repair, Al Himah Auto Maintenance, New Style Auto Maintenance, Sree Auto Repairing Workshop, Tune Town Auto Maintenance, and mobile car washes.",
+    "infrastructure_access": "Located on First Industrial Street (237), accessible via Maliha Road (S112), Al Khan Street; near Sharjah Ring Road (E11 upgrades), University City Bridge expansion; proximity to Dubai Intl Airport (20 min).",
+    "ev_fleet": "No EV chargers directly in Industrial Area 2; nearest at Sharjah City Centre. Area hosts numerous logistics firms, fleet operations, used car auctions/showrooms like Marhaba Cars Auction.",
+    "commercial_context": "Abundant offices, factories, warehouses; Al Shifa Al Khaleeji Medical Centre; nearby malls: Safeer Mall, Sahara Centre, City Centre Sharjah; schools like GEMS Millennium.",
+    "key_insight": "High concentration of industrial workers, automotive businesses, and logistics in a growing area with strong infrastructure makes the station ideal for quick-service bay, despite competitor density, targeting captive fleet and workshop traffic.",
+    "research_sources": "2GIS Station, Wikipedia Industrial Area, Skyloov IA2, TradeArabia Deals, Khaleej Times Roads, ADNOC Lube, 2GIS Tyres, Al Shifa Clinic",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS582"
   },
   {
     "ss": "SS657",
@@ -1972,7 +2172,8 @@ const SITES_DATA = [
     "competitors": "ADNOC station Wasit 657: 24hr, ATM, Lube, Car Wash, Car Sanitization, Special 95, Super 98. ADNOC Lube operates on-site at 311/1, Al Wasit Street (creating layout issues). ADNOC station Al Nakheel 586 also on Al Wasit Street. ADNOC station Al Ramtha 828 nearby on Al Wasit Street. ENOC opened new station in Al Sweihat-Wasit area (2025), the 28th ENOC station in Sharjah. Sources: 2GIS ADNOC Wasit 657 (https://2gis.ae/sharjah/firm/70000001019819574), Gulf News ENOC Sharjah expansion (https://gulfnews.com/business/retail/enoc-adds-new-sharjah-fuel-station-bringing-uae-total-to-204-1.500223109), 2GIS ADNOC Al Nakheel 586 (https://2gis.ae/sharjah/gallery/firm/70000001020755547)",
     "infrastructure": "Wasit Wetland Centre (Wasit Nature Reserve): 86 hectares, only nature reserve within Sharjah city boundaries. Won Aga Khan Award for Architecture 2019. Attracts eco-tourism. Residential villa development ongoing in Wasit Suburb. Industrial Area 6 and 7 infrastructure upgrade projects in progress nearby. Sharjah 2025 budget: Dh42B, 41% for infrastructure. Sources: Visit Sharjah - Wasit Nature Reserve (https://www.visitsharjah.com/en/activities/nature-and-wildlife/wasit-nature-reserve/), Ramsar (https://rsis.ramsar.org/ris/2386), Sharjah24 Infrastructure (https://sharjah24.ae/en/Articles/2024/05/23/Launching-infrastructure-devt-for-Al-Nahda-2-Industrial-Areas)",
     "commercial": "Wasit Suburb is primarily residential with supporting retail. Samnan Mall on Wasit Street (within Samnan community). Mega Mall: ~10 min drive. Oasis Mall and Ramez Mall also accessible. Carrefour Market in Al Goaz (~4 min from Wasit area). Calcutta Supermarket in Al Ramtha (~2 min). Schools: Sharjah American International School, Victoria International School, Beaconhouse Al Khaleej International. Sources: Bayut Wasit (https://www.bayut.com/area-guides/wasit-suburb/), Square Yards Wasit (https://www.squareyards.ae/area-guide/sharjah/wasit-suburb)",
-    "transport": "Wasit Square Bus Stop connects to Dubai and Ajman. Bus routes E400, E303, E304, E307 serve the area. Main road: Al Wasit Street with access to Sheikh Mohammed Bin Zayed Road (E311). Sharjah International Airport: ~10 min drive. Sharjah Marina Metro Station and Al Khail Metro Station are closest metro stops (metro is in Dubai; accessible via intercity bus). Sources: Bayut Wasit (https://www.bayut.com/area-guides/wasit-suburb/), Square Yards Wasit (https://www.squareyards.ae/area-guide/sharjah/wasit-suburb), Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/)"
+    "transport": "Wasit Square Bus Stop connects to Dubai and Ajman. Bus routes E400, E303, E304, E307 serve the area. Main road: Al Wasit Street with access to Sheikh Mohammed Bin Zayed Road (E311). Sharjah International Airport: ~10 min drive. Sharjah Marina Metro Station and Al Khail Metro Station are closest metro stops (metro is in Dubai; accessible via intercity bus). Sources: Bayut Wasit (https://www.bayut.com/area-guides/wasit-suburb/), Square Yards Wasit (https://www.squareyards.ae/area-guide/sharjah/wasit-suburb), Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS657"
   },
   {
     "ss": "SS769",
@@ -2049,7 +2250,8 @@ const SITES_DATA = [
     "competitors": "ADNOC station Al Ramtha 828: 24hr, Special 95, Diesel, ATM, WC. KFC operates on-site (rented store room) - confirmed at ADNOC station on Wasit Street, Al Ramtha. Zeez Workshop was previously on-site but shut down by municipalities. ADNOC station Wasit 657 also on Al Wasit Street nearby. ADNOC station Al Nakheel 586 on Al Wasit Street. ENOC new station in Al Sweihat-Wasit area (2025). Sources: 2GIS ADNOC 828 (https://2gis.ae/sharjah/firm/70000001019621972), Dubai Local KFC Al Ramtha (https://dubailocal.ae/business/kfc-al-ramtha), Localmint ADNOC 828 (https://www.localmint.com/ae/adnoc-service-station-al-ramtha-82-sharjah-hours-1058014), Gulf News ENOC (https://gulfnews.com/business/retail/enoc-adds-new-sharjah-fuel-station-bringing-uae-total-to-204-1.500223109)",
     "infrastructure": "Al Ramtha is developing as a residential villa suburb within Wasit. Well connected to the rest of Sharjah via Wasit Street and excellent roadways. Wasit Nature Reserve (86 hectares, Aga Khan Award winner) is located in the Ramtha area. Nearby Industrial Area 6 and 7 undergoing major infrastructure upgrades. Emirates Road Enhancement Project (2025-2027) will improve E611 nearby. Sharjah 2025 budget: Dh42B, 41% for infrastructure. Sources: Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/), Visit Sharjah Wasit Reserve (https://www.visitsharjah.com/en/activities/nature-and-wildlife/wasit-nature-reserve/), MOEI Emirates Road (https://www.moei.gov.ae/en/media-center/news/15/7/2025/ministry-of-energy-and-infrastructure-launches-strategic-project-to-develop-emirates-road)",
     "commercial": "Calcutta Supermarket: 2 min drive from Al Ramtha. Carrefour Market in Al Goaz: ~4 min drive. Al Ramaqiya, Al Azra, Al Falaj communities with stores: 5-7 min drive. Samnan Mall on Wasit Street nearby. Mega Mall, Oasis Mall, Ramez Mall all within short driving distance. Schools: Derby Nursery, Al Kamal American School, Sharjah American International School, Victoria English School, Beaconhouse Al Khaleej International. Hospitals (9-12 min drive): Zulekha Hospital, Central Private Hospital, Al Qassimi Hospital, Kuwait Hospital, Al Zahra Hospital Sharjah. Sources: Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/), Square Yards Al Ramtha (https://www.squareyards.ae/area-guide/sharjah/al-ramtha)",
-    "transport": "Bus lines E400, E303, E304, E307, E307A, 3, and 8 serve Al Ramtha. Wasit Street provides main road connectivity. E311 (Sheikh Mohammed Bin Zayed Road) accessible. Sharjah International Airport: ~10 min drive. Nearest metro stations: Sharjah Marina Metro Station, Al Khail Metro Station (Dubai metro; accessible via intercity bus). Near Ajman border for cross-emirate connectivity. Personal car recommended as bus routes are limited. Sources: Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/), Square Yards Al Ramtha (https://www.squareyards.ae/area-guide/sharjah/al-ramtha), Edarabia Bus Routes (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/)"
+    "transport": "Bus lines E400, E303, E304, E307, E307A, 3, and 8 serve Al Ramtha. Wasit Street provides main road connectivity. E311 (Sheikh Mohammed Bin Zayed Road) accessible. Sharjah International Airport: ~10 min drive. Nearest metro stations: Sharjah Marina Metro Station, Al Khail Metro Station (Dubai metro; accessible via intercity bus). Near Ajman border for cross-emirate connectivity. Personal car recommended as bus routes are limited. Sources: Bayut Al Ramtha (https://www.bayut.com/area-guides/al-ramtha/), Square Yards Al Ramtha (https://www.squareyards.ae/area-guide/sharjah/al-ramtha), Edarabia Bus Routes (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS828"
   },
   {
     "ss": "SS811",
@@ -2129,7 +2331,14 @@ const SITES_DATA = [
     "weighted_score": 5.1,
     "grade": "yellow",
     "notes": "Industrial zone with auto services. Strong demand.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Primarily industrial zone (Industrial Area 12) with mixed residential/commercial: apartments for workers, warehouses, factories, workshops. Population density ~2,400/km².",
+    "competitor_analysis": "High saturation; IA12 known for repairs. Specifics: Artex Auto Repair, Qemat Al Itqan Auto Maintenance, Al Hamriyah Heavy Auto Repair, Azure Auto, AAS Auto Maintenance, Al Taief Garage, Alfantas Tyre Shop. Dense in IA10-12.",
+    "infrastructure_access": "Strong access: Maliha Rd (S112), Sheikh Khalifa Bin Zayed Al Nahyan Rd, Sharjah-Dubai Hwy (S102). High visibility on busy Third Ind St.",
+    "ev_fleet": "Tesla EV charger in IA12; fleet/logistics heavy: Landmark Transport, Jezara Logistics, Tameem Logistics. No nearby dealerships.",
+    "commercial_context": "Abundant industrial offices/companies. Low footfall drivers: no malls/schools/hospitals nearby; nearest Safeer Mall (IA15). Worker/commuter traffic dominant.",
+    "key_insight": "Despite high competitor density, ADNOC SS197's prime location serves fleet operators and commuters, offering potential for differentiated quick oil/tire/bay services.",
+    "research_sources": "2GIS ADNOC, Wikipedia Sharjah Industrial, 2GIS Garages, Reddit IA12 Repairs, 2GIS Tesla Charger, SRTA Buses"
   },
   {
     "ss": "SS567",
@@ -2246,7 +2455,8 @@ const SITES_DATA = [
     "competitors": "ADNOC station Emirates Road 761: 24hr, Special 95, Super 98, Lube, Car Wash, Car Sanitization, ATM, WC, Prayer Room. ADNOC Lube on-site creating access issues. ADNOC is sole retail fuel operator in Sharjah (78 stations). ENOC expanding aggressively: 28 stations in Sharjah (2025), UAE total 204. ENOC compact station on Al Kalba Road (10th compact station in UAE). ENOC stations in Muweilah (3,600 sqm, 8 dispensers) and Al Azra (2,508 sqm). Emarat station E7050 in Industrial Area 12. Sources: 2GIS ADNOC 761 (https://2gis.ae/sharjah/firm/70000001019677263), Waze ADNOC 761 (https://www.waze.com/live-map/directions/adnoc-service-station-or-emirates-road-(761)-e311-sheikh-mohammad-bin-zayed-road-sharjah-industrial-area-11?to=place.w.36307197.363268577.143341), Gulf News ENOC expansion (https://gulfnews.com/business/retail/enoc-adds-new-sharjah-fuel-station-bringing-uae-total-to-204-1.500223109)",
     "infrastructure": "District 11: Major commercial development on E311, spanning 3M+ sqft. 5 min from Sharjah International Airport and University City. Adjacent to Al Zahia City Centre and Al Zahia residential community. Emirates Road Enhancement Project (2025-2027): 3 to 5 lanes, 25km stretch, 6 directional bridges (12.6km total length, 13,200 vehicles/hour capacity). Aljada megaproject in nearby Muwaileh: 24M sqft, 25,000 homes, 7,600+ completed, population now 20,000+. Sources: Yahoo Finance District 11 (https://finance.yahoo.com/news/district-11-uaes-premier-business-122500389.html), MOEI Emirates Road (https://www.moei.gov.ae/en/media-center/news/15/7/2025/ministry-of-energy-and-infrastructure-launches-strategic-project-to-develop-emirates-road), Arada - Aljada (https://www.arada.com/en/latest-news/arada-completes-another-120-homes-at-sharjah-megaproject-aljada/)",
     "commercial": "Sharjah Industrial Area 11: commercial/industrial mixed-use district with trading companies and factories. District 11 development: new premier business hub under construction. Al Zahia City Centre nearby. Safari Mall accessible from industrial area roads. Sources: Bayut Industrial Area 11 (https://www.bayut.com/area-guides/industrial-area-11/), Yahoo Finance District 11 (https://finance.yahoo.com/news/district-11-uaes-premier-business-122500389.html)",
-    "transport": "Direct access from Sheikh Mohammed Bin Zayed Road (E311) - major UAE highway. E311 connects Abu Dhabi to Ras Al Khaimah (~220km). 5 min from Sharjah International Airport. Near University City. Bus routes serving industrial areas available. Truck movement restricted during peak hours on E311 (since April 2024). Sources: Wikipedia E311 (https://en.wikipedia.org/wiki/E_311_road_(United_Arab_Emirates)), UAE Edge E311 (https://uaeedge.com/sheikh-mohammed-bin-zayed-road-complete-guide/), 2GIS ADNOC 761 (https://2gis.ae/sharjah/firm/70000001019677263)"
+    "transport": "Direct access from Sheikh Mohammed Bin Zayed Road (E311) - major UAE highway. E311 connects Abu Dhabi to Ras Al Khaimah (~220km). 5 min from Sharjah International Airport. Near University City. Bus routes serving industrial areas available. Truck movement restricted during peak hours on E311 (since April 2024). Sources: Wikipedia E311 (https://en.wikipedia.org/wiki/E_311_road_(United_Arab_Emirates)), UAE Edge E311 (https://uaeedge.com/sheikh-mohammed-bin-zayed-road-complete-guide/), 2GIS ADNOC 761 (https://2gis.ae/sharjah/firm/70000001019677263)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS761"
   },
   {
     "ss": "SS872",
@@ -2286,7 +2496,14 @@ const SITES_DATA = [
     "weighted_score": 5.0,
     "grade": "yellow",
     "notes": "Muweilah/Zuraina area. Growing.",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Juraina 1 is a low-density residential suburb with medium-rise apartments and large family villas, green spaces; middle-income academics/families near University City. Landmarks: Sharjah Int'l Airport. Ongoing sustainable infrastructure.",
+    "competitor_analysis": "Station has lube/oil, vacuum. Nearby: Armor Car Care at Zero 6 Mall; workshops in IA15/17/Muwaileh. Moderate saturation; opportunity to expand quick bay for airport/residential traffic.",
+    "infrastructure_access": "E88 Al Dhaid Rd, 10min to E311; high airport visibility. Buses 14/15 (airport), 77 (Muwailah). Occasional congestion/flooding.",
+    "ev_fleet": "EV: GreenParking at Zero 6 Mall (~2km); airport EV testing. Fleet: SAIF Zone logistics. No major dealerships nearby.",
+    "commercial_context": "University City (AUS, UoS); Zero 6 Mall (retail/IMAX/gym); schools (Australian Int'l); hospitals (UHS, Prime ~10min). Drives student/commuter traffic.",
+    "key_insight": "Excellent airport/University City location with residential base positions SS876 for quick-service bay expansion amid moderate competition and high transient traffic.",
+    "research_sources": "2GIS Station, Waze, Carnity, Metropolitan, SquareYards, Zero6"
   },
   {
     "ss": "SS686",
@@ -2363,7 +2580,8 @@ const SITES_DATA = [
     "competitors": "ENOC operates a station at Jebel Ali Industrial 1 (24 hours) and opened a new service station in JAFZA spanning 5,830 sqm with two dedicated service areas (mainland and free zone). Source: HiDubai (https://www.hidubai.com/businesses/enoc-petrol-station-transport-vehicle-services-fuel-stations-car-wash-international-media-production-zone-meaisem-1-dubai-2); HiDubai Focus (https://focus.hidubai.com/enoc-group-opens-new-service-station-in-jebel-ali-free-zone/). ADNOC Distribution operates 977 stations by Q3 2025 (largest UAE network). Source: Mordor Intelligence (https://www.mordorintelligence.com/industry-reports/united-arab-emirates-fuel-station-market/companies). Emarat operates 100+ stations across Dubai, Sharjah and northern emirates. Source: stations.ae (https://stations.ae/petrol-stations-in-dubai/). ADNOC, ENOC, and Emarat together account for ~85% of UAE fuel retail volumes. Source: Mordor Intelligence (https://www.mordorintelligence.com/industry-reports/united-arab-emirates-fuel-station-market).",
     "infrastructure": "Palm Jebel Ali: AED 810M marine works contract awarded Aug 2024 (Jan De Nul); AED 5B+ for ultra-luxury villas on first 6 fronds (completion late 2026); AED 750M+ infrastructure contracts to DBB Contracting for roads/utilities; AED 270M DEWA substations partnership. First 8 fronds expected site-ready by Q1 2025. Source: Dubai Holding (https://www.dubaiholding.com/en/media-hub/press-releases/palm-jebel-ali-project-surges-ahead-in-2024-milestones-achieved-in-record-time-for-dubais-most-anticipated-development). Aldar Properties and DP World partnered to develop a Grade A logistics park at National Industries Park in Jebel Ali. Construction started Q4 2024, first tenants expected Q4 2025. Source: Construction Week Property (https://property.constructionweekonline.com/dubai-aldar-properties-and-dp-world-partner-to-develop-a-grade-a-logistics-park-in-jebel-ali/). USD 3B+ invested in highway and port upgrades during 2024-2025, including widening of E11 and E311. Source: Mordor Intelligence (https://www.mordorintelligence.com/industry-reports/united-arab-emirates-fuel-station-market).",
     "commercial": "Ibn Battuta Mall: world's largest themed shopping mall with ~275 shops, 50 restaurants, 4,500+ parking spaces, 521,000 sqm total space; approximately 11 minutes from Jebel Ali Industrial. Source: Wikipedia (https://en.wikipedia.org/wiki/Ibn_Battuta_Mall). Jebel Ali Mall: 45,000 sq ft with 27+ stores of international/regional brands. Crystal Mall: retail outlets, electronics, clothes, jewellery, Al Madina Hypermarket. Source: Bayut (https://www.bayut.com/area-guides/jebel-ali-industrial-1/). Other nearby malls include Dubai Festival Plaza and The Outlet Village. Source: Driven Properties (https://www.drivenproperties.com/dubai-properties-areas/jebel-ali-industrial-second). JAFZA spans 57 sq km, hosts 10,000+ companies contributing 21% of Dubai's GDP. Source: JAFZA (https://www.jafza.ae/).",
-    "transport": "Metro: Danube Metro Station (Red Line) ~2.6 km away (34 min walk); Ibn Battuta Metro Station ~18 min walk from Jebel Ali Industrial Area 2. Jebel Ali Metro Station is the Red Line terminus. Source: Moovit (https://moovitapp.com/index/en/public_transit-Jebel_Ali_Industrial_Area_1-Dubai_Abu_Dhabi-site_37308048-3824). Bus: Routes 96, F53, X92, X94, F47, F49, 56, 97 serve the area. Source: Moovit (https://moovitapp.com/index/en/public_transit-Jebel_Ali_Industrial_Area_1_01-Dubai_Abu_Dhabi-stop_25135026-3824). Airport: Al Maktoum International Airport (DWC) is within Jebel Ali itself (~18 km straight line, ~34 km driving). DXB is approximately 45 km northeast. Source: Wikipedia (https://en.wikipedia.org/wiki/Al_Maktoum_International_Airport); TravelMath (https://www.travelmath.com/drive-distance/from/DWC/to/Jebel+Ali,+United+Arab+Emirates)."
+    "transport": "Metro: Danube Metro Station (Red Line) ~2.6 km away (34 min walk); Ibn Battuta Metro Station ~18 min walk from Jebel Ali Industrial Area 2. Jebel Ali Metro Station is the Red Line terminus. Source: Moovit (https://moovitapp.com/index/en/public_transit-Jebel_Ali_Industrial_Area_1-Dubai_Abu_Dhabi-site_37308048-3824). Bus: Routes 96, F53, X92, X94, F47, F49, 56, 97 serve the area. Source: Moovit (https://moovitapp.com/index/en/public_transit-Jebel_Ali_Industrial_Area_1_01-Dubai_Abu_Dhabi-stop_25135026-3824). Airport: Al Maktoum International Airport (DWC) is within Jebel Ali itself (~18 km straight line, ~34 km driving). DXB is approximately 45 km northeast. Source: Wikipedia (https://en.wikipedia.org/wiki/Al_Maktoum_International_Airport); TravelMath (https://www.travelmath.com/drive-distance/from/DWC/to/Jebel+Ali,+United+Arab+Emirates).",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS126-Jebel-Ali-Industrial"
   },
   {
     "ss": "SS511",
@@ -2460,7 +2678,8 @@ const SITES_DATA = [
     "competitors": "KIZAD has a dedicated ADNOC Distribution Truck Plaza - the largest in the Middle East, covering 87,000 sq m (12 football fields). Features: two main canopies, six diesel bay canopies, restaurant for truck drivers, convenience store, four quick-service outlets, vehicle washing, car care services, and a 1,000-person mosque Gulf Business (https://gulfbusiness.com/kizad-to-build-largest-truck-plaza-within-the-middle-east/). 275 shaded truck, bus and car parking spaces at the plaza AD Ports (https://www.adports.ae/kizad-breaks-ground-on-largest-rest-refuelling-facility-in-region/). Suweidi Engineering was contractor for the KIZAD truck plaza and petrol station project Suweidi (https://suweidi.com/projects/khalifa-industrial-zone-kizad-truck-plaza-petrol-station/). ADNOC dominates fuel retail in Abu Dhabi with 248 stations; no ENOC/Emarat stations operate in this zone Xmap.ai (https://www.xmap.ai/blog/how-many-adnoc-service-stations-are-in-the-uae).",
     "infrastructure": "KEZAD Business District launched June 2025: ~3 sq km initial phase with 21,000 sq m office tower, sports facilities, F&B retail spaces KEZAD Group (https://www.kezadgroup.com/en/news-and-media/2025/06/11/kezad-group-announces-the-development-of-kezad-business-district). Khalifa Port expansion: capacity reaching 11 million TEUs, with South Quay and KPL additions Seatrade Maritime (https://www.seatrade-maritime.com/ports-logistics/abu-dhabi-ports-making-headway-with-khalifa-port-expansion). New CMA CGM container terminal: AED 570 million investment, 800m quay, 1.8 million TEU capacity AD Ports (https://www.adports.ae/ports-terminals/commercial-ports/khalifa-port/). Arabian Chemical Terminals signed 50-year agreement for first bulk liquid/gas storage terminal at Khalifa Port Khalifa Port (https://www.adports.ae/ports-terminals/commercial-ports/khalifa-port/). Bechtel was the master developer for Khalifa Port and KIZAD infrastructure Bechtel (https://www.bechtel.com/projects/khalifa-port-and-kizad/).",
     "commercial": "KIZAD is primarily industrial/logistics with limited retail commercial. KIZAD accommodates businesses across sectors: food, metals, plastics, automotive manufacturing, logistics, trade, distribution Bayut (https://www.bayut.com/area-guides/kizad/). KEZAD offers serviced land plots, pre-built warehouses, offices, shared workspaces, and ancillary retail/community services KEZAD Group (https://www.kezadgroup.com/en/business-facilities/service-land). Amenities within 10-min drive: residential areas, schools, healthcare, religious centers, dining Bayut (https://www.bayut.com/area-guides/kizad/). No shopping malls within the zone itself; nearest malls are in Al Rahba/Al Raha area (~15-20 min drive).",
-    "transport": "E11 Highway runs directly through KIZAD connecting to Abu Dhabi mainland and Dubai Bayut (https://www.bayut.com/area-guides/kizad/). Bus access: E100 and E101 shuttle buses from Abu Dhabi Samha 2 Station, approximately 10 minutes from KIZAD Bayut (https://www.bayut.com/area-guides/kizad/). Airport distances: Abu Dhabi International Airport 35 km, Al Maktoum International Airport (Dubai) 52 km, Dubai International Airport 85 km Bayut (https://www.bayut.com/area-guides/kizad/). KIZAD is approximately 43 minutes / 67 km from Abu Dhabi mainland Bayut (https://www.bayut.com/area-guides/kizad/). Intermodal infrastructure: integrated access to rail, air, and sea routes via adjacent Khalifa Port KEZAD Group (https://www.kezadgroup.com/en/about-us). No metro service; Abu Dhabi metro planned for 2030."
+    "transport": "E11 Highway runs directly through KIZAD connecting to Abu Dhabi mainland and Dubai Bayut (https://www.bayut.com/area-guides/kizad/). Bus access: E100 and E101 shuttle buses from Abu Dhabi Samha 2 Station, approximately 10 minutes from KIZAD Bayut (https://www.bayut.com/area-guides/kizad/). Airport distances: Abu Dhabi International Airport 35 km, Al Maktoum International Airport (Dubai) 52 km, Dubai International Airport 85 km Bayut (https://www.bayut.com/area-guides/kizad/). KIZAD is approximately 43 minutes / 67 km from Abu Dhabi mainland Bayut (https://www.bayut.com/area-guides/kizad/). Intermodal infrastructure: integrated access to rail, air, and sea routes via adjacent Khalifa Port KEZAD Group (https://www.kezadgroup.com/en/about-us). No metro service; Abu Dhabi metro planned for 2030.",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS243-Kizad"
   },
   {
     "ss": "SS519",
@@ -2497,7 +2716,8 @@ const SITES_DATA = [
     "competitors": "Emarat-Qusais: Amman St, Muhaisnah, Al Qusais Industrial Area 5. Emarat-Muhaisnah: Beirut St, Al Qusais Industrial Area, Muhaisnah 3. Source: Foursquare (https://foursquare.com/v/emarat-petrol-station/4bc968fafb84c9b6e81d1b3e); DubaiPetrolStation.com (https://dubaipetrolstation.com/). Saeedi Pro tyre/oil change at Al Qusais Emarat station, Damascus Street. Source: Saeedi Pro (https://saeedipro.com/). Auto repair: Sunshine Auto (Al Qusais), King Road Autos Repairing (Muhaisnah 4, opposite Lulu Village), TYREPLUS First View Auto Service Centre (Al Qusais), Al Qusais Garage, Middle East Auto Garage (Al Qusais Industrial Area 1, est. 2009), Top Technology Cars (Industrial Area 4). Source: Various -- sunshineauto.ae; kingroadautosrepairing.com; tyreplus-me.com; alqusaisgarage.ae; middleeastautogarage.com; tecnocaruae.com.",
     "infrastructure": "Dubai Metro Blue Line (30 km, AED multi-billion project): groundbreaking June 2025, now 12% complete, targeting 30% by end of 2026 and opening 9.9.2029. The second branch passes through Mirdif and Al Warqa (9 km, 4 stations) from Centrepoint Interchange on the Red Line at Al Rashidiya. ~3,000 workers and 500+ engineers across 12 active work sites; community sessions held in Mirdif/Al Warqa Oct 2025. Source: Dubai Media Office (https://www.mediaoffice.ae/en/news/2025/november/09-11/rta); Wikipedia (https://en.wikipedia.org/wiki/Blue_Line_(Dubai_Metro)). This will significantly improve connectivity in the Muhaisanah/Al Qusais area. 3.5 million vehicles on Dubai roads daily in 2024, a 10% increase over two years. Source: Khaleej Times (https://www.khaleejtimes.com/uae/transport/dubai-motorists-lost-up-to-35-hours-to-traffic-congestion-in-2024).",
     "commercial": "Madina Mall: located in Muhaisnah 4 on Beirut Street, near Al Qusais Metro Station. Source: Madina Mall (https://madina-mall.com/). Bin Shabib Mall: Al Qusais Industrial Area, with hypermarket, clinics, kids' play area, food court. Lulu Village: near Al Qusais-Muhaisnah border, hypermarket and household essentials. Al Bustan Centre & Residence: within Al Qusais, fashion brands, cafes, service outlets. Sahara Centre: on the Dubai-Sharjah border, major fashion brands, electronics, cinemas, entertainment zone. Source: Property Finder (https://www.propertyfinder.ae/blog/malls-near-al-qusais/). Al Qusais Industrial Areas host extensive commercial/warehousing activity.",
-    "transport": "Metro: Al Qusais Metro Station (Green Line) linking eastern Dubai with Deira and Bur Dubai. Nearby Red Line stations: Al Qiyadah and GGICO. Source: Property Finder (https://www.propertyfinder.ae/blog/al-qusais-metro-station/). Bus: Al Qusais Bus Station on Algeria Street (D 56) serving Muhaisanah and surrounding areas. Key routes: 13A/13B/13D (Deira Gold Souq), 32C (Al Satwa), F02 (Muhaisanah 4), plus routes 33, 64, F08. Source: stations.ae (https://stations.ae/al-qusais-bus-station/); Moovit (https://moovitapp.com/index/en/public_transit-Al_Qusais_Metro_Station-Dubai_Abu_Dhabi-stop_33919471-3824). Airport: DXB is approximately 12 minutes' drive from Al Muhaisnah. Source: Propsearch (https://propsearch.ae/dubai/al-muhaisnah-4). Future: Dubai Metro Blue Line (opening 2029) will pass through adjacent Mirdif/Al Warqa, significantly boosting connectivity."
+    "transport": "Metro: Al Qusais Metro Station (Green Line) linking eastern Dubai with Deira and Bur Dubai. Nearby Red Line stations: Al Qiyadah and GGICO. Source: Property Finder (https://www.propertyfinder.ae/blog/al-qusais-metro-station/). Bus: Al Qusais Bus Station on Algeria Street (D 56) serving Muhaisanah and surrounding areas. Key routes: 13A/13B/13D (Deira Gold Souq), 32C (Al Satwa), F02 (Muhaisanah 4), plus routes 33, 64, F08. Source: stations.ae (https://stations.ae/al-qusais-bus-station/); Moovit (https://moovitapp.com/index/en/public_transit-Al_Qusais_Metro_Station-Dubai_Abu_Dhabi-stop_33919471-3824). Airport: DXB is approximately 12 minutes' drive from Al Muhaisnah. Source: Propsearch (https://propsearch.ae/dubai/al-muhaisnah-4). Future: Dubai Metro Blue Line (opening 2029) will pass through adjacent Mirdif/Al Warqa, significantly boosting connectivity.",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS519"
   },
   {
     "ss": "SS234",
@@ -2648,7 +2868,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Turrfa (Al Turfa)/Mughaidir is a quiet suburban residential area in eastern Sharjah with primarily standalone villas and townhouses for middle-income families. Affordable rentals (3-bed villa AED 50-70k/year). Family-oriented.",
+    "competitor_analysis": "Low saturation locally; station offers lube, car wash, maintenance. In Mughaidir: Hamad Al Falasi Car Washing, Waves Auto Care. TelusCare Al Tarfa. No heavy concentration within 2km.",
+    "infrastructure_access": "Prime location on E311 Sheikh Mohammed Bin Zayed Rd (major highway), excellent visibility/traffic exposure, 24h open.",
+    "ev_fleet": "Limited EV chargers in Sharjah (2 stations total); none confirmed at/near station. Habib Fleets (commercial vehicles) in Sharjah.",
+    "commercial_context": "Schools: Al Tala'a Basic, Um Roman Girls; universities (Univ Sharjah, AUS) 5-10min. Local supermarkets; clinics (Dr Amal Al Qedrah) nearby.",
+    "key_insight": "Underserved residential suburb with high family car density, highway visibility, and existing basic services shows strong potential for quick-service bay expansion; low local competition minimizes risk.",
+    "research_sources": "2GIS ADNOC, Metropolitan Mughaidir, Eplog Turrfa, City Density, Emirates Directory, Electromaps, Fidoc Clinics, ArabWheels"
   },
   {
     "ss": "SS564",
@@ -2668,7 +2895,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Ruqa Al Hamra district (32.88 km², population 19,214, density 584/km²) features low-density residential/commercial mix with ongoing infrastructure developments. Key landmarks: Souq Al Haraj (largest used car market), Tasjeel Village.",
+    "competitor_analysis": "Within 2km: Barchalona Car Polishing, Wshat Al Sedra Auto Tyres, Fasttrack Emarat (car service/fleets). Station offers car wash, tires, battery, maintenance. Moderate saturation in auto hub.",
+    "infrastructure_access": "Prime location on Sheikh Mohammed Bin Zayed Rd (E311), major highway with high visibility/traffic. 24/7 open. Buses (E306/E307). Sharjah RTA road upgrades.",
+    "ev_fleet": "EV charger nearby on E311 near Tasjeel (Type 2 22kW). Souq Al Haraj: 460+ dealerships/auction. Fleets: Habib Fleets, Fasttrack.",
+    "commercial_context": "Adjacent Tasjeel Village (registration), Souq Al Haraj (retail/restaurants). Nearby Muwaileh Commercial offices.",
+    "key_insight": "High-traffic E311 location amid Souq Al Haraj car market offers strong quick-service bay potential for oil changes/tires targeting drivers/dealerships/fleets.",
+    "research_sources": "2GIS ADNOC, Wikipedia Sharjah, Skyloov, Payscale, Souq Al Haraj, Fasttrack, Gulf News, Electromaps"
   },
   {
     "ss": "SS565",
@@ -2785,7 +3019,8 @@ const SITES_DATA = [
     "competitors": "ADNOC petrol station at Sharjah Sports Club confirmed on-site (24hr operation, fuel, tire air, oil change, mini supermarket). Hani Habib Al Khalsan operates on-site as existing competitor. ADNOC station Al Asrar 178 nearby on Al Nahda area. ADNOC station Al Dorra 573 on Al Ittihad Street. ENOC expanding in Sharjah with 28 stations (2025), including new Al Sweihat-Wasit station. Emarat station on Al Sharq Street also in the vicinity. Sources: Sharjah Club ADNOC (https://sharjahclub.ae/en/vilage/adnoc-petrol-station/), 2GIS ADNOC Al Dorra 573 (https://2gis.ae/sharjah/firm/70000001007217468), Gulf News ENOC expansion (https://gulfnews.com/business/retail/enoc-adds-new-sharjah-fuel-station-bringing-uae-total-to-204-1.500223109)",
     "infrastructure": "Al Qasba waterfront development (~3 miles from Sharjah Club): 100,000 sqm leisure/retail destination. Sharjah's 2025 budget: Dh42 billion, 41% allocated to infrastructure. Dh150M bridge project near Martyrs Monument creating direct route from Mleiha Road to SMBZ Road. Dh90M ring road expansion project approved to ease traffic. Sources: Al Qasba Guide (https://www.squareyards.ae/area-guide/sharjah/al-qasba), Gulf News road projects (https://gulfnews.com/uae/transport/sharjah-unveils-dh150-million-bridge-and-ring-road-expansion-to-ease-traffic-1.500361995), The National (https://www.thenationalnews.com/news/uae/2025/11/28/sharjah-ruler-approves-projects-worth-dh150-million-to-reduce-congestion/)",
     "commercial": "Sharjah Mega Mall: ~2 miles from Sharjah Sports Club (major shopping/entertainment). Sharjah Gold Souq: ~2 miles away. Al Qasba: ~3 miles, major waterfront retail/dining destination with Eye of the Emirates Ferris wheel. Ansar Mall, I Mall, Oasis Mall, Samnan Mall in Al Qasba vicinity. Galleria Mall and Nesto Hypermarket also nearby. City Centre Sharjah (major regional mall with VOX Cinemas, Magic Planet). Sources: Expedia Sharjah Club (https://www.expedia.com/Al-Sharjah-Sports-Club-Dubai.d6157752.Vacation-Attraction), Al Qasba Guide (https://www.squareyards.ae/area-guide/sharjah/al-qasba), City Centre Sharjah (https://www.citycentresharjah.com/)",
-    "transport": "Bus routes E303, E307, E307A, E400 serve the area. Al Jubail Bus Station is a major hub nearby. Highway access via Al Ittihad Road (connecting to E11) and Al Wahda Road. Sharjah International Airport: ~13km east. No metro in Sharjah; nearest Dubai Metro stations accessible via intercity bus. Sources: Bayut Public Transport (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Edarabia (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/)"
+    "transport": "Bus routes E303, E307, E307A, E400 serve the area. Al Jubail Bus Station is a major hub nearby. Highway access via Al Ittihad Road (connecting to E11) and Al Wahda Road. Sharjah International Airport: ~13km east. No metro in Sharjah; nearest Dubai Metro stations accessible via intercity bus. Sources: Bayut Public Transport (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Edarabia (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/)",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS575"
   },
   {
     "ss": "SS576",
@@ -2865,7 +3100,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Yarmouk/Al Mirqab is a vibrant, predominantly residential mixed-use neighborhood in Sharjah's Halwan Suburb with low- to mid-rise apartments, government offices, Gold Center landmark. Sharjah emirate population 1.81M, density 699/km².",
+    "competitor_analysis": "Nearby: Sharee Al Murqab Tyres Repairing & Oil Change (~100m), Al Yarmook Tyres Repair, Sama Al Yarmook Used Tyres Trading. Station itself has manual car wash. Moderate saturation.",
+    "infrastructure_access": "Located on Al Sharq St near Al Wahda St. Limited buses (lines 8,15); no metro. Sharjah avg congestion 50%.",
+    "ev_fleet": "EV chargers present in Al Yarmook. Logistics firms like GAC Sharjah, Al Sharqi Shipping, Nawaem Al Sharq nearby.",
+    "commercial_context": "Drives footfall: Mega Mall (0.8km), Oasis Mall; schools (Progressive English, Radiant ~1-2km); hospitals (Burjeel 1km, Zulekha 2km); offices/govt buildings; Gold Center.",
+    "key_insight": "High residential density with nearby commercial/footfall drivers supports quick-service bay potential, though existing tire/oil competitors on same street indicate need for differentiation.",
+    "research_sources": "Localmint, Carnity"
   },
   {
     "ss": "SS585",
@@ -2905,7 +3147,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Khezamia in Mughaider Suburb is a family-friendly suburban residential area with spacious villas (3-6 bedrooms, rents AED 55k-90k/year), low-rise apartments, quiet atmosphere, near University City. Landmarks include Sharjah Cricket Stadium, Sharjah Science Museum.",
+    "competitor_analysis": "At station: ADNOC Auto Car Wash, ADNOC Lube (24/7 oil changes). Nearby: Al Futtaim Auto Centers (servicing, tires, AC, brakes, wash). TelusCare in Al Khezamia. Low saturation beyond ADNOC's own services.",
+    "infrastructure_access": "Located on Al Wasit Street (311), accessible via Maliha Road (E102); good visibility. Bus routes 88/88X; car-dependent. Sharjah congestion ~50%.",
+    "ev_fleet": "No EV chargers within 2km (nearest in Al Qasimiah ~3km). Logistics: Wasit Group. Low EV presence.",
+    "commercial_context": "Hospitals: Al Qassimi Hospital next to station. Malls: Samnan Mall, Wasit Shopping Centre (<5 min). Schools: Raba Al Adwya School, near University City.",
+    "key_insight": "Prime opportunity next to Al Qassimi Hospital, with low competition beyond station's own lube/wash and strong residential footfall from villas/University City proximity.",
+    "research_sources": "2GIS ADNOC, Waze, GetProperty Al Khezamia, Eplog Mughaidir, ADNOC Lube Services, Al Qassimi Hospital, Square Yards"
   },
   {
     "ss": "SS592",
@@ -2945,7 +3194,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Qasimia/Yarmook/Maysaloon is a mixed residential-commercial area with high population density (~7,932-9,000/km²). Affordable rents (1-bed AED 16k-30k/yr). Landmarks include King Faisal Mosque, Mega Mall nearby.",
+    "competitor_analysis": "Local competitors: Al Thaki Auto Services (garage/car wash), Cars Polishing (Al Qasimiah), Basmah Al Sabah Cars Polishing. Station offers lube, car wash, tires, maintenance. Moderate saturation.",
+    "infrastructure_access": "Located on Sheikh Humaid Bin Saqr Al Qasimi Street; near King Faisal Road, Sharjah Ring Road upgrades. Good visibility. Public buses (E303, E307A).",
+    "ev_fleet": "EV chargers very close (~150m away in Bu Daniq). Logistics firms like Overseas Logistics Services. Fleet proximity via Sharjah Airport routes.",
+    "commercial_context": "Mega Mall (~2km); schools: Al Maarifa International, Al Mustaqbal Private, Al Ahliya Private. NMC Medical Centre Maysaloon. Offices for rent.",
+    "key_insight": "High-density mixed-use area with affordable housing and existing station services position SS593 for strong quick-service bay potential targeting commuters, residents, and fleets.",
+    "research_sources": "2GIS ADNOC, Stations.ae, Global Media Insight Sharjah Pop, Property Finder Al Qasimia, SRTA Traffic, 2GIS EV, NMC Maysaloon, Mega Mall, Edustoke Schools"
   },
   {
     "ss": "SS628",
@@ -3265,7 +3521,14 @@ const SITES_DATA = [
     "weighted_score": 4.6,
     "grade": "red",
     "notes": "Default profile - area not individually assessed",
-    "category": "Sharjah"
+    "category": "Sharjah",
+    "market_intel": "Al Rifa'ah/Al Heera is a developing suburban residential area with modern villas/apartments, family-oriented, high density (~12k/km²), avg salary AED 58k.",
+    "competitor_analysis": "Station offers car wash, lube, tires, battery, maintenance. Adjacent Al Safaa Cars service (~50m). Jasar Al Heera Auto Polish nearby. High saturation for quick services.",
+    "infrastructure_access": "On Al Sharq St near Al Ittihad Rd. Recent 17km Al Rafiah road upgrade to Emirates Rd (2025). Buses nearby, car-dependent, good visibility.",
+    "ev_fleet": "EV charger at Sheraton Al Heera Beach (~1km). NGV at station. Fleet: Al Gharb & Al Sharq Transport on Al Sharq St.",
+    "commercial_context": "Local shops, Al Heera Basic School (300m), medical centers, nurseries. Matajer Al Mirgab opp. Al Heera Beach nearby.",
+    "key_insight": "High existing saturation from on-site/adjacent services limits aftermarket quick-service bay potential; opportunity in premium EV/fleet or bundled with fuel for residential traffic.",
+    "research_sources": "2GIS Station, 2GIS Al Safaa, Gulf News Roads, Eplog Guides, City Density, Payscale"
   },
   {
     "ss": "SS880",
@@ -3393,7 +3656,8 @@ const SITES_DATA = [
     "competitors": "Limited fuel retail competition in this remote industrial zone. ADNOC Distribution is the dominant (near-exclusive) fuel retailer in Abu Dhabi emirate with 248 stations Xmap.ai (https://www.xmap.ai/blog/how-many-adnoc-service-stations-are-in-the-uae). No verified competitor fuel stations (ENOC/Emarat) operate in this immediate area. ADNOC stations typically include Oasis convenience stores, car wash, quick oil change, and basic maintenance services ADNOC Distribution (https://www.adnocdistribution.ae/). The park's remote location and specialized defense focus mean very limited commercial services in the vicinity. Key tenants include Saab (defense sensor systems, vehicle protection, civil security, training) Saab (https://www.saab.com/markets/uae), and Abu Dhabi Advanced Radar Systems (ADARS - Saab joint venture) TIP (https://www.tip.ae/tawazun-and-saab/).",
     "infrastructure": "TIP has master-planned infrastructure: electricity, water, sewage, irrigation, and roads optimized for defense manufacturing TIP (https://www.tip.ae/about-us/). Tawazun Industrial Park signed a major power infrastructure contract with Al Jaber Transport & General Contracting Tawazun Council (https://www.tawazun.gov.ae/tawazun-industrial-park-signs-major-power-infrastructure-contract-al-jaber-transport-general-contracting/). Specialized facilities include ammunition production and storage, autonomous systems testing grounds, precision metal workshops, and robotics/UAV development support Ninjaz (https://www.ninjaz.ae/blog/tawazun-industrial-park-abu-dhabis-premier-defense-and-security-hub/). Park is an Abu Dhabi free zone with 100% foreign ownership and zero corporate/personal tax Abu Dhabi DED (https://www.added.gov.ae/en/invest/growth-sectors/advanced-manufacturing/industrial-parks). TIP is being developed by Tawazun Economic Council to be the epicenter of advanced precision industries Abu Dhabi Media Office (https://www.mediaoffice.abudhabi/en/topic/tawazun-industrial-park/).",
     "commercial": "Minimal commercial/retail activity in the immediate area - this is a specialized defense industrial zone. TIP focus sectors: defense manufacturing, metal, precision manufacturing, aerospace, oil & gas support TIP (https://www.tip.ae/). On-site amenities include staff accommodation and on-site services for the 37,000-worker capacity park TIP (https://www.tip.ae/about-us/). The park provides proximity to key entities: UAE Ministry of Defence and Tawazun Council Ninjaz (https://www.ninjaz.ae/blog/tawazun-industrial-park-abu-dhabis-premier-defense-and-security-hub/). No shopping malls or commercial centers within the immediate zone. Nearest commercial areas would be in Abu Dhabi mainland or Mussafah (~20-30 min drive estimated based on geographic coordinates).",
-    "transport": "TIP provides connectivity to principal air, sea, and road transport links from its location between Abu Dhabi and Dubai TIP (https://www.tip.ae/about-us/). No verified public bus routes serve TIP directly; transport is primarily private/employer-organized. No metro service; Abu Dhabi metro planned for 2030 Abu Dhabi Off Plan (https://abudhabioffplan.ae/blog/your-guide-to-getting-around-public-transport-in-abu-dhabi). Based on coordinates (24.245, 54.655), estimated distance to Abu Dhabi International Airport: ~25-30 km. The area is accessible via Abu Dhabi's highway network but specific route details for this military-adjacent zone are not publicly detailed."
+    "transport": "TIP provides connectivity to principal air, sea, and road transport links from its location between Abu Dhabi and Dubai TIP (https://www.tip.ae/about-us/). No verified public bus routes serve TIP directly; transport is primarily private/employer-organized. No metro service; Abu Dhabi metro planned for 2030 Abu Dhabi Off Plan (https://abudhabioffplan.ae/blog/your-guide-to-getting-around-public-transport-in-abu-dhabi). Based on coordinates (24.245, 54.655), estimated distance to Abu Dhabi International Airport: ~25-30 km. The area is accessible via Abu Dhabi's highway network but specific route details for this military-adjacent zone are not publicly detailed.",
+    "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS718-Tawazun"
   },
   {
     "ss": "SS916",
@@ -4104,4 +4368,4 @@ const SITES_DATA = [
     "commercial": "Mall of UAQ: retail, dining, entertainment with Lulu Hypermarket and Department Store. City Mall and China Mall are also in UAQ. Source: Bayut (https://www.bayut.com/area-guides/emirates-modern-industrial-area/). Deyaar Development announced a beachfront joint venture project in UAQ (early 2025). Source: UAE Constructors (https://uaeconstructors.com/umm-al-quwains-growth-construction-projects-to-watch/). UAQ Free Trade Zone drives industrial/commercial expansion. Source: Arabian Business (https://www.arabianbusiness.com/business/uaq-free-trade-zone-drives-umm-al-quwains-industrial-and-commercial-expansion). HOWEVER: The Al Abraq area (coords 25.57, 55.65) is in a remote inland location. Commercial activity near this specific site is expected to be minimal.",
     "transport": "City buses operate on key routes within UAQ linking residential neighborhoods with commercial areas. Intercity buses connect UAQ to Dubai and Sharjah. Source: Beyond Whispers (https://www.beyondwhispers.com/umm-al-quwain/urban-life/transports/bus-services-in-umm-al-quwain/). No metro or rail service currently in UAQ. Future: Logistics City and UAQ Cargo Airport planned as part of Vision 2033. Source: GCC Business Watch (https://gccbusinesswatch.com/news/umm-al-qaiwain-unveils-logistics-city-and-cargo-airport-to-drive-vision-2033-bolster-uaes-global-trade-hub-status/). Nearest major airport: Sharjah Airport (SHJ), approximately 40-50 km. Dubai DXB approximately 60-70 km. Al Abraq's remote inland location means very limited public transport access. The E11 highway is the primary inter-emirate connector for UAQ."
   }
-]
+];

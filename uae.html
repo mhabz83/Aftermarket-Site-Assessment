@@ -1098,7 +1098,7 @@
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .popup-section.expanded .popup-section-content { max-height: 250px; }
+  .popup-section.expanded .popup-section-content { max-height: 350px; }
 
   .popup-text {
     font-size: 10.5px;
@@ -1124,6 +1124,71 @@
     transition: color 0.15s ease, text-decoration-color 0.15s ease;
   }
   .popup-text a:hover {
+    color: #93bbfd;
+    text-decoration-color: rgba(147, 187, 253, 0.6);
+  }
+
+  /* Key insight highlight */
+  .popup-key-insight {
+    font-size: 10.5px;
+    color: #fbbf24;
+    line-height: 1.6;
+    padding: 8px 10px;
+    background: rgba(251, 191, 36, 0.06);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(251, 191, 36, 0.18);
+    font-weight: 500;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+  .popup-key-insight::-webkit-scrollbar { width: 3px; }
+  .popup-key-insight::-webkit-scrollbar-track { background: transparent; }
+  .popup-key-insight::-webkit-scrollbar-thumb { background: rgba(251, 191, 36, 0.2); border-radius: 3px; }
+
+  /* Photos link button */
+  .popup-photos-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+  .popup-photos-btn:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.35);
+    color: #93bbfd;
+  }
+
+  /* Sources section styling */
+  .popup-sources {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    max-height: 120px;
+    overflow-y: auto;
+  }
+  .popup-sources::-webkit-scrollbar { width: 3px; }
+  .popup-sources::-webkit-scrollbar-track { background: transparent; }
+  .popup-sources::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+  .popup-sources a {
+    color: #60a5fa;
+    text-decoration: underline;
+    text-decoration-color: rgba(96, 165, 250, 0.4);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+  .popup-sources a:hover {
     color: #93bbfd;
     text-decoration-color: rgba(147, 187, 253, 0.6);
   }
@@ -1544,12 +1609,61 @@ function buildPopup(site) {
     }
   });
 
+  // Enhanced research data sections (from deep research)
+  const enhancedResearchSections = [
+    { key: 'market_intel', label: '\ud83d\udcca Market Intelligence' },
+    { key: 'competitor_analysis', label: '\ud83c\udfe2 Competitor Analysis' },
+    { key: 'infrastructure_access', label: '\ud83d\udee3\ufe0f Infrastructure & Access' },
+    { key: 'ev_fleet', label: '\u26a1 EV & Fleet Context' },
+    { key: 'commercial_context', label: '\ud83c\udfec Commercial Context' }
+  ];
+
+  enhancedResearchSections.forEach(ds => {
+    if (site[ds.key]) {
+      const val = typeof site[ds.key] === 'string' ? site[ds.key] : '';
+      if (val.length > 0) {
+        collapsibleSections.push({ key: ds.key, label: ds.label, text: val, linkify: true });
+      }
+    }
+  });
+
+  // Key Insight (special highlighted style)
+  if (site.key_insight && typeof site.key_insight === 'string' && site.key_insight.length > 0) {
+    collapsibleSections.push({ key: 'key_insight', label: '\ud83d\udca1 Key Insight', text: site.key_insight, style: 'highlight' });
+  }
+
+  // Site Photos (renders as a button link)
+  if (site.photos_url && typeof site.photos_url === 'string' && site.photos_url.length > 0) {
+    collapsibleSections.push({ key: 'photos_url', label: '\ud83d\udcf8 Site Photos', text: site.photos_url, style: 'photos' });
+  }
+
+  // Research Sources (linkified list)
+  if (site.research_sources && typeof site.research_sources === 'string' && site.research_sources.length > 0) {
+    collapsibleSections.push({ key: 'research_sources', label: '\ud83d\udccb Sources', text: site.research_sources, style: 'sources' });
+  }
+
   if (collapsibleSections.length > 0) {
     detailsHTML = '<div class="popup-divider"></div><div class="popup-details">';
     collapsibleSections.forEach(ds => {
       const sectionId = uid + '-' + ds.key;
-      const rawText = ds.text.substring(0, 500) + (ds.text.length > 500 ? '...' : '');
-      const displayText = ds.linkify ? linkifyUrls(rawText) : rawText;
+      let contentHTML = '';
+      if (ds.style === 'highlight') {
+        // Key insight: highlighted style
+        const rawText = ds.text.substring(0, 600) + (ds.text.length > 600 ? '...' : '');
+        contentHTML = `<div class="popup-key-insight">${rawText}</div>`;
+      } else if (ds.style === 'photos') {
+        // Photos: render as a button link
+        contentHTML = `<a class="popup-photos-btn" href="${ds.text}" target="_blank" rel="noopener noreferrer">\ud83d\udcf7 View Site Photos on SharePoint</a>`;
+      } else if (ds.style === 'sources') {
+        // Sources: linkify URLs in text
+        const rawText = ds.text.substring(0, 800) + (ds.text.length > 800 ? '...' : '');
+        contentHTML = `<div class="popup-sources">${linkifyUrls(rawText)}</div>`;
+      } else {
+        // Standard text section
+        const rawText = ds.text.substring(0, 500) + (ds.text.length > 500 ? '...' : '');
+        const displayText = ds.linkify ? linkifyUrls(rawText) : rawText;
+        contentHTML = `<div class="popup-text">${displayText}</div>`;
+      }
       detailsHTML += `
         <div class="popup-section" id="section-${sectionId}">
           <div class="popup-section-toggle" onclick="(function(){var s=document.getElementById('section-${sectionId}');s.classList.toggle('expanded');})(event)">
@@ -1557,7 +1671,7 @@ function buildPopup(site) {
             <svg class="popup-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </div>
           <div class="popup-section-content">
-            <div class="popup-text">${displayText}</div>
+            ${contentHTML}
           </div>
         </div>`;
     });
