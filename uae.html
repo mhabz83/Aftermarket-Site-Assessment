@@ -408,6 +408,33 @@
     box-shadow: 0 0 12px rgba(239, 68, 68, 0.1);
   }
 
+  .filter-btn.active.y1-f { background: rgba(59,130,246,0.12); border-color: #3b82f6; color: #3b82f6; box-shadow: 0 0 10px rgba(59,130,246,0.15); }
+  .filter-btn.active.y2-f { background: rgba(139,92,246,0.12); border-color: #8b5cf6; color: #8b5cf6; box-shadow: 0 0 10px rgba(139,92,246,0.15); }
+  .filter-btn.active.y3-f { background: rgba(168,85,247,0.12); border-color: #a855f7; color: #a855f7; box-shadow: 0 0 10px rgba(168,85,247,0.15); }
+  .filter-btn.active.y4-f { background: rgba(236,72,153,0.12); border-color: #ec4899; color: #ec4899; box-shadow: 0 0 10px rgba(236,72,153,0.15); }
+  .filter-btn.active.y5-f { background: rgba(107,114,128,0.12); border-color: #6b7280; color: #6b7280; box-shadow: 0 0 10px rgba(107,114,128,0.15); }
+  .filter-btn.active.assessed-f { background: rgba(59,130,246,0.12); border-color: #3b82f6; color: #3b82f6; }
+  .filter-btn.active.shortlist-rf { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+  .filter-btn.active.maybe-rf { background: var(--yellow-bg); border-color: var(--yellow); color: var(--yellow); }
+  .filter-btn.active.nogo-rf { background: var(--red-bg); border-color: var(--red); color: var(--red); }
+
+  /* ===== FILTER GROUPS ===== */
+  .filter-group { padding: 4px 22px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+  .filter-group-label { font-size: 8.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; opacity: 0.6; }
+  .filter-group .filter-bar { padding: 0; border: none; }
+
+  .filter-actions { padding: 6px 22px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .filter-clear-btn { font-size: 9px; font-weight: 600; color: var(--red); background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: var(--radius-sm); padding: 3px 10px; cursor: pointer; transition: all var(--transition-fast); font-family: inherit; }
+  .filter-clear-btn:hover { background: rgba(239,68,68,0.12); border-color: var(--red); }
+  .filter-count { font-size: 9.5px; color: var(--accent); font-weight: 600; }
+
+  .year-badge { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 8px; font-weight: 700; margin-left: 4px; vertical-align: middle; letter-spacing: 0.03em; }
+  .year-badge.y1 { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+  .year-badge.y2 { background: rgba(139,92,246,0.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3); }
+  .year-badge.y3 { background: rgba(168,85,247,0.15); color: #a855f7; border: 1px solid rgba(168,85,247,0.3); }
+  .year-badge.y4 { background: rgba(236,72,153,0.15); color: #ec4899; border: 1px solid rgba(236,72,153,0.3); }
+  .year-badge.y5 { background: rgba(107,114,128,0.15); color: #6b7280; border: 1px solid rgba(107,114,128,0.3); }
+
   /* ===== SEARCH BAR ===== */
   .search-bar {
     padding: 10px 22px;
@@ -1372,26 +1399,49 @@
     <div class="stat-badge red"><span class="num" id="stat-red">0</span>Red</div>
   </div>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="assessed">Assessed</button>
-    <button class="filter-btn green-f" data-filter="green">Green</button>
-    <button class="filter-btn yellow-f" data-filter="yellow">Yellow</button>
-    <button class="filter-btn red-f" data-filter="red">Red</button>
-    <button class="filter-btn" data-filter="y1">Y1 Priority</button>
-    <button class="filter-btn" data-filter="Abu Dhabi">Abu Dhabi</button>
-    <button class="filter-btn" data-filter="Dubai">Dubai</button>
-    <button class="filter-btn" data-filter="Sharjah">Sharjah</button>
+  <div class="filter-group">
+    <div class="filter-group-label">Grade</div>
+    <div class="filter-bar" data-group="grade">
+      <button class="filter-btn green-f" data-value="green">Green</button>
+      <button class="filter-btn yellow-f" data-value="yellow">Yellow</button>
+      <button class="filter-btn red-f" data-value="red">Red</button>
+    </div>
   </div>
 
-  <div class="rec-filter-bar">
-    <span class="rec-filter-label">Rec:</span>
-    <button class="rec-filter-btn active" data-rec="all">All</button>
-    <button class="rec-filter-btn shortlist-rf" data-rec="SHORTLIST">Shortlist</button>
-    <button class="rec-filter-btn maybe-rf" data-rec="MAYBE">Maybe</button>
-    <button class="rec-filter-btn nogo-rf" data-rec="NO GO">No Go</button>
-    <button class="rec-filter-btn" data-rec="ELIMINATED">Eliminated</button>
-    <button class="rec-filter-btn" data-rec="VISIT">Visit</button>
+  <div class="filter-group">
+    <div class="filter-group-label">Year</div>
+    <div class="filter-bar" data-group="year">
+      <button class="filter-btn y1-f" data-value="Y1">Y1</button>
+      <button class="filter-btn y2-f" data-value="Y2">Y2</button>
+      <button class="filter-btn y3-f" data-value="Y3">Y3</button>
+      <button class="filter-btn y4-f" data-value="Y4">Y4</button>
+      <button class="filter-btn y5-f" data-value="Y5">Y5</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Emirate</div>
+    <div class="filter-bar" data-group="emirate">
+      <button class="filter-btn" data-value="Abu Dhabi">Abu Dhabi</button>
+      <button class="filter-btn" data-value="Dubai">Dubai</button>
+      <button class="filter-btn" data-value="Sharjah">Sharjah</button>
+      <button class="filter-btn" data-value="Ajman">Ajman</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <div class="filter-group-label">Status</div>
+    <div class="filter-bar" data-group="status">
+      <button class="filter-btn assessed-f" data-value="Assessed">Assessed</button>
+      <button class="filter-btn shortlist-rf" data-value="SHORTLIST">Shortlist</button>
+      <button class="filter-btn maybe-rf" data-value="MAYBE">Maybe</button>
+      <button class="filter-btn nogo-rf" data-value="NO GO">No Go</button>
+    </div>
+  </div>
+
+  <div class="filter-actions">
+    <button class="filter-clear-btn" id="clear-filters">✕ Clear All Filters</button>
+    <span class="filter-count" id="filter-count"></span>
   </div>
 
   <div class="search-bar">
@@ -1493,7 +1543,7 @@ function linkifyUrls(text) {
 
 function buildPopup(site) {
   const isY1 = site.priority === 'Y1-2026';
-  const y1Tag = isY1 ? '<span class="y1-badge">Y1 2026</span>' : '';
+  const yearTag = site.year ? '<span class="year-badge ' + site.year.toLowerCase() + '">' + site.year + (site.year === 'Y1' ? ' 2026' : '') + '</span>' : '';
   const hasAssessment = site.assessment_rating != null;
 
   // --- Header with assessment rating or weighted score ---
@@ -1703,7 +1753,7 @@ function buildPopup(site) {
       <div class="popup-header">
         <div class="popup-grade-dot ${site.grade}"></div>
         <div>
-          <div class="popup-title">${site.ss || ''} ${site.name}${y1Tag}</div>
+          <div class="popup-title">${site.ss || ''} ${site.name}${yearTag}</div>
           <div class="popup-subtitle">${site.emirate || site.category || ''} &middot; ${site.area || ''}</div>
         </div>
         ${headerRatingHTML}
@@ -1721,16 +1771,17 @@ const markerMap = {};
 SITES_DATA.forEach(site => {
   if (!site.lat || !site.lng) return;
 
-  const isY1 = site.priority === 'Y1-2026';
+  const yr = site.year || 'Y5';
   const isAssessed = site.status === 'Assessed';
   const color = COLORS[site.grade] || COLORS.red;
-  const radius = isY1 ? 9 : (isAssessed ? 8 : 6);
+  const radiusMap = { Y1: 10, Y2: 8, Y3: 6.5, Y4: 5.5, Y5: 4.5 };
+  const radius = radiusMap[yr] || 5;
 
   const marker = L.circleMarker([site.lat, site.lng], {
     radius: radius,
     fillColor: color,
-    color: isY1 ? Y1_COLOR : color,
-    weight: isY1 ? 3 : (isAssessed ? 2.5 : 1.5),
+    color: yr === 'Y1' ? Y1_COLOR : (yr === 'Y2' ? '#8b5cf6' : color),
+    weight: yr === 'Y1' ? 3 : (yr === 'Y2' ? 2.5 : (isAssessed ? 2 : 1.5)),
     opacity: 1,
     fillOpacity: 0.8
   });
@@ -1771,25 +1822,19 @@ function renderList(sites) {
   list.innerHTML = '';
 
   sites.sort((a, b) => {
-    // Y1 priority first
-    if (a.priority === 'Y1-2026' && b.priority !== 'Y1-2026') return -1;
-    if (b.priority === 'Y1-2026' && a.priority !== 'Y1-2026') return 1;
-    // Assessed sites next
-    const statusOrder = (a.status === 'Assessed' ? 0 : 1) - (b.status === 'Assessed' ? 0 : 1);
-    if (statusOrder !== 0) return statusOrder;
+    // Sort by year (Y1 > Y2 > Y3 > Y4 > Y5)
+    const yp = { Y1: 0, Y2: 1, Y3: 2, Y4: 3, Y5: 4 };
+    const yearOrder = (yp[a.year] ?? 4) - (yp[b.year] ?? 4);
+    if (yearOrder !== 0) return yearOrder;
     // Then by grade priority (green > yellow > red)
     const gp = { green: 0, yellow: 1, red: 2 };
     const gradeOrder = (gp[a.grade] ?? 2) - (gp[b.grade] ?? 2);
     if (gradeOrder !== 0) return gradeOrder;
-    // Then by assessment_rating or weighted_score
-    if (a.assessment_rating != null && b.assessment_rating != null) return b.assessment_rating - a.assessment_rating;
-    if (a.assessment_rating != null) return -1;
-    if (b.assessment_rating != null) return 1;
-    return b.weighted_score - a.weighted_score;
+    // Then by weighted score
+    return (b.weighted_score || 0) - (a.weighted_score || 0);
   });
 
   sites.forEach(site => {
-    const isY1 = site.priority === 'Y1-2026';
     const el = document.createElement('div');
     el.className = 'site-item';
 
@@ -1811,7 +1856,7 @@ function renderList(sites) {
     el.innerHTML = `
       <div class="site-dot ${site.grade}"></div>
       <div class="site-info">
-        <div class="site-name">${site.ss || ''} ${site.name}${isY1 ? '<span class="y1-badge">Y1</span>' : ''}${recBadge}${assessedTag}</div>
+        <div class="site-name">${site.ss || ''} ${site.name}${site.year ? '<span class="year-badge ' + site.year.toLowerCase() + '">' + site.year + '</span>' : ''}${recBadge}${assessedTag}</div>
         <div class="site-meta">${site.emirate || site.category || ''} &middot; ${site.area || ''}${assessRating ? ' &middot; ' + assessRating : ''}</div>
       </div>
       <div class="site-score ${site.grade}">${site.weighted_score}</div>
@@ -1831,55 +1876,64 @@ function renderList(sites) {
   updateStats(sites);
 }
 
-let activeFilter = 'all';
-let activeRecFilter = 'all';
+// === MULTI-SELECT COMBINABLE FILTERS ===
+const activeFilters = { grade: new Set(), year: new Set(), emirate: new Set(), status: new Set() };
 let searchTerm = '';
 
 function getVisibleSites() {
   return SITES_DATA.filter(site => {
-    // Grade / location filter
-    let passFilter = true;
-    if (activeFilter === 'green' || activeFilter === 'yellow' || activeFilter === 'red') {
-      passFilter = site.grade === activeFilter;
-    } else if (activeFilter === 'assessed') {
-      passFilter = site.status === 'Assessed';
-    } else if (activeFilter === 'y1') {
-      passFilter = site.priority === 'Y1-2026';
-    } else if (['Abu Dhabi', 'Dubai', 'Sharjah'].includes(activeFilter)) {
-      passFilter = site.emirate === activeFilter;
-    }
+    // Grade filter (OR within group)
+    if (activeFilters.grade.size > 0 && !activeFilters.grade.has(site.grade)) return false;
 
-    // Recommendation filter
-    let passRec = true;
-    if (activeRecFilter !== 'all') {
-      const tag = (site.recommendation_tag || '').toUpperCase();
-      passRec = tag === activeRecFilter.toUpperCase();
+    // Year filter (OR within group)
+    if (activeFilters.year.size > 0 && !activeFilters.year.has(site.year || '')) return false;
+
+    // Emirate filter (OR within group)
+    if (activeFilters.emirate.size > 0 && !activeFilters.emirate.has(site.emirate)) return false;
+
+    // Status filter (OR within group — checks both status and recommendation_tag)
+    if (activeFilters.status.size > 0) {
+      const matchStatus = activeFilters.status.has(site.status);
+      const matchRec = activeFilters.status.has((site.recommendation_tag || '').toUpperCase());
+      if (!matchStatus && !matchRec) return false;
     }
 
     // Search
-    let passSearch = true;
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
-      passSearch = (site.name || '').toLowerCase().includes(term) ||
-                   (site.ss || '').toLowerCase().includes(term) ||
-                   (site.area || '').toLowerCase().includes(term) ||
-                   (site.emirate || '').toLowerCase().includes(term);
+      if (!(site.name || '').toLowerCase().includes(term) &&
+          !(site.ss || '').toLowerCase().includes(term) &&
+          !(site.area || '').toLowerCase().includes(term) &&
+          !(site.emirate || '').toLowerCase().includes(term)) return false;
     }
 
-    return passFilter && passRec && passSearch;
+    return true;
   });
+}
+
+function updateFilterCount() {
+  const total = Object.values(activeFilters).reduce((sum, s) => sum + s.size, 0);
+  const el = document.getElementById('filter-count');
+  const visible = getVisibleSites().length;
+  if (total > 0) {
+    el.textContent = `${visible} of ${SITES_DATA.length} sites`;
+  } else {
+    el.textContent = `${SITES_DATA.length} sites`;
+  }
 }
 
 function applyFilters() {
   const visible = getVisibleSites();
   renderList(visible);
+  updateFilterCount();
 
   const visibleKeys = new Set(visible.map(s => s.ss || s.name));
   markers.forEach(m => {
     const key = m.siteData.ss || m.siteData.name;
     if (visibleKeys.has(key)) {
       m.setStyle({ fillOpacity: 0.8, opacity: 1 });
-      m.setRadius(m.siteData.priority === 'Y1-2026' ? 9 : 6);
+      const yr = m.siteData.year || '';
+      m.setRadius(yr === 'Y1' ? 9 : (yr === 'Y2' ? 7.5 : 6));
     } else {
       m.setStyle({ fillOpacity: 0.08, opacity: 0.08 });
       m.setRadius(3);
@@ -1887,22 +1941,29 @@ function applyFilters() {
   });
 }
 
-document.querySelectorAll('.filter-btn').forEach(btn => {
+// Multi-select toggle: click to add/remove from filter group
+document.querySelectorAll('.filter-bar .filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
+    const group = btn.closest('.filter-bar').dataset.group;
+    const value = btn.dataset.value;
+    if (activeFilters[group].has(value)) {
+      activeFilters[group].delete(value);
+      btn.classList.remove('active');
+    } else {
+      activeFilters[group].add(value);
+      btn.classList.add('active');
+    }
     applyFilters();
   });
 });
 
-document.querySelectorAll('.rec-filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.rec-filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeRecFilter = btn.dataset.rec;
-    applyFilters();
-  });
+// Clear all filters
+document.getElementById('clear-filters').addEventListener('click', () => {
+  Object.values(activeFilters).forEach(s => s.clear());
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  searchTerm = '';
+  document.getElementById('search-input').value = '';
+  applyFilters();
 });
 
 document.getElementById('search-input').addEventListener('input', e => {
