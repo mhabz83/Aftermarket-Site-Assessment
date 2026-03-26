@@ -1117,6 +1117,17 @@
   .popup-text::-webkit-scrollbar-track { background: transparent; }
   .popup-text::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
 
+  .popup-text a {
+    color: #60a5fa;
+    text-decoration: underline;
+    text-decoration-color: rgba(96, 165, 250, 0.4);
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+  .popup-text a:hover {
+    color: #93bbfd;
+    text-decoration-color: rgba(147, 187, 253, 0.6);
+  }
+
   .popup-divider {
     height: 1px;
     background: rgba(255, 255, 255, 0.05);
@@ -1403,6 +1414,18 @@ function getRecClass(tag) {
   return 'visit';
 }
 
+// Convert URLs in text to clickable links.
+// Handles patterns like "Source Name (https://url)" and bare https:// URLs.
+function linkifyUrls(text) {
+  // First, convert "Label (https://...)" patterns into clickable links
+  text = text.replace(/([^()\n]+?)\s*\((https?:\/\/[^\s)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#60a5fa;text-decoration:underline;">$1</a>');
+  // Then, convert any remaining bare URLs that aren't already inside an href
+  text = text.replace(/(?<!href=["'])(https?:\/\/[^\s<)"]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#60a5fa;text-decoration:underline;">Link</a>');
+  return text;
+}
+
 function buildPopup(site) {
   const isY1 = site.priority === 'Y1-2026';
   const y1Tag = isY1 ? '<span class="y1-badge">Y1 2026</span>' : '';
@@ -1502,10 +1525,31 @@ function buildPopup(site) {
     collapsibleSections.push({ key: 'original_notes', label: 'Original Analysis', text: site.notes });
   }
 
+  // Research data collapsible sections (population, traffic, competitors, etc.)
+  const researchSections = [
+    { key: 'population_data', label: 'Population Data' },
+    { key: 'traffic_data', label: 'Traffic Data' },
+    { key: 'competitors', label: 'Competitors' },
+    { key: 'infrastructure', label: 'Infrastructure' },
+    { key: 'commercial', label: 'Commercial' },
+    { key: 'transport', label: 'Transport' }
+  ];
+
+  researchSections.forEach(ds => {
+    if (site[ds.key]) {
+      const val = typeof site[ds.key] === 'string' ? site[ds.key] : '';
+      if (val.length > 0) {
+        collapsibleSections.push({ key: ds.key, label: ds.label, text: val, linkify: true });
+      }
+    }
+  });
+
   if (collapsibleSections.length > 0) {
     detailsHTML = '<div class="popup-divider"></div><div class="popup-details">';
     collapsibleSections.forEach(ds => {
       const sectionId = uid + '-' + ds.key;
+      const rawText = ds.text.substring(0, 500) + (ds.text.length > 500 ? '...' : '');
+      const displayText = ds.linkify ? linkifyUrls(rawText) : rawText;
       detailsHTML += `
         <div class="popup-section" id="section-${sectionId}">
           <div class="popup-section-toggle" onclick="(function(){var s=document.getElementById('section-${sectionId}');s.classList.toggle('expanded');})(event)">
@@ -1513,7 +1557,7 @@ function buildPopup(site) {
             <svg class="popup-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </div>
           <div class="popup-section-content">
-            <div class="popup-text">${ds.text.substring(0, 500)}${ds.text.length > 500 ? '...' : ''}</div>
+            <div class="popup-text">${displayText}</div>
           </div>
         </div>`;
     });
