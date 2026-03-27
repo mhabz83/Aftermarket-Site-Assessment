@@ -27,7 +27,8 @@ const SITES_DATA = [
     "commercial_context": "Dubai Hills Mall (adjacent), schools (GEMS Wellington Al Khail 1.1km), clinics (American Hospital, Mediclinic Dubai Hills), planned offices. High family/shopper footfall.",
     "key_insight": "Excellent opportunity for aftermarket quick-service bay at SS526: affluent growing residential area with low local competition, prime highway visibility, high footfall from mall/schools/clinics, and synergy with existing tires/lube services.",
     "research_sources": "2GIS ADNOC, Emaar, Property Finder, RTA, DEWA EV, Dubai Hills Mall, Propsearch Schools",
-    "year": "Y1"
+    "year": "Y1",
+    "confirmed": true
   },
   {
     "ss": "SS222",
@@ -55,7 +56,8 @@ const SITES_DATA = [
     "commercial_context": "Industrial hub with offices/warehouses abundant; nearby Gold & Diamond Park, Alserkal Avenue (art/cultural), Al Quoz Grand Mall; medical: NMC Medical Centre Al Quoz, Burjeel Specialty Hospital; schools in Hadaeq Sheikh Mohammed Bin Rashid area.",
     "key_insight": "High-traffic industrial zone on Sheikh Zayed Road with existing ADNOC services (wash/tires/maintenance) but saturated independent auto shops; opportunity limited unless differentiating via quick EV/fleet integration leveraging on-site charger and logistics proximity.",
     "research_sources": "2GIS ADNOC, Wikipedia Al Quoz, City Population Al Qouz 3, DEWA EV, RTA Projects",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS535",
@@ -76,7 +78,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "Business Bay / SZR. Ultra-premium location. Maximum visibility. Corporate catchment.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS533",
@@ -106,7 +109,8 @@ const SITES_DATA = [
     "commercial_context": "Schools: GEMS Our Own English High School (1km). Clinics: Aster Al Warqa, HealthHub Al Warqa (primary care). Malls: Al Warqa City Mall, Warqa Mall, Q1 Mall (walking distance). No major offices/hospitals; residential footfall from families/schools.",
     "key_insight": "High-potential for aftermarket quick-service bay in residential area with improving infrastructure, low competitor density beyond station's basics, and steady family/school footfall; EV charger integration adds future-proofing.",
     "research_sources": "2GIS ADNOC, Wikipedia Al Warqa, Property Finder Sales, Gulf News Roads, Yandex Lube, DEWA EV, GEMS School, Aster Clinic",
-    "year": "Y1"
+    "year": "Y1",
+    "confirmed": true
   },
   {
     "ss": "SS209",
@@ -127,7 +131,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "Same Al Warqa corridor as Y1 site. Established residential.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS220",
@@ -148,7 +153,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "E311 near Dubai Hills. Major arterial. Premium catchment nearby.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS227",
@@ -176,7 +182,8 @@ const SITES_DATA = [
     "commercial_context": "Draws traffic from Raffles International School (Umm Suqeim campus), American Hospital Jumeirah Clinic (Galleria Mall, Al Wasl Rd), The Mall (Umm Suqeim 3), offices/commercial villas; family-oriented with beaches/resorts boosting daily footfall.",
     "key_insight": "Prime high-visibility spot on upgrading Al Wasl Rd in affluent low-density residential area with schools/hospital/mall traffic, moderate competitor saturation suggests strong potential for quick oil/tire bays integrated with existing fuel/convenience ops.",
     "research_sources": "2GIS Station, Wikipedia, Dubai Stats, RTA Al Wasl, DEWA EV, Raffles School, American Hospital",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS357",
@@ -197,7 +204,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "Jumeirah Beach Road. Ultra-premium area. High car care demand.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS969",
@@ -227,7 +235,8 @@ const SITES_DATA = [
     "commercial_context": "Local drivers: Al Bateen Mall, office buildings, schools (Bateen World Academy IB, SABIS, Scientific PS), medical (Stanford/Al Bateen Med Center, Samaya Hosp, Gulf Diagnostic). Generates steady family/professional/patient traffic.",
     "key_insight": "Excellent potential for aftermarket quick-service bay at SS969: affluent high-traffic location with low local competition, complements ADNOC fuel/lube, taps luxury vehicle owners amid infrastructure enhancements and area growth.",
     "research_sources": "2GIS Station, Waze, Carnity, UAE Offplan, SCAD, Michelin, ADNOC, DMT, PropertyFinder EV, Fidoc",
-    "year": "Y1"
+    "year": "Y1",
+    "confirmed": true
   },
   {
     "ss": "SS384",
@@ -248,7 +257,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "Arabian Ranches - premium villa community. Very affluent. Strong car care demand.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS528",
@@ -276,7 +286,8 @@ const SITES_DATA = [
     "commercial_context": "High footfall drivers: Mall of the Emirates, My City Centre Al Barsha, Al Barsha Mall (~2-3km). Schools: Brighton College Dubai (0.6km), Dubai Heights Academy (0.7km), GEMS Founders, Kings' School Al Barsha. Offices along Hessa/Umm Suqeim. Attracts families, professionals.",
     "key_insight": "Prime location on upgrading Hessa Street with high residential density, family-oriented amenities, and improving traffic supports quick-service bay addition; station's existing lube/maintenance can expand to capture underserved aftermarket demand.",
     "research_sources": "2GIS ADNOC, Wikipedia, DSC Population, RTA, Propsearch, Fasttrack, DEWA, Moovit",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS169",
@@ -306,7 +317,8 @@ const SITES_DATA = [
     "commercial_context": "Makani Al Shamkha Mall (Spar hypermarket, dining, entertainment) drives footfall; schools (ABC Private, Wales Int'l, Al Manara); clinics (Sama, Burjeel Medical Center). Residential growth + mall/schools generate steady local traffic.",
     "key_insight": "High-traffic ADNOC station in expanding residential suburb with mall/schools but limited quick aftermarket competition offers strong potential for bays targeting locals/fleets, especially with EV/fleet growth nearby.",
     "research_sources": "2GIS, Waze, City-facts, The National, Occupi, Liberty Car Care, ADNOC Lube Yandex, Gulf Commute, TomTom Traffic, Property Finder Makani, ABC School, Sama Clinic, Burjeel, Electromaps, Emco",
-    "year": "Y1"
+    "year": "Y1",
+    "confirmed": true
   },
   {
     "ss": "SS171",
@@ -336,7 +348,8 @@ const SITES_DATA = [
     "commercial_context": "Bawabat Al Sharq Mall nearby drives shopping/dining footfall; schools, New Mafraq Hospital opposite the station, and commercial offices/retail in Baniyas East generate steady traffic.",
     "key_insight": "High-visibility ADNOC station in growing family suburb with low quick-service auto competition and strong highway/commercial traffic supports viable aftermarket bay potential, especially for fleet/industrial vehicles from nearby Mafraq.",
     "research_sources": "2GIS ADNOC, Skyloov Baniyas, Property Finder, Tire.ae, Waze, Bawabat Al Sharq, Skyloov Mafraq, Moovit, Okadoc",
-    "year": "Y1"
+    "year": "Y1",
+    "confirmed": true
   },
   {
     "ss": "SS537",
@@ -357,7 +370,8 @@ const SITES_DATA = [
     "grade": "green",
     "notes": "Al Badaa / Jumeirah. Premium residential. Very high car care demand.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS176",
@@ -385,7 +399,8 @@ const SITES_DATA = [
     "commercial_context": "Dense footfall drivers: Al Qasba office towers, Al Majaz commercial (offices, Matajer Al Khan mall), schools (Al Durrah Intl, Al Mazaya Private), AUS University (~5km), clinics (Aster, Bissan). Waterfront leisure boosts traffic.",
     "key_insight": "High-visibility ADNOC station in dense, mid-income waterfront area with moderate auto-service competition offers strong potential for aftermarket quick-service bay, leveraging existing lube/wash and nearby fleet/logistics traffic.",
     "research_sources": "2GIS ADNOC, PropertyFinder Blog, CityDensity, PayScale, Fasttrack, Evolutions, Gulf News, 2GIS EV, Gulftainer, PropertyFinder Offices, Matajer",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS536",
@@ -406,7 +421,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Nad Al Sheba. Established villa area. Good income. Near Meydan.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS437",
@@ -427,7 +443,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Near Yas Island. Premium community (Yas Acres). Higher affluence.",
     "category": "Abu Dhabi",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS228",
@@ -448,7 +465,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Deira side. Dense residential/commercial. High footfall. Cross-border with Sharjah.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS232",
@@ -469,7 +487,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Damac Hills - premium master-planned community. Affluent families.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS378",
@@ -490,7 +509,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Mirdif - established villa community. Family-oriented. Good income.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS463",
@@ -511,7 +531,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Dense Al Nahda. Cross-border with Sharjah. Very high residential density.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS527",
@@ -532,7 +553,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Khawaneej - premium Emirati residential. Very affluent.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS523",
@@ -553,7 +575,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Khalifa City - established affluent suburb. Good car ownership. EV-friendly.",
     "category": "Abu Dhabi",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS124",
@@ -574,7 +597,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E311/SMBZ Road. Extremely high traffic. Industrial/commercial zone.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS248",
@@ -595,7 +619,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Khawaneej / Al Ttay. Premium villa area. Growing community.",
     "category": "Dubai",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS178",
@@ -616,7 +641,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Nahda Sharjah - cross-border with Dubai. Extremely dense residential.",
     "category": "Sharjah",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS883",
@@ -637,7 +663,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Qasba / Al Khan. Premium Sharjah waterfront. Good catchment.",
     "category": "Sharjah",
-    "year": "Y2"
+    "year": "Y2",
+    "confirmed": true
   },
   {
     "ss": "SS114",
@@ -658,7 +685,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E11 Baniyas. Dense residential. High footfall. Multiple competitors.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS377",
@@ -679,7 +707,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Near The Villa community - premium residential. Good income levels.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS241",
@@ -700,7 +729,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E311 Nadd Al Hamar. Good highway access. Residential nearby.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS532",
@@ -728,7 +758,8 @@ const SITES_DATA = [
     "commercial_context": "Malls: Al Hana Centre, Al Diyafah Centre, Dubai Mall ~5min metro. Clinics/hospitals: NMC Satwa. Schools: Al Maktoum Primary Boys (2nd Dec St), Hessa Bint Al Mer Primary, Little Star Nursery. Offices abundant in Satwa/Al Satwa Rd. Drives high footfall.",
     "key_insight": "Prime high-visibility location on busy 2nd Dec St with improving infrastructure supports quick-service bay addition; moderate local competition but strong footfall from dense residential/commercial mix, healthcare, and fleets offers solid aftermarket potential.",
     "research_sources": "ADNOC 2GIS, Waze, AutoPro, RTA Project, DEWA EV, NMC Satwa",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS225",
@@ -749,7 +780,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Quoz - major auto service hub. High car care demand. Strong footfall.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS376",
@@ -770,7 +802,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Khawaneej villa area. Premium residential.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS529",
@@ -791,7 +824,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Quoz - UAE's largest auto services cluster. Massive car care demand. Heavy competition but proven market.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS530",
@@ -812,7 +846,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Muhaisnah dense residential. Near Al Qusais. High footfall.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS229",
@@ -840,7 +875,8 @@ const SITES_DATA = [
     "commercial_context": "Fairgreen School (0.3km), GEMS Metropole (0.9km), Wadi Al Safa Medical Centre; Sustainable City plaza retail/F&B.",
     "key_insight": "Excellent potential for quick-service bay: underserved market in growing eco-residential/school area with strong accessibility and EV synergy.",
     "research_sources": "2GIS ADNOC, Waze, ADNOC, DEWA EV",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS240",
@@ -861,7 +897,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Near Dubai Hills/Barsha. Residential corridor.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS174",
@@ -889,7 +926,8 @@ const SITES_DATA = [
     "commercial_context": "Proximity to offices/warehouses drives worker traffic; nearby malls like Sahara Centre, Safeer Mall, Ansar Mall (~3-5km); multiple schools; clinics/hospitals like NMC Al Nahda, Oriana, Thumbay (~5-10min). Steady footfall from commuters/industrial staff.",
     "key_insight": "Prime location on busy E11 Ittihad Road in high-density industrial zone with fleet/logistics traffic offers strong potential for quick-service bay, especially with limited EV infrastructure and ongoing area upgrades.",
     "research_sources": "2GIS Station, Sharjah Gov IA6, GetProperty IA7, Wikipedia Sharjah, 2GIS Garages, Wikipedia E11, Property Finder Schools, NMC Al Nahda, Al Ghandi Auto",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS183",
@@ -910,7 +948,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Taawun - premium Sharjah area near Sahara Centre. Higher income.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS193",
@@ -938,7 +977,8 @@ const SITES_DATA = [
     "commercial_context": "High footfall drivers: Safeer Mall and Matajer Al Khan (~1-2km), City Gate Tower offices in Al Taawun, schools, hospitals like Dar Al Kamal. Expo Centre boosts events/traffic.",
     "key_insight": "Prime highway location with high commuter traffic, low local competition for quick aftermarket services, and surrounding residential/commercial density supports strong demand for an automotive quick-service bay at SS193 Al Dar.",
     "research_sources": "ADNOC Distribution, 2GIS Al Dar, Property Finder, Gulf News Al Ittihad",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS165",
@@ -984,7 +1024,8 @@ const SITES_DATA = [
     "key_insight": "High-potential for quick-service bay: growing residential area, excellent road visibility/footfall from hospital/bus/mosque, minimal competition for advanced aftermarket services.",
     "research_sources": "2GIS Qutouf, ADNOC News, SCAD Pop, TomTom Traffic",
     "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS165-Qutouf-Rahba-South",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS147",
@@ -1005,7 +1046,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Shakbout City - established residential. Good income levels. Growing car ownership.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS170",
@@ -1033,7 +1075,8 @@ const SITES_DATA = [
     "commercial_context": "High footfall drivers include Al Falah Central Mall (nearby, 30k sqm retail, cinema, F&B), Al Falah Academy and International Community School, All Point Healthcare Center in New Al Falah City, mosques, parks.",
     "key_insight": "SS170 Al Falah South presents strong potential for expanded aftermarket quick-service bays given low independent competitor saturation, existing basic services, 24/7 high-visibility location in growing UAE national residential community.",
     "research_sources": "2GIS ADNOC SS170, ADNOC Station Finder, Menard Al Falah Community, Iskan Al Falah Expansion, Aldar Al Falah, TotalEnergies Oil Centers",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS314",
@@ -1054,7 +1097,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Falah established residential. Similar profile to South.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS198",
@@ -1082,7 +1126,8 @@ const SITES_DATA = [
     "commercial_context": "Dense offices, clinics/hospitals: Al Lulu Medical Center, Elite Medical Center, Sharjah Corniche Hospital, Medcare Hospital. Schools/nurseries: Euro Kids, Kids Park Nursery. Malls: Atlas Tower, Central Souk nearby. High footfall from waterfront leisure.",
     "key_insight": "High-traffic urban location with strong residential/commercial footfall, excellent visibility, and proximity to offices/logistics supports aftermarket quick-service bay potential.",
     "research_sources": "2GIS ADNOC, Property Finder Al Qasimia, SRTA Traffic, 2GIS EV, NMC Maysaloon, Mega Mall, Edustoke Schools",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS568",
@@ -1103,7 +1148,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "University City / Muweilah. Growing community. Student + residential.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS877",
@@ -1124,7 +1170,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Muwaileh - one of Sharjah's fastest growing areas. New developments.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS861",
@@ -1145,7 +1192,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E11 near Shahama residential. Growing area. Multiple fuel stations.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS954",
@@ -1166,7 +1214,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E11 Shahama area. Residential growth. Good visibility.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS156",
@@ -1194,7 +1243,8 @@ const SITES_DATA = [
     "commercial_context": "Al Shamkha Mall/Makani Mall (Spar, shops, F&B) drives local footfall; ABC Private School and Wales International School nearby; Sama Al Shamkha Medical Center; proximity to Mussafah industrial zone adds worker traffic.",
     "key_insight": "SS156 benefits from high-visibility highway access, growing residential population (~30k+), and low quick-service saturation in a car-dependent suburb.",
     "research_sources": "Exploremalls ADNOC SS156, Yango Al Asel, ADNOC Finder, City-facts Population, Property Finder Insights, 2GIS Tires, Rome2Rio Transport, Makani Mall",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS423",
@@ -1215,7 +1265,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Central Al Shamkha. Growing suburb with good services.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS522",
@@ -1236,7 +1287,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Baniyas corridor. Highway traffic with residential catchment.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS196",
@@ -1257,7 +1309,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Tawan residential. Good income area.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS216",
@@ -1278,7 +1331,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Residential area near Mirdif/Al Warqa. Moderate density.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS217",
@@ -1306,7 +1360,8 @@ const SITES_DATA = [
     "commercial_context": "Limited local footfall drivers; nearby Mushrif Park, schools in Mushrif/Al Khawaneej (~3-5km); City Centre Mirdif mall ~5km; sparse offices; relies on residential traffic and passersby on Tripoli St.",
     "key_insight": "Low-density growing residential area with excellent road access and minimal direct competition positions SS217 ideally for quick-service bays targeting locals and highway traffic, bolstered by 2025-2029 infrastructure upgrades.",
     "research_sources": "2GIS ADNOC, Waze, RTA Roads, 2GIS MySyara, Dubai Wiki",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS356",
@@ -1327,7 +1382,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Hor Al Anz / Deira. Dense residential. Good footfall.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS177",
@@ -1355,7 +1411,8 @@ const SITES_DATA = [
     "commercial_context": "Proximity to University City of Sharjah (AUS, Univ of Sharjah, Al Qasimia); small malls like Zero6/06 Mall; offices/warehouses abundant; SEWA facilities nearby.",
     "key_insight": "Prime location on busy University City Road in mixed industrial zone near University City offers strong quick-service potential, though high competitor density requires differentiation.",
     "research_sources": "Waze ADNOC, Wikipedia Industrial, Skyloov IA10, UAE Gov Sharjah, 2GIS Wash, TomTom Traffic, Sharjah Gov Roads, BEEAH EV, Wikipedia Univ City, Zero6 Mall",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS887",
@@ -1376,7 +1433,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E11 corridor near Al Samha residential. Growing community. Moderate traffic.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS888",
@@ -1404,7 +1462,8 @@ const SITES_DATA = [
     "commercial_context": "Local: Al Samha Healthcare Center, Al Samha schools, parks; nearby: KIZAD offices/warehouses (~10min), no major malls (Yas Mall ~20min).",
     "key_insight": "High-potential site for quick-service bay due to low local competition, prime highway visibility, growing residential base, and heavy KIZAD fleet/commuter traffic on E11.",
     "research_sources": "ADNOC, 2GIS SS888, GetProperty Al Samha, KEZAD, Iskan Housing, Moovit Bus, TomTom Traffic, 2GIS Tyres, Healthcare Center",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS117",
@@ -1425,7 +1484,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Growing residential in New Shahama. Good highway access.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS538",
@@ -1446,7 +1506,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Dubai Studio City. Mixed use. Developing. Lower competition.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS175",
@@ -1474,7 +1535,8 @@ const SITES_DATA = [
     "commercial_context": "Family-oriented with Al Kamal American Private School, Wasit Health Center nearby. No major malls/offices at site; nearest Samnan Mall on Wasit St.",
     "key_insight": "Prime opportunity for aftermarket quick-service bay at high-visibility fuel station in residential suburb with low competitor density and family/school-driven traffic.",
     "research_sources": "2GIS ADNOC, ADNOC News, Property Finder Blogs, Eplog Guides, Salary Data, 2GIS Competitors/EV, Schools/Health, Moovit Transport",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS179",
@@ -1513,7 +1575,8 @@ const SITES_DATA = [
     "commercial": "Oasis Mall: ~5 min drive from Al Manakh (3 floors, 45+ retail stores, Carrefour Market, 10-screen cinema, 575-seat food court). Mega Mall: ~8 min drive (4 floors, entertainment, shopping). Sharjah Shopping Centre on Al Arouba Street nearby. Al Ghuwair Centre, K.M Trading, Rolla Mall also accessible. Carrefour and Talal Hypermarket serve as local supermarkets. Mixed-use properties in Al Manakh combine offices, retail (ground level), and residential (upper floors). Sources: Bayut Al Manakh Area Guide (https://www.bayut.com/area-guides/al-manakh/), Square Yards (https://www.squareyards.ae/area-guide/sharjah/al-manakh)",
     "transport": "Bus routes E303, E307, E307A, and E400 pass close to Al Manakh. Route 3: Rolla Square Park through Al Wahda Road to Industrial Areas (6:05am-10:05pm weekdays). Route 14: Al Jubail Bus Station to Al Sharq, Industrial Area 1 and Sharjah Airport. Highway access: E11 (Sheikh Zayed Road) and E311 (SMBZ Road) both accessible. Sharjah International Airport: ~13km east-southeast of central Sharjah. No metro in Sharjah; public transport via MOWASALAT bus system and taxis. Sources: Bayut Public Transport Guide (https://www.bayut.com/mybayut/public-transport-sharjah-guide/), Edarabia Bus Routes (https://www.edarabia.com/sharjah-bus-routes-map-timing-guide/), Sharjah Airport Wikipedia (https://en.wikipedia.org/wiki/Sharjah_International_Airport)",
     "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS179",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS180",
@@ -1541,7 +1604,8 @@ const SITES_DATA = [
     "commercial_context": "Malls: City Centre Al Zahia, Safari Mall. Offices abundant. Schools/universities: University City of Sharjah. Hospitals: Medcare Hospital Sharjah, NMC Royal Hospital.",
     "key_insight": "High-density mixed-use area with excellent highway access, universities, malls, and industrial fleets supports strong demand for quick automotive services.",
     "research_sources": "2GIS ADNOC, Wikipedia Muwaileh, Property Finder Projects, 2GIS Searches, City Centre Al Zahia, Wikipedia University City",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS192",
@@ -1562,7 +1626,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Central Sharjah. Dense mixed-use.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS274",
@@ -1583,7 +1648,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Ittihad Street commercial corridor.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS579",
@@ -1604,7 +1670,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Khalidiya residential.",
     "category": "Sharjah",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS799",
@@ -1643,7 +1710,8 @@ const SITES_DATA = [
     "commercial": "Samnan Mall on Wasit Street (local shopping center with brands and local shops). Mega Mall: ~10 min drive (4-storey, cinema, shopping). Ramez Mall and Oasis Mall: short drive away. Local supermarkets: Al Khaleej Mini Supermarket, Al Suez Supermarket, Al Shareef Supermarket, Carrefour Market. Healthcare: Samnan Medical Centre (~5 min), Zeenat Alshifa Medical Centre (~6 min), Thumbay Clinic nearby. Schools: Al Dhia Al ILmiyah Private School (~5 min), Al Kamal American International School, Dolphin Nursery (walking distance). Sources: Bayut Samnan (https://www.bayut.com/area-guides/samnan/), Square Yards Samnan (https://www.squareyards.ae/area-guide/sharjah/samnan), Property Finder Samnan (https://www.propertyfinder.ae/blog/living-samnan-sharjah/)",
     "transport": "Bus lines E303, E306, and E400 stop near Samnan / Halwan Suburb. Public transport mostly via buses and taxis. Easy access to Al Wahda Street. Sharjah International Airport: ~9km east. No metro in Sharjah. Sources: Moovit Samnan (https://moovitapp.com/index/en/public_transit-Samnan-Dubai_Abu_Dhabi-site_59362200-3824), Moovit Halwan (https://moovitapp.com/index/en/public_transit-Halwan_Suburb-Dubai_Abu_Dhabi-site_59364273-3824), Bayut Samnan (https://www.bayut.com/area-guides/samnan/)",
     "photos_url": "https://skelmore-my.sharepoint.com/personal/mhabib_wag-me_com/Documents/Skelmore%20Group/ExpressFit/ADNOC/Site%20Photos/SS799",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS662",
@@ -1664,7 +1732,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Major highway location. High pass-through traffic. Industrial zone - limited residential but high vehicle counts.",
     "category": "Abu Dhabi",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS242",
@@ -1685,7 +1754,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Emirates Road E611. Pass-through traffic.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS246",
@@ -1706,7 +1776,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E611 corridor. Transit traffic.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS247",
@@ -1727,7 +1798,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E611 corridor. Similar to Rowaiyah 3.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS379",
@@ -1748,7 +1820,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "E66 Dubai-Al Ain. Transit traffic.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS520",
@@ -1769,7 +1842,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "DIP - mixed industrial/residential. Growing area.",
     "category": "Dubai",
-    "year": "Y3"
+    "year": "Y3",
+    "confirmed": true
   },
   {
     "ss": "SS329",
@@ -1790,7 +1864,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Production City. Mixed residential/commercial. Moderate demand.",
     "category": "Dubai",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS666",
@@ -1811,7 +1886,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Highway corridor between AD and Dubai. Transit traffic. Limited residential catchment.",
     "category": "Abu Dhabi",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS164",
@@ -1839,7 +1915,8 @@ const SITES_DATA = [
     "commercial_context": "High footfall drivers: Amity International School (adjacent), Al Bahya Private School, SEHA Clinics Al Bahia, Deerfields Mall.",
     "key_insight": "Prime opportunity for aftermarket quick-service bay at high-visibility station in growing suburban residential hub with low competition, school/mall traffic, and rising EV presence.",
     "research_sources": "See compiled sources file",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS312",
@@ -1860,7 +1937,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Shahama area. Moderate profile.",
     "category": "Abu Dhabi",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS612",
@@ -1881,7 +1959,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Al Rahba residential. Moderate density.",
     "category": "Abu Dhabi",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS534",
@@ -1902,7 +1981,8 @@ const SITES_DATA = [
     "grade": "yellow",
     "notes": "Remraam community. Growing. Limited services = opportunity.",
     "category": "Dubai",
-    "year": "Y4"
+    "year": "Y4",
+    "confirmed": true
   },
   {
     "ss": "SS723",
