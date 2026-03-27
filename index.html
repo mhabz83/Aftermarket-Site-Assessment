@@ -1,919 +1,785 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aftermarket Site Assessment — Global Operations</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg-primary: #000000;
-    --bg-secondary: #0a0a0a;
-    --bg-card: rgba(255,255,255,0.03);
-    --bg-card-solid: #0a0a0a;
-    --bg-card-hover: rgba(255,255,255,0.05);
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.12);
-    --text-primary: #ededed;
-    --text-secondary: #888888;
-    --text-muted: #666666;
-    --accent: #0070f3;
-    --accent-light: #3291ff;
-    --accent-soft: rgba(0,112,243,0.08);
-    --green: #22c55e;
-    --green-soft: rgba(34,197,94,0.08);
-    --yellow: #eab308;
-    --yellow-soft: rgba(234,179,8,0.08);
-    --red: #ef4444;
-    --red-soft: rgba(239,68,68,0.08);
-    --purple: #7928ca;
-    --purple-soft: rgba(121,40,202,0.08);
-    --teal: #14b8a6;
-    --teal-soft: rgba(20,184,166,0.08);
-    --glass: rgba(255,255,255,0.04);
-    --glass-border: rgba(255,255,255,0.06);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    min-height: 100vh;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* ─── Ambient Background ─── */
-  .ambient-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .ambient-bg .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.04;
-    animation: orbFloat 20s ease-in-out infinite;
-  }
-
-  .ambient-bg .orb-1 {
-    width: 600px; height: 600px;
-    background: #0070f3;
-    top: -200px; left: 10%;
-    animation-delay: 0s;
-  }
-
-  .ambient-bg .orb-2 {
-    width: 500px; height: 500px;
-    background: #7928ca;
-    bottom: -200px; right: 10%;
-    animation-delay: -7s;
-    animation-duration: 25s;
-  }
-
-  .ambient-bg .orb-3 {
-    width: 400px; height: 400px;
-    background: #14b8a6;
-    top: 40%; left: 50%;
-    transform: translateX(-50%);
-    animation-delay: -14s;
-    animation-duration: 30s;
-  }
-
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(40px, -30px) scale(1.05); }
-    50% { transform: translate(-20px, 40px) scale(0.95); }
-    75% { transform: translate(30px, 20px) scale(1.02); }
-  }
-
-  /* Dot grid instead of line grid */
-  .grid-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
-    background-size: 24px 24px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
-  }
-
-  /* ─── Noise texture ─── */
-  .noise {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 256px 256px;
-  }
-
-  /* ─── Top Navigation ─── */
-  .top-bar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 48px;
-    height: 56px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(20px) saturate(1.2);
-    -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  }
-
-  /* Subtle gradient line at the bottom of the top bar */
-  .top-bar::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    background: linear-gradient(135deg, #0070f3 0%, #7928ca 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(0, 112, 243, 0.15);
-    position: relative;
-  }
-
-  .brand-mark::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    padding: 1px;
-  }
-
-  .brand-text h1 {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-  }
-
-  .brand-text p {
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 1px;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .nav-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 12px;
-    border-radius: 100px;
-    background: rgba(34,197,94,0.04);
-    border: 1px solid rgba(34,197,94,0.1);
-  }
-
-  .status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 6px rgba(34,197,94,0.4);
-    animation: statusPulse 2.5s ease-in-out infinite;
-  }
-
-  @keyframes statusPulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(34,197,94,0.3); }
-    50% { opacity: 0.5; box-shadow: 0 0 10px rgba(34,197,94,0.5); }
-  }
-
-  .nav-status span {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--green);
-    letter-spacing: 0.01em;
-  }
-
-  .nav-date {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
-  /* ─── Main Container ─── */
-  .main {
-    position: relative;
-    z-index: 1;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 48px;
-  }
-
-  /* ─── Hero ─── */
-  .hero {
-    padding: 80px 0 64px;
-    text-align: center;
-    position: relative;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 14px 5px 7px;
-    border-radius: 100px;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 28px;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .hero-badge-dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-badge-dot svg {
-    width: 10px;
-    height: 10px;
-  }
-
-  .hero-badge span {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    letter-spacing: 0.04em;
-  }
-
-  .hero h2 {
-    font-size: 60px;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-    margin-bottom: 18px;
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-  }
-
-  .hero p {
-    font-size: 17px;
-    color: var(--text-secondary);
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.6;
-    font-weight: 400;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── KPI Strip ─── */
-  .kpi-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 56px;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
-  }
-
-  .kpi-card {
-    position: relative;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px 18px 18px;
-    text-align: center;
-    backdrop-filter: blur(20px);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
-  }
-
-  .kpi-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-  }
-
-  .kpi-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 0 40px rgba(255,255,255,0.03);
-  }
-
-  .kpi-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 12px;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .kpi-icon.blue { background: rgba(255,255,255,0.04); }
-  .kpi-icon.green { background: rgba(255,255,255,0.04); }
-  .kpi-icon.purple { background: rgba(255,255,255,0.04); }
-  .kpi-icon.teal { background: rgba(255,255,255,0.04); }
-
-  /* Monochrome icons: desaturate by default, accent on hover */
-  .kpi-icon svg {
-    opacity: 0.5;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    filter: grayscale(1) brightness(1.5);
-  }
-
-  .kpi-card:hover .kpi-icon svg {
-    opacity: 1;
-    filter: grayscale(0) brightness(1);
-  }
-
-  .kpi-card:hover .kpi-icon.blue { background: rgba(0,112,243,0.1); }
-  .kpi-card:hover .kpi-icon.green { background: rgba(34,197,94,0.1); }
-  .kpi-card:hover .kpi-icon.purple { background: rgba(121,40,202,0.1); }
-  .kpi-card:hover .kpi-icon.teal { background: rgba(20,184,166,0.1); }
-
-  .kpi-val {
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 4px;
-    line-height: 1;
-    color: #ffffff;
-  }
-
-  /* All KPI values are white — monochrome aesthetic */
-  .kpi-val.blue { color: #ffffff; }
-  .kpi-val.green { color: #ffffff; }
-  .kpi-val.purple { color: #ffffff; }
-  .kpi-val.teal { color: #ffffff; }
-
-  .kpi-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-  }
-
-  /* ─── Section Divider ─── */
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-  }
-
-  .section-header h3 {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-    white-space: nowrap;
-  }
-
-  .section-header .line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border), transparent);
-  }
-
-  /* ─── Country Cards ─── */
-  .countries-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 20px;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
-  }
-
-  .country-card {
-    position: relative;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(20px);
-  }
-
-  .country-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* Thin top gradient line — Vercel style */
-  .country-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .country-card:hover {
-    border-color: rgba(255,255,255,0.12);
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 0 40px rgba(255,255,255,0.03);
-  }
-
-  .country-card:hover::before { opacity: 1; }
-
-  .country-card:hover::after {
-    left: 10%;
-    right: 10%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  }
-
-  .country-card.disabled {
-    cursor: default;
-    opacity: 0.4;
-  }
-
-  .country-card.disabled:hover {
-    border-color: var(--border);
-    transform: none;
-    box-shadow: none;
-  }
-
-  .country-card.disabled:hover::before { opacity: 0; }
-
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 18px;
-  }
-
-  .country-flag {
-    font-size: 28px;
-    line-height: 1;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
-  }
-
-  .country-arrow {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    flex-shrink: 0;
-  }
-
-  .country-arrow svg path {
-    stroke: rgba(255,255,255,0.3);
-    transition: stroke 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .country-card:hover .country-arrow {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.12);
-  }
-
-  .country-card:hover .country-arrow svg path { stroke: rgba(255,255,255,0.7); }
-
-  .country-name {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    margin-bottom: 6px;
-    line-height: 1.2;
-    color: #ededed;
-  }
-
-  .country-subtitle {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    margin-bottom: 22px;
-    line-height: 1.6;
-  }
-
-  .country-stats {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: auto;
-  }
-
-  .country-stat {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    color: var(--text-secondary);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .country-card:hover .country-stat {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.08);
-  }
-
-  .stat-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .stat-dot.green { background: var(--green); box-shadow: 0 0 4px rgba(34,197,94,0.3); }
-  .stat-dot.yellow { background: var(--yellow); box-shadow: 0 0 4px rgba(234,179,8,0.3); }
-  .stat-dot.red { background: var(--red); box-shadow: 0 0 4px rgba(239,68,68,0.3); }
-  .stat-dot.purple { background: var(--purple); box-shadow: 0 0 4px rgba(121,40,202,0.3); }
-  .stat-dot.blue { background: var(--accent); box-shadow: 0 0 4px rgba(0,112,243,0.3); }
-
-  .in-progress-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 12px;
-    border-radius: 100px;
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: rgba(234, 179, 8, 0.06);
-    color: var(--yellow);
-    border: 1px solid rgba(234, 179, 8, 0.12);
-    margin-top: auto;
-  }
-
-  .in-progress-badge::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--yellow);
-    animation: statusPulse 2s infinite;
-  }
-
-  /* ─── Pipeline Section ─── */
-  .pipeline-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 80px;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
-  }
-
-  /* ─── Footer ─── */
-  .footer {
-    text-align: center;
-    padding: 28px 0;
-    font-size: 11px;
-    color: var(--text-muted);
-    border-top: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-    z-index: 1;
-  }
-
-  .footer-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    color: var(--text-muted);
-  }
-
-  .footer-brand .mark {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    background: linear-gradient(135deg, #0070f3, #7928ca);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-  }
-
-  /* ─── Animated counter ─── */
-  .counter { display: inline-block; }
-
-  /* ─── Responsive ─── */
-  @media (max-width: 1024px) {
-    .main { padding: 0 32px; }
-    .top-bar { padding: 0 32px; }
-    .hero h2 { font-size: 44px; }
-  }
-
-  @media (max-width: 768px) {
-    .main { padding: 0 20px; }
-    .top-bar { padding: 0 20px; }
-    .hero { padding: 48px 0 40px; }
-    .hero h2 { font-size: 32px; }
-    .hero p { font-size: 15px; }
-    .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .kpi-val { font-size: 28px; }
-    .countries-grid, .pipeline-grid { grid-template-columns: 1fr; }
-    .country-card { padding: 22px; }
-    .country-name { font-size: 20px; }
-    .footer-inner { flex-direction: column; gap: 12px; }
-  }
-
-  /* ─── Reveal animations ─── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+    <meta name="generator" content="WAG">
+    <meta name="author" content="World Automotive Group">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftermarket Site Assessment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-base: #0a0b0f;
+            --bg-elevated: #111318;
+            --bg-surface: #16181e;
+            --bg-surface-hover: #1c1f27;
+            --border-primary: rgba(255, 255, 255, 0.06);
+            --border-subtle: rgba(255, 255, 255, 0.03);
+            --border-accent: rgba(255, 255, 255, 0.10);
+            --border-top-highlight: rgba(255, 255, 255, 0.10);
+            --border-side: rgba(255, 255, 255, 0.05);
+            --border-divider: rgba(255, 255, 255, 0.04);
+            --border-focus: rgba(79, 143, 247, 0.35);
+            --text-primary: #e8eaed;
+            --text-secondary: #8b8f98;
+            --text-tertiary: #55585f;
+            --accent: #4f8ff7;
+            --accent-bg: rgba(79, 143, 247, 0.08);
+            --green: #34d399;
+            --green-bg: rgba(52, 211, 153, 0.08);
+            --amber: #fbbf24;
+            --amber-bg: rgba(251, 191, 36, 0.08);
+            --red: #f87171;
+            --purple: #a78bfa;
+            --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: 0.15s var(--ease-out);
+            --card-shimmer: linear-gradient(180deg, rgba(255,255,255,0.015) 0%, transparent 100%);
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 56px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 11, 15, 0.85);
+            backdrop-filter: blur(32px) saturate(180%);
+            -webkit-backdrop-filter: blur(32px) saturate(180%);
+        }
+
+        .nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 20%, rgba(255,255,255,0.08) 80%, transparent);
+        }
+
+        .nav-left { display: flex; align-items: center; gap: 14px; }
+
+        /* Logo monogram */
+        .nav-logo {
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--border-accent);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            background: var(--bg-surface);
+            flex-shrink: 0;
+        }
+
+        .nav-brand { display: flex; flex-direction: column; }
+
+        .nav-brand h1 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            color: var(--text-primary);
+        }
+
+        .nav-brand span {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-status {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        /* ===== MAIN ===== */
+        .main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 48px 48px 40px;
+        }
+
+        .header { margin-bottom: 40px; }
+
+        .header-eyebrow {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 560px;
+            font-weight: 400;
+        }
+
+        /* ===== METRICS ===== */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-primary);
+            border-top: 1px solid var(--border-top-highlight);
+            border-left: 1px solid var(--border-side);
+            border-right: 1px solid var(--border-side);
+            border-bottom: 1px solid var(--border-side);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .metric {
+            background: var(--bg-elevated);
+            background-image: var(--card-shimmer);
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            position: relative;
+        }
+
+        .metric:first-child { border-radius: 11px 0 0 11px; }
+        .metric:last-child { border-radius: 0 11px 11px 0; }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .metric-delta {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--green-bg);
+            color: var(--green);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .metric-label {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+        }
+
+        /* Decorative sparkline */
+        .metric-sparkline {
+            position: absolute;
+            bottom: 12px;
+            right: 16px;
+            width: 48px;
+            height: 20px;
+            opacity: 0.4;
+        }
+
+        .metric-sparkline path {
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ===== COUNTRY GRID ===== */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .country-card {
+            position: relative;
+            background: var(--bg-elevated);
+            background-image: var(--card-shimmer);
+            border-top: 1px solid var(--border-top-highlight);
+            border-left: 1px solid var(--border-side);
+            border-right: 1px solid var(--border-side);
+            border-bottom: 1px solid var(--border-side);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-fast);
+        }
+
+        a.country-card:hover {
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        a.country-card:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--border-focus);
+        }
+
+        .country-card.pending {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+
+        .country-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .country-id { display: flex; align-items: center; gap: 12px; }
+
+        .country-flag-wrap {
+            width: 36px;
+            height: 26px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            font-size: 18px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .country-name-block h3 {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+        }
+
+        .country-name-block span {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        .card-arrow {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-primary);
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        a.country-card:hover .card-arrow {
+            border-color: var(--accent);
+            background: var(--accent-bg);
+        }
+
+        .card-arrow svg { width: 14px; height: 14px; }
+
+        .country-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .country-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ===== STATUS BAR ===== */
+        .status-bar {
+            display: flex;
+            gap: 1px;
+            height: 6px;
+            margin-bottom: 12px;
+        }
+
+        .status-segment { 
+            border-radius: 3px;
+            transition: filter var(--transition-fast);
+        }
+        
+        .status-segment.green { background: var(--green); }
+        .status-segment.amber { background: var(--amber); }
+        .status-segment.red { background: var(--red); }
+        .status-segment.accent { background: var(--accent); }
+
+        a.country-card:hover .status-segment {
+            filter: brightness(1.15);
+        }
+
+        .status-legend { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.green { background: var(--green); }
+        .legend-dot.amber { background: var(--amber); }
+        .legend-dot.red { background: var(--red); }
+        .legend-dot.accent { background: var(--accent); }
+
+        .legend-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .pipeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-primary);
+            background: var(--bg-surface);
+            margin-top: auto;
+        }
+
+        .pipeline-badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-divider);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav { padding: 0 20px; }
+            .main { padding: 32px 20px 24px; }
+            .header h2 { font-size: 24px; }
+            .metrics { grid-template-columns: repeat(2, 1fr); }
+            .metric:first-child { border-radius: 11px 0 0 0; }
+            .metric:nth-child(2) { border-radius: 0 11px 0 0; }
+            .metric:nth-child(3) { border-radius: 0 0 0 11px; }
+            .metric:last-child { border-radius: 0 0 11px 0; }
+            .country-grid { grid-template-columns: 1fr; }
+            .country-card { padding: 20px; }
+            .nav-right { display: none; }
+            .metric-sparkline { display: none; }
+        }
+
+        /* Focus states */
+        *:focus { outline: none; }
+        button:focus, a:focus { box-shadow: 0 0 0 2px var(--border-focus); }
+    </style>
 </head>
 <body>
 
-<div class="ambient-bg">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-<div class="grid-overlay"></div>
-<div class="noise"></div>
+<script src="auth.js"></script>
 
-<!-- ─── Top Bar ─── -->
-<header class="top-bar">
-  <div class="brand">
-    <div class="brand-mark">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M10 2L18 10L10 18L2 10L10 2Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" fill="none"/>
-        <circle cx="10" cy="10" r="2.5" fill="rgba(255,255,255,0.9)"/>
-      </svg>
+<nav class="nav">
+    <div class="nav-left">
+        <div class="nav-logo">W</div>
+        <div class="nav-brand">
+            <h1>Aftermarket Site Assessment</h1>
+            <span>World Automotive Group</span>
+        </div>
     </div>
-    <div class="brand-text">
-      <h1>Aftermarket Site Assessment</h1>
-      <p>Global Operations Dashboard</p>
+    <div class="nav-right">
+        <span class="nav-status"></span>
+        Updated Mar 2026
     </div>
-  </div>
-  <div class="nav-right">
-    <div class="nav-status">
-      <div class="status-dot"></div>
-      <span>Live</span>
-    </div>
-    <div class="nav-date">Updated March 2026</div>
-  </div>
-</header>
+</nav>
 
-<!-- ─── Main Content ─── -->
 <main class="main">
+    <div class="header">
+        <div class="header-eyebrow">Global Operations</div>
+        <h2>Site Assessment Portfolio</h2>
+        <p>Multi-country evaluation of quick-service bay opportunities across the MENA region. Four target markets, 209 sites evaluated.</p>
+    </div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-badge">
-      <div class="hero-badge-dot">
-        <svg viewBox="0 0 12 12" fill="none"><path d="M6 1L11 6L6 11L1 6L6 1Z" stroke="#60a5fa" stroke-width="1.2"/></svg>
-      </div>
-      <span>MENA Regional Expansion</span>
-    </div>
-    <h2>Site Assessment Portfolio</h2>
-    <p>Comprehensive multi-country evaluation of aftermarket quick-service bay opportunities across the MENA region.</p>
-  </section>
-
-  <!-- KPIs -->
-  <section class="kpi-strip">
-    <div class="kpi-card">
-      <div class="kpi-icon blue">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1C5 1 1 5 1 10s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="#3b82f6" stroke-width="1.5" fill="none"/><circle cx="10" cy="10" r="3" fill="#3b82f6" opacity="0.3"/><path d="M10 4v6l4 2" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </div>
-      <div class="kpi-val blue"><span class="counter" data-target="4">0</span></div>
-      <div class="kpi-label">Target Markets</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon green">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10l5 5 11-11" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="kpi-val green"><span class="counter" data-target="199">0</span></div>
-      <div class="kpi-label">Sites Evaluated</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon purple">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="4" stroke="#a855f7" stroke-width="1.5" fill="none"/><path d="M7 10h6M10 7v6" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </div>
-      <div class="kpi-val purple"><span class="counter" data-target="2">0</span></div>
-      <div class="kpi-label">Active Assessments</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon teal">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 7-7" stroke="#14b8a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h3v3" stroke="#14b8a6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="kpi-val teal"><span class="counter" data-target="2">0</span></div>
-      <div class="kpi-label">In Pipeline</div>
-    </div>
-  </section>
-
-  <!-- Active Assessments -->
-  <div class="section-header">
-    <h3>Active Assessments</h3>
-    <div class="line"></div>
-  </div>
-
-  <div class="countries-grid">
-    <!-- UAE -->
-    <a href="uae.html" class="country-card">
-      <div class="card-top">
-        <span class="country-flag">&#x1F1E6;&#x1F1EA;</span>
-        <div class="country-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M6 3L11 8L6 13" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <div class="metrics">
+        <div class="metric">
+            <div class="metric-header">
+                <div class="metric-value">4</div>
+            </div>
+            <div class="metric-label">Markets</div>
+            <svg class="metric-sparkline" viewBox="0 0 48 20">
+                <path d="M0 15 L12 10 L24 12 L36 6 L48 8" stroke="var(--accent)"/>
+            </svg>
         </div>
-      </div>
-      <div class="country-name">United Arab Emirates</div>
-      <div class="country-subtitle">ADNOC partnership — Abu Dhabi, Dubai, Sharjah<br>165 sites scored across 6 weighted criteria</div>
-      <div class="country-stats">
-        <div class="country-stat"><span class="stat-dot purple"></span>5 Y1 Priority</div>
-        <div class="country-stat"><span class="stat-dot green"></span>10 Green</div>
-        <div class="country-stat"><span class="stat-dot yellow"></span>63 Yellow</div>
-        <div class="country-stat"><span class="stat-dot red"></span>92 Red</div>
-      </div>
-    </a>
-
-    <!-- Morocco -->
-    <a href="morocco.html" class="country-card">
-      <div class="card-top">
-        <span class="country-flag">&#x1F1F2;&#x1F1E6;</span>
-        <div class="country-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M6 3L11 8L6 13" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="metric">
+            <div class="metric-header">
+                <div class="metric-value">209</div>
+                <span class="metric-delta">+12%</span>
+            </div>
+            <div class="metric-label">Sites Evaluated</div>
+            <svg class="metric-sparkline" viewBox="0 0 48 20">
+                <path d="M0 16 L12 14 L24 10 L36 8 L48 4" stroke="var(--green)"/>
+            </svg>
         </div>
-      </div>
-      <div class="country-name">Morocco</div>
-      <div class="country-subtitle">Petrom (19 sites) + Petromin (15 sites)<br>Dual-partner strategy — Casablanca hub focus</div>
-      <div class="country-stats">
-        <div class="country-stat"><span class="stat-dot green"></span>4 Shortlist</div>
-        <div class="country-stat"><span class="stat-dot yellow"></span>26 Under Review</div>
-        <div class="country-stat"><span class="stat-dot red"></span>2 No Go / Concern</div>
-        <div class="country-stat"><span class="stat-dot blue"></span>34 Total</div>
-      </div>
-    </a>
-  </div>
-
-  <!-- Pipeline -->
-  <div class="section-header reveal">
-    <h3>Pipeline</h3>
-    <div class="line"></div>
-  </div>
-
-  <div class="pipeline-grid reveal">
-    <!-- Egypt -->
-    <div class="country-card disabled">
-      <div class="card-top">
-        <span class="country-flag">&#x1F1EA;&#x1F1EC;</span>
-      </div>
-      <div class="country-name">Egypt</div>
-      <div class="country-subtitle">Great Automotive acquisition under review<br>Total Energies ~390 stations (monitoring)</div>
-      <div class="in-progress-badge">In Progress</div>
+        <div class="metric">
+            <div class="metric-header">
+                <div class="metric-value">2</div>
+            </div>
+            <div class="metric-label">Active</div>
+            <svg class="metric-sparkline" viewBox="0 0 48 20">
+                <path d="M0 10 L12 8 L24 12 L36 6 L48 8" stroke="var(--green)"/>
+            </svg>
+        </div>
+        <div class="metric">
+            <div class="metric-header">
+                <div class="metric-value">2</div>
+            </div>
+            <div class="metric-label">Pipeline</div>
+            <svg class="metric-sparkline" viewBox="0 0 48 20">
+                <path d="M0 12 L12 10 L24 14 L36 8 L48 10" stroke="var(--amber)"/>
+            </svg>
+        </div>
     </div>
 
-    <!-- Saudi Arabia -->
-    <div class="country-card disabled">
-      <div class="card-top">
-        <span class="country-flag">&#x1F1F8;&#x1F1E6;</span>
-      </div>
-      <div class="country-name">Saudi Arabia</div>
-      <div class="country-subtitle">$10.4B addressable market<br>63 workshops mapped (monitoring phase)</div>
-      <div class="in-progress-badge">In Progress</div>
-    </div>
-  </div>
+    <div class="country-grid">
+        <a href="uae.html" class="country-card">
+            <div class="country-card-top">
+                <div class="country-id">
+                    <div class="country-flag-wrap">&#x1F1E6;&#x1F1EA;</div>
+                    <div class="country-name-block">
+                        <h3>United Arab Emirates</h3>
+                        <span>ADNOC Distribution</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 14 14" fill="none"><path d="M5 2.5L9.5 7L5 11.5" stroke="#55585f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </div>
+            <div class="country-desc">
+                <strong>209 sites</strong> scored across 6 weighted criteria &mdash; Abu Dhabi, Dubai, Sharjah. 80 confirmed for deployment.
+            </div>
+            <div class="status-bar">
+                <div class="status-segment accent" style="flex: 80;"></div>
+                <div class="status-segment green" style="flex: 10;"></div>
+                <div class="status-segment amber" style="flex: 63;"></div>
+                <div class="status-segment red" style="flex: 92;"></div>
+            </div>
+            <div class="status-legend">
+                <div class="legend-item"><span class="legend-dot accent"></span><span class="legend-value">80</span> Confirmed</div>
+                <div class="legend-item"><span class="legend-dot green"></span><span class="legend-value">10</span> Green</div>
+                <div class="legend-item"><span class="legend-dot amber"></span><span class="legend-value">63</span> Yellow</div>
+                <div class="legend-item"><span class="legend-dot red"></span><span class="legend-value">92</span> Red</div>
+            </div>
+        </a>
 
+        <a href="morocco.html" class="country-card">
+            <div class="country-card-top">
+                <div class="country-id">
+                    <div class="country-flag-wrap">&#x1F1F2;&#x1F1E6;</div>
+                    <div class="country-name-block">
+                        <h3>Morocco</h3>
+                        <span>Petrom &middot; Petromin</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 14 14" fill="none"><path d="M5 2.5L9.5 7L5 11.5" stroke="#55585f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+            </div>
+            <div class="country-desc">
+                Dual-partner strategy &mdash; <strong>19 Petrom</strong> + <strong>15 Petromin</strong> sites. Casablanca hub focus.
+            </div>
+            <div class="status-bar">
+                <div class="status-segment green" style="flex: 3;"></div>
+                <div class="status-segment amber" style="flex: 30;"></div>
+                <div class="status-segment red" style="flex: 1;"></div>
+            </div>
+            <div class="status-legend">
+                <div class="legend-item"><span class="legend-dot green"></span><span class="legend-value">3</span> Prime</div>
+                <div class="legend-item"><span class="legend-dot amber"></span><span class="legend-value">30</span> Viable</div>
+                <div class="legend-item"><span class="legend-dot red"></span><span class="legend-value">1</span> Weak</div>
+            </div>
+        </a>
+
+        <div class="country-card pending">
+            <div class="country-card-top">
+                <div class="country-id">
+                    <div class="country-flag-wrap">&#x1F1EA;&#x1F1EC;</div>
+                    <div class="country-name-block">
+                        <h3>Egypt</h3>
+                        <span>Under Review</span>
+                    </div>
+                </div>
+            </div>
+            <div class="country-desc">
+                Great Automotive acquisition under review. Total Energies ~390 stations monitored.
+            </div>
+            <div class="pipeline-badge">Pipeline</div>
+        </div>
+
+        <div class="country-card pending">
+            <div class="country-card-top">
+                <div class="country-id">
+                    <div class="country-flag-wrap">&#x1F1F8;&#x1F1E6;</div>
+                    <div class="country-name-block">
+                        <h3>Saudi Arabia</h3>
+                        <span>Monitoring Phase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="country-desc">
+                $10.4B addressable market. 63 workshops mapped in monitoring phase.
+            </div>
+            <div class="pipeline-badge">Pipeline</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <span>WAG &mdash; Aftermarket Business Development</span>
+        <span>Confidential</span>
+    </footer>
 </main>
 
-<!-- ─── Footer ─── -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="mark">
-        <svg width="10" height="10" viewBox="0 0 20 20" fill="none">
-          <path d="M10 2L18 10L10 18L2 10L10 2Z" stroke="#fff" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
-      Aftermarket Site Assessment
-    </div>
-    <span>Confidential — Internal Use Only</span>
-  </div>
-</footer>
-
 <script>
-// Animated counters
-function animateCounters() {
-  document.querySelectorAll('.counter').forEach(counter => {
-    const target = +counter.dataset.target;
-    const duration = 1200;
-    const start = performance.now();
-    function update(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(update);
+// ===== STAGGERED CARD ANIMATION =====
+document.querySelectorAll('.country-card').forEach((card, i) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(12px)';
+  card.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+  setTimeout(() => {
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  }, 100 + i * 80);
+});
+
+// ===== KPI COUNTER ANIMATION =====
+document.querySelectorAll('.metric-value').forEach(el => {
+  const target = parseInt(el.textContent) || 0;
+  if (target === 0) return;
+  el.style.opacity = '0.5';
+  let current = 0;
+  const increment = Math.ceil(target / 25);
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+      el.style.opacity = '1';
     }
-    requestAnimationFrame(update);
+    el.textContent = current;
+  }, 25);
+});
+
+// ===== LEGEND VALUE ANIMATION =====
+document.querySelectorAll('.legend-value').forEach(el => {
+  const target = parseInt(el.textContent) || 0;
+  if (target === 0) return;
+  let current = 0;
+  const increment = Math.ceil(target / 15);
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = current;
+  }, 35);
+});
+
+// ===== COMMAND PALETTE =====
+const cmdPaletteHTML = `
+<div class="cmd-palette-overlay" id="cmd-palette-overlay">
+  <div class="cmd-palette">
+    <div class="cmd-palette-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="cmd-palette-input" id="cmd-input" placeholder="Navigate to country..." autocomplete="off">
+    </div>
+    <div class="cmd-palette-results" id="cmd-results"></div>
+    <div class="cmd-palette-footer">
+      <div class="cmd-palette-footer-hint">
+        <span><kbd class="cmd-palette-kbd">↑↓</kbd> Navigate</span>
+        <span><kbd class="cmd-palette-kbd">↵</kbd> Select</span>
+        <span><kbd class="cmd-palette-kbd">esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+document.body.insertAdjacentHTML('beforeend', cmdPaletteHTML);
+
+const cmdOverlay = document.getElementById('cmd-palette-overlay');
+const cmdInput = document.getElementById('cmd-input');
+const cmdResults = document.getElementById('cmd-results');
+let cmdSelectedIdx = 0;
+let cmdItems = [];
+
+function openCmdPalette() {
+  cmdOverlay.classList.add('open');
+  cmdInput.value = '';
+  cmdInput.focus();
+  renderCmdResults('');
+}
+
+function closeCmdPalette() {
+  cmdOverlay.classList.remove('open');
+}
+
+function renderCmdResults(query) {
+  const q = query.toLowerCase().trim();
+  cmdItems = [];
+  
+  const countries = [
+    { name: 'UAE', desc: 'United Arab Emirates - 209 Sites', href: 'uae.html' },
+    { name: 'Morocco', desc: 'Petrom + Petromin - 34 Sites', href: 'morocco.html' },
+    { name: 'Egypt', desc: 'Pipeline - Under Review', href: null },
+    { name: 'Saudi Arabia', desc: 'Pipeline - Monitoring', href: null },
+  ].filter(c => c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q));
+  
+  let html = '<div class="cmd-palette-group"><div class="cmd-palette-group-title">Countries</div>';
+  countries.forEach((c, i) => {
+    cmdItems.push({ type: 'country', data: c });
+    html += `<div class="cmd-palette-item${!c.href ? ' disabled' : ''}" data-idx="${cmdItems.length - 1}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="cmd-palette-item-text">${c.name}</span>
+      <span class="cmd-palette-item-hint">${c.desc}</span>
+    </div>`;
+  });
+  html += '</div>';
+  
+  cmdResults.innerHTML = html;
+  cmdSelectedIdx = 0;
+  updateCmdSelection();
+}
+
+function updateCmdSelection() {
+  cmdResults.querySelectorAll('.cmd-palette-item').forEach((el, i) => {
+    el.classList.toggle('selected', i === cmdSelectedIdx);
   });
 }
 
-// Reveal on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+function executeCmdItem(idx) {
+  const item = cmdItems[idx];
+  if (!item || !item.data.href) return;
+  window.location.href = item.data.href;
+}
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+cmdInput.addEventListener('input', e => renderCmdResults(e.target.value));
+cmdInput.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    cmdSelectedIdx = Math.min(cmdSelectedIdx + 1, cmdItems.length - 1);
+    updateCmdSelection();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    cmdSelectedIdx = Math.max(cmdSelectedIdx - 1, 0);
+    updateCmdSelection();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    executeCmdItem(cmdSelectedIdx);
+  } else if (e.key === 'Escape') {
+    closeCmdPalette();
+  }
+});
 
-// Init
-setTimeout(animateCounters, 400);
+cmdResults.addEventListener('click', e => {
+  const item = e.target.closest('.cmd-palette-item:not(.disabled)');
+  if (item) executeCmdItem(parseInt(item.dataset.idx));
+});
+
+cmdOverlay.addEventListener('click', e => {
+  if (e.target === cmdOverlay) closeCmdPalette();
+});
+
+// Global Cmd+K shortcut
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    openCmdPalette();
+  }
+  if (e.key === 'Escape') {
+    closeCmdPalette();
+  }
+});
 </script>
 </body>
 </html>

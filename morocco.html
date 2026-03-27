@@ -3,153 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="WAG">
+<meta name="author" content="World Automotive Group">
 <title>Morocco Site Assessment — Aftermarket Site Assessment</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="design-system.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+  /* Morocco-specific custom variables */
   :root {
-    --bg-primary: #000000;
-    --bg-secondary: #0a0a0a;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --bg-card-solid: #0c0c0c;
-    --bg-hover: rgba(255, 255, 255, 0.05);
-    --bg-elevated: rgba(255, 255, 255, 0.04);
-    --border: rgba(255, 255, 255, 0.06);
-    --border-subtle: rgba(255, 255, 255, 0.04);
-    --border-hover: rgba(255, 255, 255, 0.12);
-    --text-primary: #ededed;
-    --text-secondary: #888888;
-    --text-muted: #555555;
-    --green: #22c55e;
-    --green-bg: rgba(34, 197, 94, 0.06);
-    --green-border: rgba(34, 197, 94, 0.18);
-    --yellow: #eab308;
-    --yellow-bg: rgba(234, 179, 8, 0.06);
-    --yellow-border: rgba(234, 179, 8, 0.18);
-    --red: #ef4444;
-    --red-bg: rgba(239, 68, 68, 0.06);
-    --red-border: rgba(239, 68, 68, 0.18);
-    --accent: #3b82f6;
-    --accent-dim: rgba(59, 130, 246, 0.08);
-    --accent-border: rgba(59, 130, 246, 0.20);
-    --purple: #a855f7;
-    --purple-bg: rgba(168, 85, 247, 0.06);
-    --purple-border: rgba(168, 85, 247, 0.18);
     --petrom-color: #f97316;
-    --petrom-bg: rgba(249, 115, 22, 0.06);
-    --petrom-border: rgba(249, 115, 22, 0.20);
+    --petrom-bg: rgba(249, 115, 22, 0.08);
+    --petrom-border: rgba(249, 115, 22, 0.25);
     --petromin-color: #06b6d4;
-    --petromin-bg: rgba(6, 182, 212, 0.06);
-    --petromin-border: rgba(6, 182, 212, 0.20);
-    --glass-bg: rgba(0, 0, 0, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.06);
-    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
-    --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
-    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --petromin-bg: rgba(6, 182, 212, 0.08);
+    --petromin-border: rgba(6, 182, 212, 0.25);
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.15s var(--ease-out);
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-primary);
+    font-family: var(--font-sans);
+    background: var(--bg-base);
     color: var(--text-primary);
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Noise texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    pointer-events: none;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 128px 128px;
-  }
-
-  /* ===== TOP NAVIGATION ===== */
-  .top-nav {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    height: 52px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px) saturate(1.2);
-    -webkit-backdrop-filter: blur(20px) saturate(1.2);
-    flex-shrink: 0;
-    z-index: 1001;
-    gap: 16px;
-    position: relative;
-  }
-
-  .top-nav::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.15) 20%, rgba(59, 130, 246, 0.25) 50%, rgba(59, 130, 246, 0.15) 80%, transparent 100%);
-    pointer-events: none;
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 11.5px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.02);
-    transition: var(--transition);
-    letter-spacing: 0.01em;
-  }
-
-  .back-link:hover {
-    color: var(--text-primary);
-    border-color: var(--border-hover);
-    background: rgba(255, 255, 255, 0.04);
-    transform: translateX(-2px);
-  }
-
-  .back-link svg { transition: transform 0.2s ease; }
-  .back-link:hover svg { transform: translateX(-2px); }
-
-  .nav-flag { font-size: 20px; line-height: 1; }
-
-  .nav-title {
-    font-size: 14px;
-    font-weight: 600;
-    flex: 1;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-  }
-
-  .nav-badge {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--text-muted);
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.02);
-    letter-spacing: 0.03em;
   }
 
   /* ===== MAIN LAYOUT ===== */
@@ -160,217 +40,145 @@
   }
 
   /* ===== SIDEBAR ===== */
-  .sidebar {
-    width: 380px;
-    min-width: 380px;
-    background: var(--bg-secondary);
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    position: relative;
+  .ds-sidebar {
+    width: 360px;
+    min-width: 360px;
   }
 
-  /* Sidebar glow accent */
-  .sidebar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.12) 0%, transparent 30%, transparent 70%, rgba(59, 130, 246, 0.08) 100%);
-    pointer-events: none;
+  .ds-sidebar-header {
+    padding: 14px 18px 10px;
   }
 
-  .sidebar-header {
-    padding: 24px 24px 18px;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
+  .ds-sidebar-header h2 {
+    font-size: 13px;
+    letter-spacing: -0.04em;
   }
 
-  .sidebar-header h2 {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 4px;
-    color: var(--text-primary);
-  }
-
-  .sidebar-header p {
-    font-size: 11.5px;
-    color: var(--text-muted);
-    font-weight: 400;
-    letter-spacing: 0.01em;
+  .ds-sidebar-header p {
+    font-size: 10px;
   }
 
   /* ===== PARTNER TOGGLE ===== */
   .partner-toggle {
     display: flex;
-    padding: 14px 24px;
-    gap: 8px;
-    border-bottom: 1px solid var(--border);
+    padding: 10px 18px;
+    gap: 6px;
+    border-bottom: 1px solid var(--border-divider);
     flex-shrink: 0;
   }
 
   .partner-btn {
     flex: 1;
-    padding: 9px 12px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.02);
-    color: var(--text-muted);
-    font-size: 11.5px;
-    font-weight: 500;
+    padding: 7px 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-primary);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
-    font-family: inherit;
+    transition: all var(--transition-fast);
+    font-family: var(--font-sans);
     text-align: center;
-    position: relative;
-    overflow: hidden;
     letter-spacing: -0.01em;
   }
 
-  .partner-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border-radius: inherit;
-  }
-
   .partner-btn:hover {
-    border-color: var(--border-hover);
-    color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--border-accent);
+    background: var(--bg-surface);
   }
 
-  .partner-btn:active {
-    transform: scale(0.97);
+  .partner-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--border-focus);
   }
 
   .partner-btn.active.all-p {
-    background: var(--accent-dim);
+    background: var(--accent-bg);
     border-color: var(--accent-border);
     color: var(--accent);
-    box-shadow: 0 0 16px rgba(59, 130, 246, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .partner-btn.active.petrom-p {
     background: var(--petrom-bg);
     border-color: var(--petrom-border);
     color: var(--petrom-color);
-    box-shadow: 0 0 16px rgba(249, 115, 22, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .partner-btn.active.petromin-p {
     background: var(--petromin-bg);
     border-color: var(--petromin-border);
     color: var(--petromin-color);
-    box-shadow: 0 0 16px rgba(6, 182, 212, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .partner-btn .btn-count {
-    font-size: 10px;
-    font-weight: 600;
-    opacity: 0.5;
-    margin-left: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    opacity: 0.6;
+    margin-left: 3px;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
   }
 
   /* ===== STATS ROW ===== */
-  .stats-row {
-    display: flex;
-    gap: 8px;
-    padding: 14px 24px;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
+  .ds-stats-row {
+    padding: 0;
   }
 
-  .stat-badge {
-    flex: 1;
-    text-align: center;
-    padding: 4px 10px;
-    border-radius: var(--radius-sm);
-    font-size: 10px;
-    font-weight: 500;
-    border: none;
-    border-left: 2px solid transparent;
-    transition: var(--transition);
-    background: rgba(255, 255, 255, 0.03);
-    letter-spacing: 0.02em;
+  .ds-stat-badge {
+    padding: 6px 4px 5px;
+    font-size: 8px;
+    letter-spacing: 0.10em;
   }
 
-  .stat-badge:hover { transform: translateY(-1px); }
-
-  .stat-badge.green {
-    color: var(--green);
-    border-left-color: var(--green);
-  }
-
-  .stat-badge.yellow {
-    color: var(--yellow);
-    border-left-color: var(--yellow);
-  }
-
-  .stat-badge.red {
-    color: var(--red);
-    border-left-color: var(--red);
-  }
-
-  .stat-badge.blue {
-    color: var(--accent);
-    border-left-color: var(--accent);
-  }
-
-  .stat-badge .num {
-    font-size: 18px;
-    font-weight: 700;
-    display: block;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-bottom: 2px;
-    color: var(--text-primary);
+  .ds-stat-badge .stat-count {
+    font-size: 16px;
+    margin-bottom: 1px;
   }
 
   /* ===== FILTER BAR ===== */
   .filter-bar {
-    padding: 12px 24px;
-    border-bottom: 1px solid var(--border);
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border-divider);
     display: flex;
-    gap: 6px;
+    gap: 5px;
     flex-shrink: 0;
     flex-wrap: wrap;
   }
 
   .filter-btn {
-    padding: 5px 12px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.02);
-    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 16px;
+    border: 1px solid var(--border-primary);
+    background: transparent;
+    color: var(--text-tertiary);
     font-size: 10px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: var(--transition);
-    font-family: inherit;
+    transition: all var(--transition-fast);
+    font-family: var(--font-sans);
     letter-spacing: 0.01em;
   }
 
   .filter-btn:hover {
-    border-color: var(--border-hover);
+    border-color: var(--border-accent);
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--bg-surface);
   }
 
-  .filter-btn:active {
-    transform: scale(0.97);
+  .filter-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--border-focus);
   }
 
   .filter-btn.active {
-    background: var(--accent-dim);
+    background: var(--accent-bg);
     border-color: var(--accent-border);
     color: var(--accent);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .filter-btn.active.green-f {
@@ -380,9 +188,9 @@
   }
 
   .filter-btn.active.yellow-f {
-    background: var(--yellow-bg);
-    border-color: var(--yellow-border);
-    color: var(--yellow);
+    background: var(--amber-bg);
+    border-color: var(--amber-border);
+    color: var(--amber);
   }
 
   .filter-btn.active.red-f {
@@ -393,75 +201,84 @@
 
   /* ===== SEARCH ===== */
   .search-bar {
-    padding: 10px 24px;
-    border-bottom: 1px solid var(--border);
+    padding: 8px 18px;
+    border-bottom: 1px solid var(--border-divider);
     flex-shrink: 0;
   }
-
-  .search-bar input {
-    width: 100%;
-    padding: 8px 14px 8px 36px;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 12px;
-    font-family: inherit;
-    font-weight: 400;
-    outline: none;
-    transition: var(--transition);
-    letter-spacing: 0.01em;
-  }
-
-  .search-bar input:focus {
-    border-bottom-color: var(--accent);
-  }
-
-  .search-bar input::placeholder { color: var(--text-muted); font-weight: 400; }
 
   .search-wrapper {
     position: relative;
   }
 
+  .search-bar input {
+    width: 100%;
+    padding: 7px 60px 7px 32px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-primary);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-size: 11px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    outline: none;
+    transition: all var(--transition-fast);
+  }
+
+  .search-bar input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--border-focus);
+  }
+
+  .search-bar input::placeholder { color: var(--text-tertiary); font-weight: 400; }
+
   .search-icon {
     position: absolute;
-    left: 12px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
+    color: var(--text-tertiary);
     pointer-events: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
   }
 
   .search-wrapper:focus-within .search-icon { color: var(--accent); }
+
+  .search-kbd {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    font-family: var(--font-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-surface);
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--border-primary);
+    pointer-events: none;
+  }
 
   /* ===== SITE LIST ===== */
   .site-list {
     flex: 1;
     overflow-y: auto;
-    padding: 4px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.12) var(--bg-surface);
   }
 
   .site-list::-webkit-scrollbar { width: 4px; }
-  .site-list::-webkit-scrollbar-track { background: transparent; }
-  .site-list::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-  }
-  .site-list::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
+  .site-list::-webkit-scrollbar-track { background: var(--bg-surface); border-radius: 4px; }
+  .site-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
 
   .site-item {
-    padding: 11px 24px;
+    padding: 10px 16px;
     cursor: pointer;
-    transition: var(--transition);
-    border-bottom: 1px solid var(--border);
+    transition: background var(--transition-fast);
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     position: relative;
-    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-delay: calc(var(--i, 0) * 30ms);
   }
 
   .site-item::before {
@@ -470,48 +287,46 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: transparent;
-    transition: background 0.2s ease;
-    border-radius: 0 2px 2px 0;
+    width: 3px;
+    transition: background var(--transition-fast);
   }
+
+  .site-item[data-grade="green"]::before { background: var(--green); }
+  .site-item[data-grade="yellow"]::before { background: var(--amber); }
+  .site-item[data-grade="red"]::before { background: var(--red); }
 
   .site-item:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-surface);
   }
-
-  .site-item:hover::before { background: var(--accent); }
 
   .site-item.selected {
-    background: rgba(59, 130, 246, 0.04);
+    background: rgba(79, 143, 247, 0.06);
   }
 
-  .site-item.selected::before { background: var(--accent); }
+  .site-item.selected::before {
+    background: var(--accent) !important;
+    width: 2px;
+  }
 
   .site-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     flex-shrink: 0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .site-item:hover .site-dot { transform: scale(1.2); }
-
-  .site-dot.green { background: var(--green); box-shadow: 0 0 6px rgba(34, 197, 94, 0.3); }
-  .site-dot.yellow { background: var(--yellow); box-shadow: 0 0 6px rgba(234, 179, 8, 0.3); }
-  .site-dot.red { background: var(--red); box-shadow: 0 0 6px rgba(239, 68, 68, 0.3); }
+  .site-dot.green { background: var(--green); }
+  .site-dot.yellow { background: var(--amber); }
+  .site-dot.red { background: var(--red); }
 
   .site-info { flex: 1; min-width: 0; }
 
   .site-name {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11.5px;
+    font-weight: 600;
     color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -520,19 +335,18 @@
 
   .site-meta {
     font-size: 10px;
-    color: var(--text-muted);
-    margin-top: 2px;
+    color: var(--text-tertiary);
+    margin-top: 1px;
     font-weight: 400;
-    letter-spacing: 0.01em;
   }
 
   .partner-tag {
     display: inline-flex;
     align-items: center;
-    padding: 1px 7px;
-    border-radius: 4px;
-    font-size: 8px;
-    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 7px;
+    font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -550,25 +364,43 @@
     border: 1px solid var(--petromin-border);
   }
 
-  .site-rating {
-    font-size: 13px;
-    font-weight: 700;
+  /* Score with progress bar */
+  .site-score-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
     flex-shrink: 0;
-    letter-spacing: -0.02em;
+  }
+
+  .site-rating {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
     font-variant-numeric: tabular-nums;
   }
 
-  .site-rating.green { color: var(--green); }
-  .site-rating.yellow { color: var(--yellow); }
-  .site-rating.red { color: var(--red); }
+  .site-score-bar {
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .site-score-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
 
   .rec-badge {
     display: inline-flex;
     align-items: center;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-size: 8px;
-    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 7px;
+    font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
     flex-shrink: 0;
@@ -581,15 +413,15 @@
   }
 
   .rec-badge.assessed {
-    background: var(--accent-dim);
+    background: var(--accent-bg);
     color: var(--accent);
     border: 1px solid var(--accent-border);
   }
 
   .rec-badge.maybe {
-    background: var(--yellow-bg);
-    color: var(--yellow);
-    border: 1px solid var(--yellow-border);
+    background: var(--amber-bg);
+    color: var(--amber);
+    border: 1px solid var(--amber-border);
   }
 
   .rec-badge.nogo {
@@ -605,202 +437,336 @@
   }
 
   .rec-badge.visit {
-    background: var(--accent-dim);
+    background: var(--accent-bg);
     color: var(--accent);
     border: 1px solid var(--accent-border);
   }
 
+  /* Inline tags for site list */
+  .inline-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-left: 4px;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  .inline-tag.maybe-tag {
+    background: var(--purple-bg);
+    color: var(--purple);
+    border: 1px solid var(--purple-border);
+  }
+
+  .inline-tag.nogo-tag {
+    background: var(--red-bg);
+    color: var(--red);
+    border: 1px solid var(--red-border);
+  }
+
+  .inline-tag.shortlist-tag {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid var(--green-border);
+  }
+
+  .inline-tag.assessed-tag {
+    background: transparent;
+    color: var(--text-tertiary);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
   /* ===== MAP ===== */
-  .map-container { flex: 1; position: relative; }
+  .map-container { flex: 1; position: relative; background: var(--bg-base); }
+
+  .map-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+    z-index: 500;
+  }
+
   #map { width: 100%; height: 100%; }
 
-  /* ===== POPUP STYLES ===== */
-  .leaflet-popup-content-wrapper {
-    background: #0a0a0a !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: var(--radius-lg) !important;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
-    padding: 0 !important;
-    backdrop-filter: blur(32px) saturate(1.3) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(1.3) !important;
+  /* ===== SLIDE-OUT DETAIL PANEL ===== */
+  .detail-panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
   }
 
-  .leaflet-popup-tip {
-    background: #0a0a0a !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  .detail-panel-overlay.open {
+    opacity: 1;
+    visibility: visible;
   }
 
-  .leaflet-popup-content { margin: 0 !important; width: 360px !important; }
-
-  .leaflet-popup-close-button {
-    color: var(--text-muted) !important;
-    font-size: 20px !important;
-    right: 10px !important;
-    top: 8px !important;
-    transition: color 0.15s ease !important;
-    width: 24px !important;
-    height: 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+  .detail-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    max-width: 90vw;
+    height: 100vh;
+    background: var(--bg-elevated);
+    border-left: 1px solid var(--border-primary);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  .leaflet-popup-close-button:hover { color: var(--text-primary) !important; }
+  .detail-panel.open {
+    transform: translateX(0);
+  }
 
-  .popup-inner { padding: 18px; }
-
-  .popup-header {
+  .detail-panel-header {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 14px;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-divider);
+    background: var(--bg-surface);
+    flex-shrink: 0;
   }
 
-  .popup-grade-dot {
-    width: 10px;
-    height: 10px;
+  .detail-panel-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    background: var(--bg-base);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .detail-panel-close:hover {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+    border-color: var(--border-accent);
+  }
+
+  .detail-panel-close svg { width: 14px; height: 14px; }
+
+  .detail-panel-grade-dot {
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     flex-shrink: 0;
     margin-top: 4px;
-    position: relative;
   }
 
-  .popup-grade-dot::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    opacity: 0.15;
-  }
+  .detail-panel-grade-dot.green { background: var(--green); box-shadow: 0 0 12px var(--green); }
+  .detail-panel-grade-dot.yellow { background: var(--amber); box-shadow: 0 0 12px var(--amber); }
+  .detail-panel-grade-dot.red { background: var(--red); box-shadow: 0 0 12px var(--red); }
 
-  .popup-grade-dot.green { background: var(--green); box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
-  .popup-grade-dot.green::after { background: var(--green); }
-  .popup-grade-dot.yellow { background: var(--yellow); box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
-  .popup-grade-dot.yellow::after { background: var(--yellow); }
-  .popup-grade-dot.red { background: var(--red); box-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
-  .popup-grade-dot.red::after { background: var(--red); }
+  .detail-panel-title-wrap { flex: 1; min-width: 0; padding-right: 40px; }
+  .detail-panel-title { font-size: 16px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.04em; line-height: 1.3; margin-bottom: 4px; }
+  .detail-panel-subtitle { font-size: 11px; color: var(--text-tertiary); font-weight: 500; }
+  .detail-panel-score { font-size: 36px; font-weight: 600; font-family: var(--font-mono); color: var(--text-primary); letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .detail-panel-score-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; text-align: right; margin-top: 2px; }
+
+  .detail-panel-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
+  .detail-panel-body::-webkit-scrollbar { width: 4px; }
+  .detail-panel-body::-webkit-scrollbar-track { background: var(--bg-surface); }
+  .detail-panel-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+
+  .detail-panel-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .detail-panel-tag { padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .detail-panel-tag.confirmed { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+  .detail-panel-tag.petrom { background: rgba(234, 179, 8, 0.1); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.2); }
+  .detail-panel-tag.petromin { background: rgba(168, 85, 247, 0.1); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.2); }
+  .detail-panel-tag.shortlist { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .detail-panel-tag.assessed { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
+
+  .detail-section { margin-bottom: 16px; }
+  .detail-section-title { font-size: 9px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.10em; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .detail-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border-divider); }
+
+  .detail-criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .detail-criteria-item { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); border: 1px solid var(--border-divider); transition: all var(--transition-fast); }
+  .detail-criteria-item:hover { background: rgba(255, 255, 255, 0.04); border-color: var(--border-accent); }
+  .detail-criteria-label { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .detail-criteria-row { display: flex; align-items: center; gap: 8px; }
+  .detail-criteria-bar { flex: 1; height: 4px; background: rgba(255, 255, 255, 0.06); border-radius: 4px; overflow: hidden; }
+  .detail-criteria-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+  .detail-criteria-val { font-size: 14px; font-weight: 600; font-family: var(--font-mono); color: var(--text-primary); font-variant-numeric: tabular-nums; min-width: 20px; text-align: right; }
+
+  .detail-notes { font-size: 12px; color: var(--text-secondary); line-height: 1.6; padding: 12px 14px; background: rgba(255, 255, 255, 0.015); border-radius: var(--radius-md); border: 1px solid var(--border-divider); border-left: 3px solid var(--accent); }
+
+  .detail-expand-section { border: 1px solid var(--border-divider); border-radius: var(--radius-md); margin-bottom: 6px; overflow: hidden; transition: border-color var(--transition-fast); }
+  .detail-expand-section:hover { border-color: var(--border-accent); }
+  .detail-expand-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 10px 12px; background: rgba(255, 255, 255, 0.02); border: none; cursor: pointer; transition: background var(--transition-fast); }
+  .detail-expand-toggle:hover { background: rgba(255, 255, 255, 0.04); }
+  .detail-expand-title { font-size: 10px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.02em; }
+  .detail-expand-chevron { width: 14px; height: 14px; color: var(--text-tertiary); transition: transform 0.2s ease; }
+  .detail-expand-section.expanded .detail-expand-chevron { transform: rotate(180deg); }
+  .detail-expand-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .detail-expand-section.expanded .detail-expand-content { max-height: 500px; }
+  .detail-expand-text { font-size: 11px; color: var(--text-secondary); line-height: 1.6; padding: 10px 12px; border-top: 1px solid var(--border-divider); max-height: 120px; overflow-y: auto; }
+
+  .detail-panel-footer { padding: 14px 20px; border-top: 1px solid var(--border-divider); background: var(--bg-surface); display: flex; gap: 8px; flex-shrink: 0; }
+  .detail-panel-btn { flex: 1; padding: 10px 16px; border-radius: var(--radius-md); font-size: 11px; font-weight: 600; cursor: pointer; transition: all var(--transition-fast); display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .detail-panel-btn.secondary { background: transparent; border: 1px solid var(--border-primary); color: var(--text-secondary); }
+  .detail-panel-btn.secondary:hover { background: var(--bg-surface-hover); border-color: var(--border-accent); color: var(--text-primary); }
+  .detail-panel-btn svg { width: 14px; height: 14px; }
+
+  /* Hide Leaflet popup when using panel */
+  .leaflet-popup { display: none !important; }
+
+  @media (max-width: 768px) {
+    .detail-panel { width: 100%; max-width: 100%; }
+  }
 
   .popup-title {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
     line-height: 1.3;
   }
 
   .popup-subtitle {
-    font-size: 10.5px;
-    color: var(--text-muted);
-    margin-top: 3px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
     font-weight: 400;
     letter-spacing: 0.01em;
   }
 
   .popup-rating-big {
-    font-size: 28px;
-    font-weight: 800;
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 600;
     text-align: right;
     margin-left: auto;
     flex-shrink: 0;
     letter-spacing: -0.04em;
     line-height: 1;
+    color: var(--text-primary);
     font-variant-numeric: tabular-nums;
-    color: #ffffff;
   }
 
-  .popup-rating-big.green { color: #ffffff; }
-  .popup-rating-big.yellow { color: #ffffff; }
-  .popup-rating-big.red { color: #ffffff; }
   .popup-rating-big small {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
-    color: var(--text-muted);
+    opacity: 0.4;
   }
 
   .popup-rec {
     display: inline-flex;
     align-items: center;
     padding: 3px 10px;
-    border-radius: var(--radius-sm);
+    border-radius: 5px;
     font-size: 9px;
-    font-weight: 600;
-    margin-bottom: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
 
   .popup-rec.shortlist { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-  .popup-rec.maybe { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+  .popup-rec.maybe { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
   .popup-rec.nogo { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
-  .popup-rec.visit { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border); }
+  .popup-rec.visit { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-border); }
   .popup-rec.priority { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
 
-  /* Rating bars */
-  .popup-ratings {
+  .popup-criteria {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 14px;
+    gap: 4px;
+    margin-bottom: 10px;
   }
 
-  .rating-item {
+  .criteria-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 10px;
-    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 8px;
+    background: var(--bg-surface);
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    transition: background 0.15s ease;
+    border: 1px solid var(--border-divider);
+    transition: background var(--transition-fast);
   }
 
-  .rating-item:hover { background: rgba(255, 255, 255, 0.05); }
+  .criteria-item:hover { background: var(--bg-surface-hover); }
 
-  .rating-label {
-    font-size: 9px;
-    color: var(--text-muted);
+  .criteria-label {
+    font-size: 8px;
+    color: var(--text-tertiary);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 500;
+    letter-spacing: 0.10em;
+    font-weight: 600;
   }
 
-  .rating-bar-container {
+  .criteria-bar-container {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
   }
 
-  .rating-bar-bg {
-    width: 40px;
+  .criteria-bar-bg {
+    width: 36px;
     height: 3px;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 3px;
     overflow: hidden;
   }
 
-  .rating-bar-fill {
+  .criteria-bar-fill {
     height: 100%;
     border-radius: 3px;
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .rating-val {
+  .criteria-val {
+    font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 600;
     color: var(--text-secondary);
-    width: 22px;
+    width: 14px;
     text-align: right;
     font-variant-numeric: tabular-nums;
   }
 
-  /* Detail sections */
+  .popup-notes {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    padding: 8px 10px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-divider);
+    border-left: 2px solid var(--accent);
+    margin-bottom: 8px;
+  }
+
   .popup-details {
     margin-top: 2px;
   }
 
   .popup-section {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .popup-section-toggle {
@@ -808,25 +774,25 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    padding: 5px 0;
+    padding: 4px 0;
     user-select: none;
   }
 
   .popup-section-toggle:hover .popup-section-title { color: var(--text-secondary); }
 
   .popup-section-title {
-    font-size: 9px;
-    font-weight: 600;
-    color: var(--text-muted);
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--text-tertiary);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: color 0.15s ease;
+    letter-spacing: 0.10em;
+    transition: color var(--transition-fast);
   }
 
   .popup-section-chevron {
     width: 12px;
     height: 12px;
-    color: var(--text-muted);
+    color: var(--text-tertiary);
     transition: transform 0.2s ease;
     flex-shrink: 0;
   }
@@ -839,153 +805,176 @@
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .popup-section.expanded .popup-section-content { max-height: 200px; }
+  .popup-section.expanded .popup-section-content { max-height: 400px; }
 
   .popup-text {
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--text-secondary);
-    line-height: 1.6;
-    padding: 8px 10px;
-    background: rgba(255, 255, 255, 0.02);
+    line-height: 1.55;
+    padding: 6px 9px;
+    background: rgba(255, 255, 255, 0.03);
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    max-height: 90px;
+    border: 1px solid var(--border-divider);
+    max-height: 100px;
     overflow-y: auto;
     font-weight: 400;
   }
 
   .popup-text::-webkit-scrollbar { width: 3px; }
   .popup-text::-webkit-scrollbar-track { background: transparent; }
-  .popup-text::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+  .popup-text::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 3px; }
 
-  /* Divider in popup */
   .popup-divider {
     height: 1px;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 10px 0;
+    background: var(--border-divider);
+    margin: 8px 0;
   }
 
   /* ===== LEGEND ===== */
   .legend-overlay {
     position: absolute;
-    bottom: 24px;
-    right: 24px;
-    background: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-lg);
-    padding: 16px 18px;
-    z-index: 800;
-    font-size: 10.5px;
-    box-shadow: var(--shadow-lg);
+    bottom: 16px;
+    right: 16px;
+    background: var(--bg-overlay);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    min-width: 180px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    z-index: 800;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 160px;
   }
 
   .legend-title {
+    font-size: 8px;
     font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    font-size: 10px;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin-bottom: 2px;
   }
 
   .legend-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 500;
     color: var(--text-secondary);
-    font-weight: 400;
-    font-size: 10.5px;
-    padding: 2px 0;
+    padding: 1px 0;
   }
 
   .legend-dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .legend-dot.green { background: var(--green); box-shadow: 0 0 5px rgba(34, 197, 94, 0.3); }
-  .legend-dot.yellow { background: var(--yellow); box-shadow: 0 0 5px rgba(234, 179, 8, 0.3); }
-  .legend-dot.red { background: var(--red); box-shadow: 0 0 5px rgba(239, 68, 68, 0.3); }
-  .legend-dot.petrom { background: var(--petrom-color); box-shadow: 0 0 5px rgba(249, 115, 22, 0.2); }
-  .legend-dot.petromin { background: var(--petromin-color); box-shadow: 0 0 5px rgba(6, 182, 212, 0.2); }
+  .legend-dot.green { background: var(--green); }
+  .legend-dot.yellow { background: var(--amber); }
+  .legend-dot.red { background: var(--red); }
+  .legend-dot.petrom { background: var(--petrom-color); }
+  .legend-dot.petromin { background: var(--petromin-color); }
 
   .legend-sep {
     height: 1px;
-    background: rgba(255, 255, 255, 0.06);
-    margin: 8px 0;
+    background: var(--border-divider);
+    margin: 4px 0;
   }
+
+  /* ===== COMPETITION TOGGLE ===== */
+  .comp-toggle { gap: 4px; display: inline-flex; align-items: center; }
+  .comp-toggle.active { 
+    background: var(--red-bg); 
+    border-color: var(--red-border); 
+    color: var(--red);
+    box-shadow: 0 0 0 1px var(--red-border);
+  }
+
+  .comp-ring { transition: opacity 0.3s ease; }
+
+  .comp-tooltip {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-primary) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    padding: 3px 8px !important;
+    border-radius: 5px !important;
+  }
+  .comp-tooltip::before { border-top-color: var(--bg-elevated) !important; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     .main-content { flex-direction: column; }
-    .sidebar { width: 100%; min-width: unset; height: 45vh; }
+    .ds-sidebar { width: 100%; min-width: unset; height: 45vh; }
     .map-container { height: 55vh; }
-    .sidebar-header { padding: 14px 16px 10px; }
-    .partner-toggle, .stats-row, .filter-bar, .search-bar { padding-left: 16px; padding-right: 16px; }
-    .site-item { padding: 9px 16px; }
-    .legend-overlay { bottom: 12px; right: 12px; padding: 12px 14px; }
+    .ds-sidebar-header { padding: 12px 14px 8px; }
+    .partner-toggle, .ds-stats-row, .filter-bar, .search-bar { padding-left: 14px; padding-right: 14px; }
+    .site-item { padding: 8px 14px; }
+    .legend-overlay { bottom: 10px; right: 10px; padding: 10px 12px; }
   }
-
-  /* ===== ANIMATIONS ===== */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 8px currentColor; }
-    50% { box-shadow: 0 0 16px currentColor; }
-  }
-
-  .site-item { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
   /* Leaflet overrides */
+  .leaflet-container {
+    background: var(--bg-base) !important;
+    font-family: var(--font-sans) !important;
+  }
+
   .leaflet-control-zoom a {
-    background: rgba(0, 0, 0, 0.85) !important;
+    background: var(--bg-overlay) !important;
     color: var(--text-secondary) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--border-primary) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
-    transition: var(--transition) !important;
+    transition: all var(--transition-fast) !important;
+    width: 28px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    font-size: 14px !important;
   }
 
   .leaflet-control-zoom a:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+    background: var(--bg-surface-hover) !important;
     color: var(--text-primary) !important;
   }
 
   .leaflet-control-attribution {
-    background: rgba(0, 0, 0, 0.7) !important;
-    color: var(--text-muted) !important;
+    background: var(--bg-overlay) !important;
+    color: var(--text-tertiary) !important;
     font-size: 9px !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
   }
 
-  .leaflet-control-attribution a { color: var(--text-muted) !important; }
+  .leaflet-control-attribution a { color: var(--text-tertiary) !important; }
+
+  /* Focus states */
+  *:focus { outline: none; }
 </style>
 </head>
 <body>
+<script src="auth.js"></script>
 
-<div class="top-nav">
-  <a href="index.html" class="back-link">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Dashboard
-  </a>
-  <span class="nav-flag">&#x1F1F2;&#x1F1E6;</span>
-  <span class="nav-title">Morocco &mdash; Site Assessment</span>
-  <span class="nav-badge">Dual-Partner Strategy</span>
-</div>
+<nav class="ds-nav">
+    <div class="ds-nav-left">
+        <a href="index.html" class="ds-back-link">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M7.5 2L3.5 6L7.5 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Portfolio
+        </a>
+        <span class="ds-nav-title">Morocco Assessment</span>
+        <span class="ds-nav-subtitle">Petrom &middot; Petromin &middot; 34 sites</span>
+    </div>
+    <div class="ds-nav-right">
+    </div>
+</nav>
 
 <div class="main-content">
-<div class="sidebar">
-  <div class="sidebar-header">
+<div class="ds-sidebar">
+  <div class="ds-sidebar-header">
     <h2>Morocco Site Assessment</h2>
     <p>Petrom + Petromin &mdash; 34 Sites Under Evaluation</p>
   </div>
@@ -996,30 +985,69 @@
     <button class="partner-btn petromin-p" data-partner="petromin">Petromin <span class="btn-count" id="count-petromin">15</span></button>
   </div>
 
-  <div class="stats-row">
-    <div class="stat-badge green"><span class="num" id="stat-green">0</span>Shortlist</div>
-    <div class="stat-badge yellow"><span class="num" id="stat-yellow">0</span>Under Review</div>
-    <div class="stat-badge red"><span class="num" id="stat-red">0</span>No Go</div>
-    <div class="stat-badge blue"><span class="num" id="stat-assessed">0</span>Assessed</div>
+  <div class="ds-stats-row">
+    <div class="ds-stat-badge" data-filter="green"><span class="stat-count" id="stat-green">0</span>Prime (&ge;6.5)</div>
+    <div class="ds-stat-badge" data-filter="yellow"><span class="stat-count" id="stat-yellow">0</span>Viable (5&ndash;6.4)</div>
+    <div class="ds-stat-badge" data-filter="red"><span class="stat-count" id="stat-red">0</span>Weak (&lt;5)</div>
+    <div class="ds-stat-badge" data-filter="assessed"><span class="stat-count" id="stat-assessed">0</span>Assessed</div>
   </div>
 
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn green-f" data-filter="green">Shortlist</button>
-    <button class="filter-btn yellow-f" data-filter="yellow">Review</button>
-    <button class="filter-btn red-f" data-filter="red">No Go</button>
+    <button class="filter-btn green-f" data-filter="green">Prime</button>
+    <button class="filter-btn yellow-f" data-filter="yellow">Viable</button>
+    <button class="filter-btn red-f" data-filter="red">Weak</button>
     <button class="filter-btn" data-filter="assessed">Assessed</button>
     <button class="filter-btn" data-filter="desktop">Desktop Only</button>
+    <button class="filter-btn comp-toggle" id="comp-toggle" data-active="false">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      Competition
+    </button>
   </div>
 
   <div class="search-bar">
     <div class="search-wrapper">
-      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <svg class="search-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" id="search-input" placeholder="Search by site name, code, or city...">
+      <span class="search-kbd">⌘K</span>
     </div>
   </div>
 
   <div class="site-list" id="site-list"></div>
+</div>
+
+<!-- Slide-out Detail Panel -->
+<div class="detail-panel-overlay" id="detail-overlay"></div>
+<div class="detail-panel" id="detail-panel">
+  <div class="detail-panel-header">
+    <div class="detail-panel-grade-dot" id="panel-grade-dot"></div>
+    <div class="detail-panel-title-wrap">
+      <div class="detail-panel-title" id="panel-title"></div>
+      <div class="detail-panel-subtitle" id="panel-subtitle"></div>
+    </div>
+    <div>
+      <div class="detail-panel-score" id="panel-score"></div>
+      <div class="detail-panel-score-label">Score</div>
+    </div>
+    <button class="detail-panel-close" id="panel-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="detail-panel-body" id="panel-body"></div>
+  <div class="detail-panel-footer">
+    <button class="detail-panel-btn secondary" id="panel-map-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      View on Map
+    </button>
+    <button class="detail-panel-btn secondary" id="panel-prev-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      Previous
+    </button>
+    <button class="detail-panel-btn secondary" id="panel-next-btn">
+      Next
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
 </div>
 
 <div class="map-container">
@@ -1027,18 +1055,24 @@
 
   <div class="legend-overlay">
     <div class="legend-title">Recommendations</div>
-    <div class="legend-item"><span class="legend-dot green"></span>Shortlist / Priority</div>
-    <div class="legend-item"><span class="legend-dot yellow"></span>Under Review / Maybe</div>
-    <div class="legend-item"><span class="legend-dot red"></span>No Go / Concern</div>
+    <div class="legend-item"><span class="legend-dot green"></span>Prime &mdash; Score &ge; 6.5</div>
+    <div class="legend-item"><span class="legend-dot yellow"></span>Viable &mdash; Score 5.0&ndash;6.4</div>
+    <div class="legend-item"><span class="legend-dot red"></span>Weak &mdash; Score &lt; 5.0</div>
     <div class="legend-sep"></div>
     <div class="legend-title">Partners</div>
     <div class="legend-item"><span class="legend-dot petrom"></span>Petrom (350+ stations)</div>
     <div class="legend-item"><span class="legend-dot petromin"></span>Petromin</div>
+    <div class="legend-sep"></div>
+    <div class="legend-title">Competition Density</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#22c55e"></span>Low &mdash; Opportunity</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#eab308"></span>Moderate</div>
+    <div class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>High &mdash; Saturated</div>
   </div>
 </div>
 </div>
 
 <script src="morocco-data.js"></script>
+<script src="morocco-competitors.js"></script>
 <script>
 // ===== INITIALIZE MAP =====
 const map = L.map('map', {
@@ -1067,11 +1101,21 @@ const ALL_SITES = [
 const COLORS = { green: '#22c55e', yellow: '#eab308', red: '#ef4444' };
 const PARTNER_COLORS = { petrom: '#f97316', petromin: '#06b6d4' };
 
-function ratingColor(val) {
-  if (val >= 4) return COLORS.green;
-  if (val >= 3) return COLORS.yellow;
+// ===== HELPERS =====
+function criteriaColor(val) {
+  if (val >= 7) return COLORS.green;
+  if (val >= 5) return COLORS.yellow;
   return COLORS.red;
 }
+
+const CRITERIA_LABELS = {
+  traffic: 'Traffic',
+  location: 'Location',
+  access: 'Access',
+  space: 'Space',
+  competition: 'Low Compet.',
+  demand: 'Demand'
+};
 
 // ===== CREATE MARKERS =====
 const markers = [];
@@ -1094,149 +1138,222 @@ ALL_SITES.forEach(site => {
     fillOpacity: 0.75
   });
 
-  const popupHTML = buildPopup(site);
-  marker.bindPopup(popupHTML, { maxWidth: 380, className: 'dark-popup' });
-
   marker.siteData = site;
+  marker.on('click', () => {
+    openDetailPanel(site);
+    // Highlight in sidebar
+    document.querySelectorAll('.site-item').forEach(i => i.classList.remove('selected'));
+    const sidebarItem = document.querySelector(`.site-item[data-code="${site.code || site.name}"]`);
+    if (sidebarItem) {
+      sidebarItem.classList.add('selected');
+      sidebarItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  });
   marker.addTo(map);
   markers.push(marker);
   markerMap[site.code] = marker;
 });
 
-function buildPopup(site) {
-  const partnerTag = `<span class="partner-tag ${site._partner}">${site._partner.toUpperCase()}</span>`;
+// Competition overlay — marker-based (visible at any zoom)
+const COMP_COLORS = { 1: '#22c55e', 2: '#eab308', 3: '#ef4444' };
+const COMP_LABELS = { 1: 'Low Competition', 2: 'Moderate Competition', 3: 'High Competition' };
+const COMP_RING_SIZE = { 1: 14, 2: 18, 3: 22 };
 
-  // Recommendation badge
-  let recClass = 'visit';
+const compMarkers = [];
+markers.forEach(m => {
+    const key = m.siteData.code;
+    const level = COMPETITION_DATA[key];
+    if (!level) return;
+    const c = COMP_COLORS[level];
+    const r = COMP_RING_SIZE[level];
+    const ring = L.circleMarker(m.getLatLng(), {
+        radius: r,
+        fillColor: c,
+        fillOpacity: 0.12,
+        color: c,
+        weight: 2,
+        opacity: 0.6,
+        className: 'comp-ring comp-ring-' + level
+    });
+    ring.bindTooltip(COMP_LABELS[level], { direction: 'top', className: 'comp-tooltip', offset: [0, -r] });
+    compMarkers.push(ring);
+});
+
+const compLayer = L.layerGroup(compMarkers);
+let compVisible = false;
+
+document.getElementById('comp-toggle').addEventListener('click', function() {
+    compVisible = !compVisible;
+    this.classList.toggle('active', compVisible);
+    if (compVisible) {
+        compLayer.addTo(map);
+    } else {
+        compLayer.remove();
+    }
+});
+
+// ===== SLIDE-OUT DETAIL PANEL =====
+const detailPanel = document.getElementById('detail-panel');
+const detailOverlay = document.getElementById('detail-overlay');
+const panelBody = document.getElementById('panel-body');
+let currentSiteIndex = -1;
+let visibleSitesList = [];
+
+function openDetailPanel(site) {
+  // Find index in visible list
+  visibleSitesList = getVisibleSites();
+  currentSiteIndex = visibleSitesList.findIndex(s => (s.code || s.name) === (site.code || site.name));
+  
+  // Update header
+  document.getElementById('panel-grade-dot').className = `detail-panel-grade-dot ${site.grade}`;
+  document.getElementById('panel-title').textContent = `${site.code || ''} ${site.name}`;
+  document.getElementById('panel-subtitle').textContent = `${site.city || ''} · ${site.area || ''} · ${site.status || 'Desktop'}`;
+  
+  const ws = site.weighted_score || site.derived_scores?.weighted_score || '—';
+  document.getElementById('panel-score').textContent = typeof ws === 'number' ? ws.toFixed(1) : ws;
+  
+  // Build tags
+  let tagsHTML = '';
+  if (site._partner) {
+    tagsHTML += `<span class="detail-panel-tag ${site._partner}">${site._partner.toUpperCase()}</span>`;
+  }
+  if (site.status === 'Assessed') {
+    tagsHTML += `<span class="detail-panel-tag assessed">Assessed</span>`;
+  }
   const rec = (site.recommendation || '').toUpperCase();
-  if (rec === 'SHORTLIST') recClass = 'shortlist';
-  else if (rec === 'MAYBE') recClass = 'maybe';
-  else if (rec === 'NO GO') recClass = 'nogo';
-  else if (rec.includes('PRIORITY')) recClass = 'priority';
-
-  const recBadge = `<span class="popup-rec ${recClass}">${site.recommendation || 'Requires Visit'}</span>`;
-
-  // Rating display
-  let ratingDisplay = '';
-  if (site.rating) {
-    ratingDisplay = `<div class="popup-rating-big ${site.grade}">${site.rating}<small>/5</small></div>`;
+  if (rec === 'SHORTLIST') {
+    tagsHTML += `<span class="detail-panel-tag shortlist">Shortlist</span>`;
   }
-
-  // Sub-ratings for assessed sites
-  let ratingsHTML = '';
-  if (site.location_rating || site.access_rating || site.space_rating || site.traffic_rating) {
-    const ratings = [
-      { label: 'Location', val: site.location_rating },
-      { label: 'Access', val: site.access_rating },
-      { label: 'Space', val: site.space_rating },
-      { label: 'Traffic', val: site.traffic_rating }
-    ].filter(r => r.val !== null && r.val !== undefined);
-
-    if (ratings.length > 0) {
-      ratingsHTML = '<div class="popup-ratings">';
-      ratings.forEach(r => {
-        const pct = (r.val / 5) * 100;
-        const barColor = ratingColor(r.val);
-        ratingsHTML += `
-          <div class="rating-item">
-            <span class="rating-label">${r.label}</span>
-            <div class="rating-bar-container">
-              <div class="rating-bar-bg">
-                <div class="rating-bar-fill" style="width:${pct}%;background:${barColor}"></div>
-              </div>
-              <span class="rating-val">${r.val}/5</span>
+  
+  // Build criteria grid
+  let criteriaHTML = '';
+  const scores = site.derived_scores || {};
+  if (Object.keys(scores).length > 0) {
+    criteriaHTML = '<div class="detail-section"><div class="detail-section-title">Scoring Criteria</div><div class="detail-criteria-grid">';
+    for (const [key, label] of Object.entries(CRITERIA_LABELS)) {
+      const val = scores[key] || 0;
+      const pct = val * 10;
+      const barColor = criteriaColor(val);
+      criteriaHTML += `
+        <div class="detail-criteria-item">
+          <div class="detail-criteria-label">${label}</div>
+          <div class="detail-criteria-row">
+            <div class="detail-criteria-bar">
+              <div class="detail-criteria-bar-fill" style="width:${pct}%;background:${barColor}"></div>
             </div>
-          </div>`;
-      });
-      ratingsHTML += '</div>';
-    }
-  }
-
-  // Info sections with collapsible detail sections
-  let sectionsHTML = '';
-
-  // Primary sections (always visible)
-  if (site.observations) {
-    const obs = typeof site.observations === 'string' ? site.observations : '';
-    if (obs.length > 0) {
-      sectionsHTML += `
-        <div class="popup-section">
-          <div class="popup-section-title">Key Observations</div>
-          <div class="popup-text">${obs.substring(0, 300)}${obs.length > 300 ? '...' : ''}</div>
+            <div class="detail-criteria-val">${val}</div>
+          </div>
         </div>`;
     }
+    criteriaHTML += '</div></div>';
   }
-
-  if (site.concerns) {
-    const con = typeof site.concerns === 'string' ? site.concerns : '';
-    if (con.length > 0) {
-      sectionsHTML += `
-        <div class="popup-section">
-          <div class="popup-section-title">Concerns</div>
-          <div class="popup-text">${con.substring(0, 250)}${con.length > 250 ? '...' : ''}</div>
-        </div>`;
-    }
-  }
-
-  if (site.strategic_potential) {
-    const sp = typeof site.strategic_potential === 'string' ? site.strategic_potential : '';
-    if (sp.length > 0) {
-      sectionsHTML += `
-        <div class="popup-section">
-          <div class="popup-section-title">Strategic Potential</div>
-          <div class="popup-text">${sp.substring(0, 250)}${sp.length > 250 ? '...' : ''}</div>
-        </div>`;
-    }
-  }
-
-  // Collapsible detail sections
+  
+  // Notes section
+  const overview = site.key_insight || site.clean_overview || '';
+  const notesHTML = overview ? `
+    <div class="detail-section">
+      <div class="detail-section-title">Key Insights</div>
+      <div class="detail-notes">${overview}</div>
+    </div>` : '';
+  
+  // Expandable research sections
   const detailSections = [
-    { key: 'population_data', label: 'Population Data' },
-    { key: 'traffic_data', label: 'Traffic Data' },
-    { key: 'competitors', label: 'Competitors' },
-    { key: 'infrastructure', label: 'Infrastructure' },
-    { key: 'commercial', label: 'Commercial' },
-    { key: 'transport', label: 'Transport' }
+    { key: 'market_intel', label: 'Market Intelligence' },
+    { key: 'competitor_analysis', label: 'Competitor Analysis' },
+    { key: 'traffic_access', label: 'Traffic & Access' },
+    { key: 'infrastructure_new', label: 'Infrastructure Projects' },
+    { key: 'commercial_context_new', label: 'Commercial Context' },
+    { key: 'fleet_potential', label: 'Fleet Potential' },
+    { key: 'clean_concerns', label: 'Concerns' },
+    { key: 'clean_strategic', label: 'Strategic Potential' }
   ];
-
-  let detailsHTML = '';
-  detailSections.forEach(ds => {
-    if (site[ds.key]) {
-      const val = typeof site[ds.key] === 'string' ? site[ds.key] : '';
-      if (val.length > 0) {
-        const uid = site.code + '-' + ds.key;
-        detailsHTML += `
-          <div class="popup-section" id="section-${uid}">
-            <div class="popup-section-toggle" onclick="(function(e){var s=document.getElementById('section-${uid}');s.classList.toggle('expanded');})(event)">
-              <span class="popup-section-title">${ds.label}</span>
-              <svg class="popup-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            </div>
-            <div class="popup-section-content">
-              <div class="popup-text">${val.substring(0, 400)}${val.length > 400 ? '...' : ''}</div>
-            </div>
-          </div>`;
-      }
-    }
-  });
-
-  if (detailsHTML) {
-    sectionsHTML += '<div class="popup-divider"></div><div class="popup-details">' + detailsHTML + '</div>';
-  }
-
-  return `
-    <div class="popup-inner">
-      <div class="popup-header">
-        <div class="popup-grade-dot ${site.grade}"></div>
-        <div>
-          <div class="popup-title">${site.code} ${site.name}${partnerTag}</div>
-          <div class="popup-subtitle">${site.city || ''} ${site.area ? '&middot; ' + site.area : ''} &middot; ${site.status || 'Desktop Research'}</div>
+  
+  let expandHTML = '<div class="detail-section"><div class="detail-section-title">Deep Research</div>';
+  detailSections.forEach((sec, i) => {
+    const val = typeof site[sec.key] === 'string' ? site[sec.key] : '';
+    const secId = `expand-${i}`;
+    const content = val.length > 5 ? val : '<span style="opacity:0.5;font-style:italic">Data pending assessment</span>';
+    expandHTML += `
+      <div class="detail-expand-section" id="${secId}">
+        <button class="detail-expand-toggle" onclick="document.getElementById('${secId}').classList.toggle('expanded')">
+          <span class="detail-expand-title">${sec.label}</span>
+          <svg class="detail-expand-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="detail-expand-content">
+          <div class="detail-expand-text">${content}</div>
         </div>
-        ${ratingDisplay}
-      </div>
-      ${recBadge}
-      ${ratingsHTML}
-      ${sectionsHTML}
-    </div>`;
+      </div>`;
+  });
+  expandHTML += '</div>';
+  
+  // Assemble body
+  panelBody.innerHTML = `
+    ${tagsHTML ? `<div class="detail-panel-tags">${tagsHTML}</div>` : ''}
+    ${criteriaHTML}
+    ${notesHTML}
+    ${expandHTML}
+  `;
+  
+  // Store current site for map button
+  detailPanel.dataset.siteLat = site.lat || '';
+  detailPanel.dataset.siteLng = site.lng || '';
+  
+  // Open panel
+  detailPanel.classList.add('open');
+  detailOverlay.classList.add('open');
+  
+  // Update prev/next button states
+  document.getElementById('panel-prev-btn').disabled = currentSiteIndex <= 0;
+  document.getElementById('panel-next-btn').disabled = currentSiteIndex >= visibleSitesList.length - 1;
+}
+
+function closeDetailPanel() {
+  detailPanel.classList.remove('open');
+  detailOverlay.classList.remove('open');
+}
+
+// Panel close handlers
+document.getElementById('panel-close').addEventListener('click', closeDetailPanel);
+detailOverlay.addEventListener('click', closeDetailPanel);
+
+// View on map button
+document.getElementById('panel-map-btn').addEventListener('click', () => {
+  const lat = parseFloat(detailPanel.dataset.siteLat);
+  const lng = parseFloat(detailPanel.dataset.siteLng);
+  if (lat && lng) {
+    map.flyTo([lat, lng], 15, { duration: 0.8 });
+  }
+  closeDetailPanel();
+});
+
+// Previous/Next navigation
+document.getElementById('panel-prev-btn').addEventListener('click', () => {
+  if (currentSiteIndex > 0) {
+    openDetailPanel(visibleSitesList[currentSiteIndex - 1]);
+  }
+});
+
+document.getElementById('panel-next-btn').addEventListener('click', () => {
+  if (currentSiteIndex < visibleSitesList.length - 1) {
+    openDetailPanel(visibleSitesList[currentSiteIndex + 1]);
+  }
+});
+
+// Keyboard navigation in panel
+document.addEventListener('keydown', (e) => {
+  if (!detailPanel.classList.contains('open')) return;
+  if (e.key === 'Escape') {
+    closeDetailPanel();
+  } else if (e.key === 'ArrowLeft' && currentSiteIndex > 0) {
+    openDetailPanel(visibleSitesList[currentSiteIndex - 1]);
+  } else if (e.key === 'ArrowRight' && currentSiteIndex < visibleSitesList.length - 1) {
+    openDetailPanel(visibleSitesList[currentSiteIndex + 1]);
+  }
+});
+
+// Legacy function for compatibility
+function buildPopup(site) {
+  return '';
 }
 
 // ===== STATS =====
@@ -1266,25 +1383,49 @@ function renderList(sites) {
   sites.forEach((site, idx) => {
     const el = document.createElement('div');
     el.className = 'site-item';
-    el.style.animationDelay = `${idx * 0.02}s`;
+    el.setAttribute('data-grade', site.grade || 'yellow');
 
-    const ratingStr = site.rating ? `${site.rating}/5` : '\u2014';
+    const ws = site.weighted_score || site.derived_scores?.weighted_score;
+    const ratingStr = ws ? ws.toFixed(1) : '\u2014';
     const partnerTag = `<span class="partner-tag ${site._partner}">${site._partner === 'petrom' ? 'PTR' : 'PTM'}</span>`;
-    const assessedTag = site.status === 'Assessed' ? '<span class="rec-badge assessed">Assessed</span>' : '';
+    
+    // Build inline tags
+    let inlineTags = '';
+    
+    // Recommendation tag (SHORTLIST, MAYBE, or NO GO)
+    const rec = (site.recommendation || '').toUpperCase();
+    if (rec === 'SHORTLIST') {
+      inlineTags += `<span class="inline-tag shortlist-tag">SHORTLIST</span>`;
+    } else if (rec === 'MAYBE') {
+      inlineTags += `<span class="inline-tag maybe-tag">MAYBE</span>`;
+    } else if (rec === 'NO GO' || rec === 'NOGO') {
+      inlineTags += `<span class="inline-tag nogo-tag">NO GO</span>`;
+    }
+    
+    // Assessed tag
+    if (site.status === 'Assessed') {
+      inlineTags += `<span class="inline-tag assessed-tag">ASSESSED</span>`;
+    }
+    
+    const scorePercent = ws ? (ws / 10) * 100 : 0;
+    const barColor = site.grade === 'green' ? 'var(--green)' : site.grade === 'yellow' ? 'var(--amber)' : 'var(--red)';
 
+    el.setAttribute('data-code', site.code || site.name);
     el.innerHTML = `
       <div class="site-dot ${site.grade}"></div>
       <div class="site-info">
-        <div class="site-name">${site.code} ${site.name}${partnerTag}${assessedTag}</div>
-        <div class="site-meta">${site.city || ''} ${site.area ? '&middot; ' + site.area : ''}</div>
+        <div class="site-name">${site.code} ${site.name}${partnerTag}${inlineTags}</div>
+        <div class="site-meta">${site.city || ''} ${site.area ? '&middot; ' + site.area : ''} &middot; ${ratingStr}/10</div>
       </div>
-      <div class="site-rating ${site.grade}">${ratingStr}</div>
+      <div class="site-score-wrap">
+        <div class="site-rating">${ratingStr}</div>
+        <div class="site-score-bar"><div class="site-score-bar-fill" style="width:${scorePercent}%;background:${barColor}"></div></div>
+      </div>
     `;
     el.addEventListener('click', () => {
-      if (site.lat && site.lng) {
-        map.flyTo([site.lat, site.lng], 14, { duration: 0.8 });
-        if (markerMap[site.code]) markerMap[site.code].openPopup();
-      }
+      // Open detail panel
+      openDetailPanel(site);
+      // Highlight this item
       document.querySelectorAll('.site-item').forEach(i => i.classList.remove('selected'));
       el.classList.add('selected');
     });
@@ -1296,33 +1437,58 @@ function renderList(sites) {
 
 // ===== FILTERING =====
 let activePartner = 'all';
-let activeFilter = 'all';
+const activeFilters = new Set();
 let searchTerm = '';
+
+const FILTER_CHECKS_MA = {
+  green: s => s.grade === 'green',
+  yellow: s => s.grade === 'yellow',
+  red: s => s.grade === 'red',
+  assessed: s => s.status === 'Assessed',
+  desktop: s => s.status !== 'Assessed'
+};
+
+const FILTER_GROUPS_MA = {
+  grade: ['green', 'yellow', 'red'],
+  status: ['assessed', 'desktop']
+};
+
+function getFilterGroupMA(f) {
+  for (const [g, m] of Object.entries(FILTER_GROUPS_MA)) {
+    if (m.includes(f)) return g;
+  }
+  return null;
+}
+
+function passSearchMA(site) {
+  if (!searchTerm) return true;
+  const term = searchTerm.toLowerCase();
+  return (site.name || '').toLowerCase().includes(term) ||
+         (site.code || '').toLowerCase().includes(term) ||
+         (site.city || '').toLowerCase().includes(term) ||
+         (site.area || '').toLowerCase().includes(term);
+}
 
 function getVisibleSites() {
   return ALL_SITES.filter(site => {
     // Partner filter
     if (activePartner !== 'all' && site._partner !== activePartner) return false;
 
-    // Status/grade filter
-    let passFilter = true;
-    if (activeFilter === 'green') passFilter = site.grade === 'green';
-    else if (activeFilter === 'yellow') passFilter = site.grade === 'yellow';
-    else if (activeFilter === 'red') passFilter = site.grade === 'red';
-    else if (activeFilter === 'assessed') passFilter = site.status === 'Assessed';
-    else if (activeFilter === 'desktop') passFilter = site.status !== 'Assessed';
-
-    // Search
-    let passSearch = true;
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      passSearch = (site.name || '').toLowerCase().includes(term) ||
-                   (site.code || '').toLowerCase().includes(term) ||
-                   (site.city || '').toLowerCase().includes(term) ||
-                   (site.area || '').toLowerCase().includes(term);
+    // Multi-select filters
+    if (activeFilters.size > 0) {
+      const grouped = {};
+      activeFilters.forEach(f => {
+        const g = getFilterGroupMA(f) || 'other';
+        if (!grouped[g]) grouped[g] = [];
+        grouped[g].push(f);
+      });
+      for (const [group, filters] of Object.entries(grouped)) {
+        const passGroup = filters.some(f => FILTER_CHECKS_MA[f] ? FILTER_CHECKS_MA[f](site) : false);
+        if (!passGroup) return false;
+      }
     }
 
-    return passFilter && passSearch;
+    return passSearchMA(site);
   });
 }
 
@@ -1364,12 +1530,27 @@ document.querySelectorAll('.partner-btn').forEach(btn => {
   });
 });
 
-// Filter buttons
-document.querySelectorAll('.filter-btn').forEach(btn => {
+// Filter buttons (multi-select)
+document.querySelectorAll('.filter-btn:not(.comp-toggle)').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
+    const f = btn.dataset.filter;
+    if (f === 'all') {
+      activeFilters.clear();
+      document.querySelectorAll('.filter-btn:not(.comp-toggle)').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    } else {
+      document.querySelector('.filter-btn[data-filter="all"]')?.classList.remove('active');
+      if (activeFilters.has(f)) {
+        activeFilters.delete(f);
+        btn.classList.remove('active');
+      } else {
+        activeFilters.add(f);
+        btn.classList.add('active');
+      }
+      if (activeFilters.size === 0) {
+        document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+      }
+    }
     applyFilters();
   });
 });
@@ -1388,6 +1569,225 @@ const allLatLngs = markers.filter(m => m.siteData.lat).map(m => m.getLatLng());
 if (allLatLngs.length) {
   map.fitBounds(L.latLngBounds(allLatLngs).pad(0.1));
 }
+
+// ===== STAGGERED LIST ANIMATION =====
+function animateListItems() {
+  const items = document.querySelectorAll('.site-item');
+  items.forEach((item, i) => {
+    item.classList.remove('animate-in');
+    item.classList.add('ds-site-item'); // Add class for animation
+    item.style.animationDelay = `${i * 30}ms`;
+    void item.offsetWidth;
+    item.classList.add('animate-in');
+  });
+}
+setTimeout(animateListItems, 100);
+
+// ===== KPI COUNTER ANIMATION =====
+function animateCounters() {
+  document.querySelectorAll('.kpi-val, .stat-count, [id^="count-"]').forEach(el => {
+    const target = parseInt(el.textContent) || 0;
+    if (target === 0) return;
+    el.classList.add('animate');
+    let current = 0;
+    const increment = Math.ceil(target / 20);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current;
+    }, 30);
+  });
+}
+setTimeout(animateCounters, 200);
+
+// ===== KEYBOARD NAVIGATION =====
+let focusedIndex = -1;
+const siteListEl = document.getElementById('site-list');
+
+document.addEventListener('keydown', (e) => {
+  const items = siteListEl.querySelectorAll('.site-item');
+  if (!items.length) return;
+  
+  if (e.key === 'ArrowDown' || e.key === 'j') {
+    e.preventDefault();
+    items[focusedIndex]?.classList.remove('keyboard-focus');
+    focusedIndex = Math.min(focusedIndex + 1, items.length - 1);
+    items[focusedIndex]?.classList.add('keyboard-focus');
+    items[focusedIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key === 'ArrowUp' || e.key === 'k') {
+    e.preventDefault();
+    items[focusedIndex]?.classList.remove('keyboard-focus');
+    focusedIndex = Math.max(focusedIndex - 1, 0);
+    items[focusedIndex]?.classList.add('keyboard-focus');
+    items[focusedIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  } else if (e.key === 'Enter' && focusedIndex >= 0) {
+    items[focusedIndex]?.click();
+  } else if (e.key === 'Escape') {
+    items[focusedIndex]?.classList.remove('keyboard-focus');
+    focusedIndex = -1;
+    closeCmdPalette();
+  }
+});
+
+// ===== COMMAND PALETTE =====
+const cmdPaletteHTML = `
+<div class="cmd-palette-overlay" id="cmd-palette-overlay">
+  <div class="cmd-palette">
+    <div class="cmd-palette-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" class="cmd-palette-input" id="cmd-input" placeholder="Search sites, actions, filters..." autocomplete="off">
+    </div>
+    <div class="cmd-palette-results" id="cmd-results"></div>
+    <div class="cmd-palette-footer">
+      <div class="cmd-palette-footer-hint">
+        <span><kbd class="cmd-palette-kbd">↑↓</kbd> Navigate</span>
+        <span><kbd class="cmd-palette-kbd">↵</kbd> Select</span>
+        <span><kbd class="cmd-palette-kbd">esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+document.body.insertAdjacentHTML('beforeend', cmdPaletteHTML);
+
+const cmdOverlay = document.getElementById('cmd-palette-overlay');
+const cmdInput = document.getElementById('cmd-input');
+const cmdResults = document.getElementById('cmd-results');
+let cmdSelectedIdx = 0;
+let cmdItems = [];
+
+function openCmdPalette() {
+  cmdOverlay.classList.add('open');
+  cmdInput.value = '';
+  cmdInput.focus();
+  renderCmdResults('');
+}
+
+function closeCmdPalette() {
+  cmdOverlay.classList.remove('open');
+}
+
+function renderCmdResults(query) {
+  const q = query.toLowerCase().trim();
+  cmdItems = [];
+  let html = '';
+  
+  // Sites
+  const matchingSites = ALL_SITES.filter(s => 
+    (s.name || '').toLowerCase().includes(q) ||
+    (s.code || '').toLowerCase().includes(q) ||
+    (s.city || '').toLowerCase().includes(q)
+  ).slice(0, 5);
+  
+  if (matchingSites.length) {
+    html += '<div class="cmd-palette-group"><div class="cmd-palette-group-title">Sites</div>';
+    matchingSites.forEach((s, i) => {
+      cmdItems.push({ type: 'site', data: s });
+      html += `<div class="cmd-palette-item" data-idx="${cmdItems.length - 1}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="cmd-palette-item-text">${s.code || ''} ${s.name}</span>
+        <span class="cmd-palette-item-hint">${s.city || ''}</span>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  
+  // Actions
+  const actions = [
+    { label: 'Filter: Green Sites', action: () => { document.querySelector('[data-filter="green"]')?.click(); closeCmdPalette(); } },
+    { label: 'Filter: Yellow Sites', action: () => { document.querySelector('[data-filter="yellow"]')?.click(); closeCmdPalette(); } },
+    { label: 'Filter: Red Sites', action: () => { document.querySelector('[data-filter="red"]')?.click(); closeCmdPalette(); } },
+    { label: 'Filter: Assessed', action: () => { document.querySelector('[data-filter="assessed"]')?.click(); closeCmdPalette(); } },
+    { label: 'Show Petrom Only', action: () => { document.querySelector('[data-partner="petrom"]')?.click(); closeCmdPalette(); } },
+    { label: 'Show Petromin Only', action: () => { document.querySelector('[data-partner="petromin"]')?.click(); closeCmdPalette(); } },
+    { label: 'Clear All Filters', action: () => { document.querySelector('[data-filter="all"]')?.click(); closeCmdPalette(); } },
+    { label: 'Go to UAE', action: () => { window.location.href = 'uae.html'; } },
+    { label: 'Go to Dashboard', action: () => { window.location.href = 'index.html'; } },
+  ].filter(a => a.label.toLowerCase().includes(q));
+  
+  if (actions.length) {
+    html += '<div class="cmd-palette-group"><div class="cmd-palette-group-title">Actions</div>';
+    actions.forEach((a, i) => {
+      cmdItems.push({ type: 'action', data: a });
+      html += `<div class="cmd-palette-item" data-idx="${cmdItems.length - 1}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span class="cmd-palette-item-text">${a.label}</span>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  
+  cmdResults.innerHTML = html || '<div style="padding:20px;text-align:center;color:var(--text-tertiary)">No results</div>';
+  cmdSelectedIdx = 0;
+  updateCmdSelection();
+}
+
+function updateCmdSelection() {
+  cmdResults.querySelectorAll('.cmd-palette-item').forEach((el, i) => {
+    el.classList.toggle('selected', i === cmdSelectedIdx);
+  });
+}
+
+function executeCmdItem(idx) {
+  const item = cmdItems[idx];
+  if (!item) return;
+  if (item.type === 'site') {
+    closeCmdPalette();
+    const marker = markers.find(m => m.siteData.code === item.data.code);
+    if (marker) {
+      map.setView(marker.getLatLng(), 14);
+      marker.fire('click');
+    }
+  } else if (item.type === 'action') {
+    item.data.action();
+  }
+}
+
+cmdInput.addEventListener('input', e => renderCmdResults(e.target.value));
+cmdInput.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    cmdSelectedIdx = Math.min(cmdSelectedIdx + 1, cmdItems.length - 1);
+    updateCmdSelection();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    cmdSelectedIdx = Math.max(cmdSelectedIdx - 1, 0);
+    updateCmdSelection();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    executeCmdItem(cmdSelectedIdx);
+  } else if (e.key === 'Escape') {
+    closeCmdPalette();
+  }
+});
+
+cmdResults.addEventListener('click', e => {
+  const item = e.target.closest('.cmd-palette-item');
+  if (item) executeCmdItem(parseInt(item.dataset.idx));
+});
+
+cmdOverlay.addEventListener('click', e => {
+  if (e.target === cmdOverlay) closeCmdPalette();
+});
+
+// Global Cmd+K shortcut
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    openCmdPalette();
+  }
+});
+
+// Focus search on / key
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+    e.preventDefault();
+    document.getElementById('search-input')?.focus();
+  }
+});
 </script>
 </body>
 </html>
